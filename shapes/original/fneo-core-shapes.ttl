@@ -1,0 +1,767 @@
+# Core SHACL application profile for the Financial News Event Ontology.
+# Accompanies release candidate 0.1.0-rc2. This file does not import the extension profile.
+# Shapes use https://w3id.org/fneo/shape/ which is a shapes stem, not a second term namespace.
+# Licence: CC BY 4.0.
+#
+# The hasAffectedMarket class check below is an application-profile constraint.
+# It is not the OWL range. The OWL range is the union of FinancialMarket and MarketIndex.
+# A populated core-profile value must be a MarketIndex or an EquityMarket.
+# A FinancialMarket that is not also an EquityMarket fails this profile.
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix fneos: <https://w3id.org/fneo/shape/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+fneos:FinancialNewsDocumentShape a sh:NodeShape ;
+    sh:name "FinancialNewsDocumentShape" ;
+    sh:targetClass fneo:FinancialNewsDocument ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:sourceDocumentIdentifier ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A financial news document in the core profile carries a source document identifier." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasPublicationTime ;
+        sh:maxCount 1 ;
+        sh:class fneo:TimeEntity ;
+        sh:severity sh:Violation ;
+        sh:message "A financial news document has at most one publication time, and that time is a TimeEntity." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasPublicationTime ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A financial news document should carry a publication time. Absence is a warning, not a violation." ;
+    ] .
+
+fneos:TextualMentionShape a sh:NodeShape ;
+    sh:name "TextualMentionShape" ;
+    sh:targetClass fneo:TextualMention ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:mentionedIn ;
+        sh:minCount 1 ;
+        sh:class fneo:FinancialNewsDocument ;
+        sh:severity sh:Violation ;
+        sh:message "A textual mention belongs to a source document." ;
+    ] ;
+    sh:property [
+        sh:path fneo:textualForm ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "A textual mention should carry its surface string." ;
+    ] ;
+    sh:property [
+        sh:path fneo:textualForm ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A textual mention should carry its surface string." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Character offsets use a half-open interval [characterStart, characterEnd), so characterEnd must be greater than characterStart." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:characterStart ?start .
+              $this fneo:characterEnd ?end .
+              FILTER(?end <= ?start)
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Token offsets use a half-open interval [tokenStart, tokenEnd), so tokenEnd must be greater than tokenStart." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:tokenStart ?start .
+              $this fneo:tokenEnd ?end .
+              FILTER(?end <= ?start)
+            }
+        """ ;
+    ] .
+
+fneos:EntityMentionShape a sh:NodeShape ;
+    sh:name "EntityMentionShape" ;
+    sh:targetClass fneo:EntityMention ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:denotes ;
+        sh:class fneo:Entity ;
+        sh:severity sh:Violation ;
+        sh:message "An entity mention denotes an entity." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An in-profile entity mention denotes at most one entity." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:denotes ?entity1 .
+              $this fneo:denotes ?entity2 .
+              FILTER(?entity1 != ?entity2)
+              FILTER NOT EXISTS {
+                $this fneo:hasValidationStatus ?status .
+                FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An in-profile entity mention denotes an entity." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:denotes ?entity }
+              FILTER NOT EXISTS {
+                $this fneo:hasValidationStatus ?status .
+                FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "An entity mention should have a token span or a character span." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:tokenStart ?token }
+              FILTER NOT EXISTS { $this fneo:characterStart ?character }
+            }
+        """ ;
+    ] .
+
+fneos:EventMentionShape a sh:NodeShape ;
+    sh:name "EventMentionShape" ;
+    sh:targetClass fneo:EventMention ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:denotes ;
+        sh:class fneo:Event ;
+        sh:severity sh:Violation ;
+        sh:message "An event mention denotes an event." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An in-profile event mention denotes at most one event." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:denotes ?event1 .
+              $this fneo:denotes ?event2 .
+              FILTER(?event1 != ?event2)
+              FILTER NOT EXISTS {
+                $this fneo:hasValidationStatus ?status .
+                FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An in-profile event mention denotes an event." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:denotes ?event }
+              FILTER NOT EXISTS {
+                $this fneo:hasValidationStatus ?status .
+                FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "An event mention should have a token span or a character span. Token evidence is the core evidence and absence is still a warning." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:tokenStart ?token }
+              FILTER NOT EXISTS { $this fneo:characterStart ?character }
+            }
+        """ ;
+    ] .
+
+fneos:TimeMentionShape a sh:NodeShape ;
+    sh:name "TimeMentionShape" ;
+    sh:targetClass fneo:TimeMention ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:denotes ;
+        sh:class fneo:TimeEntity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A time mention denotes a TimeEntity and remains distinct from that TimeEntity." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A time mention should have a token span or a character span." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:tokenStart ?token }
+              FILTER NOT EXISTS { $this fneo:characterStart ?character }
+            }
+        """ ;
+    ] .
+
+fneos:TextualEvidenceShape a sh:NodeShape ;
+    sh:name "TextualEvidenceShape" ;
+    sh:targetClass fneo:TextualEvidence ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Textual evidence carries the supporting wording." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:evidenceText ?text }
+              FILTER NOT EXISTS {
+                ?event fneo:supportedBy $this .
+                ?mention fneo:denotes ?event .
+                ?mention fneo:textualForm ?form .
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "Textual evidence should be traceable to a financial news document." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS {
+                ?event fneo:supportedBy $this .
+                ?document fneo:reportsEvent ?event .
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Character offsets use a half-open interval [characterStart, characterEnd), so characterEnd must be greater than characterStart." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:characterStart ?start .
+              $this fneo:characterEnd ?end .
+              FILTER(?end <= ?start)
+            }
+        """ ;
+    ] .
+
+fneos:MarketIndexShape a sh:NodeShape ;
+    sh:name "MarketIndexShape" ;
+    sh:targetClass fneo:MarketIndex ;
+    sh:nodeKind sh:IRI ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A named market index is identifiable and is not an equity-market individual." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this rdfs:label ?label }
+              FILTER NOT EXISTS {
+                ?mention fneo:denotes $this .
+                ?mention fneo:textualForm ?form .
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A named market index is not an equity-market individual." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this a fneo:EquityMarket .
+            }
+        """ ;
+    ] .
+
+fneos:EquityMarketShape a sh:NodeShape ;
+    sh:name "EquityMarketShape" ;
+    sh:targetClass fneo:EquityMarket ;
+    sh:nodeKind sh:IRI ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An equity market is identifiable and is not an index individual." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this rdfs:label ?label }
+              FILTER NOT EXISTS {
+                ?mention fneo:denotes $this .
+                ?mention fneo:textualForm ?form .
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An equity market is not an index individual." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this a fneo:MarketIndex .
+            }
+        """ ;
+    ] .
+
+fneos:MarketChangeEventShape a sh:NodeShape ;
+    sh:name "MarketChangeEventShape" ;
+    sh:targetClass fneo:MarketChangeEvent ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:supportedBy ;
+        sh:minCount 1 ;
+        sh:class fneo:TextualEvidence ;
+        sh:severity sh:Violation ;
+        sh:message "A typed market-change event requires textual evidence." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasAffectedMarket ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A typed market-change event requires an affected market." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasAffectedMarket ;
+        sh:or (
+            [ sh:class fneo:MarketIndex ]
+            [ sh:class fneo:EquityMarket ]
+        ) ;
+        sh:severity sh:Violation ;
+        sh:message "The affected object must be a MarketIndex or an EquityMarket." ;
+        rdfs:comment "Core application-profile constraint, not the OWL range. The OWL range of hasAffectedMarket is the union of FinancialMarket and MarketIndex. A populated value in this profile must be a MarketIndex or an EquityMarket. A generic FinancialMarket that is not also an EquityMarket fails this shape."@en ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasEventTime ;
+        sh:class fneo:TimeEntity ;
+        sh:severity sh:Violation ;
+        sh:message "An explicit event time, when present, is a TimeEntity." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasMarketDirection ;
+        sh:in ( fneo:UpwardDirection fneo:DownwardDirection ) ;
+        sh:severity sh:Violation ;
+        sh:message "Market direction, when present, is UpwardDirection or DownwardDirection." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A typed market-change event requires an event mention or other source grounding." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS {
+                ?mention a fneo:EventMention .
+                ?mention fneo:denotes $this .
+              }
+              FILTER NOT EXISTS { $this fneo:sourceAnnotationIdentifier ?annotation }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "Event time is not mandatory for every market-change event. Absence of an explicit event time is a warning." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:hasEventTime ?time }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "Absence of a normalised time value on a market-change event is a warning." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS {
+                $this fneo:hasEventTime ?time .
+                ?time fneo:normalisedTimeValue ?value .
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "Character offsets are absent while token offsets are present." ;
+        sh:select """
+            SELECT $this WHERE {
+              {
+                ?mention a fneo:EventMention .
+                ?mention fneo:denotes $this .
+                ?mention fneo:tokenStart ?token .
+                FILTER NOT EXISTS { ?mention fneo:characterStart ?character }
+              }
+              UNION
+              {
+                $this fneo:supportedBy ?evidence .
+                ?evidence fneo:tokenStart ?token .
+                FILTER NOT EXISTS { ?evidence fneo:characterStart ?character }
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "An automatically populated market-change assertion lacks confidence or rule provenance." ;
+        sh:select """
+            SELECT $this WHERE {
+              ?assertion fneo:assertionSubject $this .
+              ?assertion fneo:populationMethod ?method .
+              FILTER(?method IN ("documented_rule", "unreviewed_import", "automatic"))
+              {
+                FILTER NOT EXISTS { ?assertion fneo:confidence ?confidence }
+              }
+              UNION
+              {
+                FILTER NOT EXISTS { ?assertion fneo:ruleIdentifier ?rule }
+                FILTER NOT EXISTS { ?assertion fneo:populatedByRule ?populated }
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A populated direction carries validation status and provenance." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasMarketDirection ?direction .
+              {
+                FILTER NOT EXISTS { $this fneo:hasValidationStatus ?status }
+              }
+              UNION
+              {
+                FILTER NOT EXISTS { $this fneo:populationMethod ?method }
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "Market direction is optional. Absence is Info and is not a mandatory failure." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:hasMarketDirection ?direction }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "A percentage value on a market-change event is optional. Absence is Info." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:hasPercentageChange ?value }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "A numerical value on a market-change event is optional. Absence is Info." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:hasReportedValue ?value }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "Event-value attachment is not mandatory. Absence is Info." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:hasReportedValue ?reported }
+              FILTER NOT EXISTS { $this fneo:hasPercentageChange ?percentage }
+              FILTER NOT EXISTS { $this fneo:hasMonetaryAmount ?amount }
+            }
+        """ ;
+    ] .
+
+fneos:TimeEntityShape a sh:NodeShape ;
+    sh:name "TimeEntityShape" ;
+    sh:targetClass fneo:TimeEntity ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:normalisedTimeValue ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A normalised time value is an xsd:string. Dates, timestamps, durations, and underspecified forms share that range." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A time entity should carry a normalised value or a lexical publication form." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:normalisedTimeValue ?normalised }
+              FILTER NOT EXISTS { $this fneo:publicationTimeLiteral ?lexical }
+            }
+        """ ;
+    ] .
+
+fneos:NumericalValueShape a sh:NodeShape ;
+    sh:name "NumericalValueShape" ;
+    sh:targetClass fneo:NumericalValue ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:numericalLexicalForm ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A numerical value keeps its lexical form." ;
+    ] ;
+    sh:property [
+        sh:path fneo:numericalValue ;
+        sh:datatype xsd:decimal ;
+        sh:severity sh:Violation ;
+        sh:message "A parsed numerical value, when present, is an xsd:decimal." ;
+    ] ;
+    sh:property [
+        sh:path fneo:numericalValue ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A parsed numerical value is absent. An unparseable expression may omit it." ;
+    ] .
+
+fneos:PercentageValueShape a sh:NodeShape ;
+    sh:name "PercentageValueShape" ;
+    sh:targetClass fneo:PercentageValue ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path fneo:numericalLexicalForm ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A percentage keeps its lexical form, including the percent sign or the word percent." ;
+    ] ;
+    sh:property [
+        sh:path fneo:numericalValue ;
+        sh:datatype xsd:decimal ;
+        sh:severity sh:Violation ;
+        sh:message "A percentage numericalValue is an xsd:decimal in percentage points, not a string and not a silent fraction." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A percentage is stored in percentage points. 2.5% is 2.5, not the fraction 0.025." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:numericalLexicalForm ?lexical .
+              $this fneo:numericalValue ?value .
+              FILTER(REGEX(STR(?lexical), "^[0-9]+[.][0-9]+%$") || REGEX(STR(?lexical), "^[0-9]+%$"))
+              BIND(xsd:decimal(REPLACE(STR(?lexical), "%", "")) AS ?points)
+              FILTER(ABS(?value * 100 - ?points) < 0.0001 && ?value < 1)
+            }
+        """ ;
+    ] .
+
+fneos:RelationAssertionShape a sh:NodeShape ;
+    sh:name "RelationAssertionShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A qualified assertion requires an assertion subject." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:assertionSubject ?subject }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A qualified assertion requires assertionPredicateIRI." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:assertionPredicateIRI ?predicate }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A qualified assertion requires an assertion object or an assertion object literal." ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this fneo:assertionObject ?object }
+              FILTER NOT EXISTS { $this fneo:assertionObjectLiteral ?literal }
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path fneo:assertionPredicateIRI ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "assertionPredicateIRI is a single xsd:anyURI literal and does not pun a property as an individual." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An accepted qualified assertion requires confidence and rule or population provenance." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:Accepted .
+              {
+                FILTER NOT EXISTS { $this fneo:confidence ?confidence }
+              }
+              UNION
+              {
+                FILTER NOT EXISTS { $this fneo:ruleIdentifier ?rule }
+                FILTER NOT EXISTS { $this fneo:populatedByRule ?populated }
+                FILTER NOT EXISTS { $this fneo:populationMethod ?method }
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An accepted qualified assertion exposes the direct semantic triple named by assertionPredicateIRI." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:Accepted .
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObject ?object .
+              FILTER NOT EXISTS {
+                ?subject ?direct ?object .
+                FILTER(STR(?direct) = STR(?predicate))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A requires-review, rejected, or suppressed assertion must not materialise a positive direct semantic triple." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus ?status .
+              FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObject ?object .
+              ?subject ?direct ?object .
+              FILTER(STR(?direct) = STR(?predicate))
+            }
+        """ ;
+    ] .
+
+fneos:TemporalRelationAssertionShape a sh:NodeShape ;
+    sh:name "TemporalRelationAssertionShape" ;
+    sh:targetClass fneo:TemporalRelationAssertion ;
+    sh:property [
+        sh:path fneo:temporalSubject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A temporal relation assertion has one temporal subject." ;
+    ] ;
+    sh:property [
+        sh:path fneo:temporalObject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "A temporal relation assertion has one temporal object." ;
+    ] ;
+    sh:property [
+        sh:path fneo:temporalRelationType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class fneo:TemporalRelationType ;
+        sh:severity sh:Violation ;
+        sh:message "A temporal relation assertion uses a controlled temporalRelationType." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A suppressed, rejected, proposed, or review-required temporal assertion must not materialise a positive direct temporal triple." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:temporalSubject ?subject .
+              $this fneo:temporalObject ?object .
+              {
+                $this fneo:hasValidationStatus fneo:Suppressed .
+              }
+              UNION
+              {
+                $this fneo:hasValidationStatus fneo:Rejected .
+              }
+              UNION
+              {
+                $this fneo:hasValidationStatus fneo:RequiresReview .
+              }
+              UNION
+              {
+                $this fneo:hasCommitmentStatus fneo:SuppressedCommitment .
+              }
+              UNION
+              {
+                $this fneo:hasCommitmentStatus fneo:Proposed .
+              }
+              {
+                $this fneo:temporalRelationType fneo:Before .
+                ?subject fneo:precedes ?object .
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:After .
+                ?subject fneo:follows ?object .
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:Simultaneous .
+                ?subject fneo:simultaneousWith ?object .
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:During .
+                ?subject fneo:occursDuring ?object .
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:IncludesRelation .
+                ?subject fneo:includes ?object .
+              }
+            }
+        """ ;
+    ] .
+
+fneos:EventParticipationShape a sh:NodeShape ;
+    sh:name "EventParticipationShape" ;
+    sh:targetClass fneo:EventParticipation ;
+    sh:property [
+        sh:path fneo:participationEvent ;
+        sh:minCount 1 ;
+        sh:class fneo:Event ;
+        sh:severity sh:Violation ;
+        sh:message "An event participation names the participation event." ;
+    ] ;
+    sh:property [
+        sh:path fneo:participatingEntity ;
+        sh:minCount 1 ;
+        sh:class fneo:Entity ;
+        sh:severity sh:Violation ;
+        sh:message "An event participation names the participating entity." ;
+    ] .

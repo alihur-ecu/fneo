@@ -1,0 +1,19 @@
+# Prepared only. Does not run until a maintainer enables it after review.
+# No public repository URL is claimed.
+name: validate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.13"
+      - run: pip install -r requirements-lock.txt
+      - run: python validation/run_ontology_validation.py
+        env:
+          FNEO_FORCE_ROBOT: "0"

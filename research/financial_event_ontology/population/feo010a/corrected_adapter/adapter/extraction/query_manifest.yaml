@@ -1,0 +1,996 @@
+# Read-only query manifest for the FEO-010 single-document adapter.
+# Queries were defined before execution. Document-scoped queries bind $doc_id.
+# Write operations are rejected by the adapter query guard.
+version: feo010-query-manifest-1
+document_parameter: "$doc_id"
+allowed_procedures:
+  - db.labels
+  - db.relationshipTypes
+queries:
+
+- query_id: Q01_node_count
+  purpose: Count every node before and after the read-only extraction.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: node_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: Graph-wide safety count. Not a domain record.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: true
+  known_limitations: Not a per-document record.
+  cypher: |
+    MATCH (n) RETURN count(n) AS node_count
+
+
+- query_id: Q02_relationship_count
+  purpose: Count every relationship before and after the read-only extraction.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: relationship_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: Graph-wide safety count. Not a domain record.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: true
+  known_limitations: Not a per-document record.
+  cypher: |
+    MATCH ()-[r]->() RETURN count(r) AS relationship_count
+
+
+- query_id: Q03_annotated_text_count
+  purpose: Count AnnotatedText nodes.
+  expected_source_labels: [AnnotatedText]
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: annotated_text_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: Graph-wide document-node count.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: true
+  known_limitations: Not a per-document record.
+  cypher: |
+    MATCH (a:AnnotatedText) RETURN count(a) AS annotated_text_count
+
+
+- query_id: Q04_document_ids
+  purpose: List every AnnotatedText identifier.
+  expected_source_labels: [AnnotatedText]
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: document_id
+  duplicate_handling: One row per document node, ordered by identifier.
+  document_scoping_method: Graph-wide inventory used to reject an unexpected document before extraction.
+  read_only_safety_classification: read_only_inventory
+  allow_unscoped: true
+  known_limitations: Does not return document text.
+  cypher: |
+    MATCH (a:AnnotatedText) RETURN toString(a.id) AS document_id ORDER BY document_id
+
+
+- query_id: Q05_labels
+  purpose: List stored node labels.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: label
+  duplicate_handling: One row per label, ordered.
+  document_scoping_method: Graph-wide metadata. Allowlisted procedure db.labels.
+  read_only_safety_classification: read_only_metadata
+  allow_unscoped: true
+  known_limitations: Does not invent labels that are absent.
+  cypher: |
+    CALL db.labels() YIELD label RETURN label ORDER BY label
+
+
+- query_id: Q06_relationship_types
+  purpose: List stored relationship types.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: []
+  expected_row_shape: relationshipType
+  duplicate_handling: One row per type, ordered.
+  document_scoping_method: Graph-wide metadata. Allowlisted procedure db.relationshipTypes.
+  read_only_safety_classification: read_only_metadata
+  allow_unscoped: true
+  known_limitations: Does not invent relationship types.
+  cypher: |
+    CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType ORDER BY relationshipType
+
+
+- query_id: Q07_selected_document
+  purpose: Read the selected document node.
+  expected_source_labels: [AnnotatedText]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: document fields
+  duplicate_handling: At most one row. A second row is an extraction warning.
+  document_scoping_method: toString(AnnotatedText.id) equals the selected document identifier.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: The article URL is a source locator. It is not a graph endpoint.
+  cypher: |
+    MATCH (d:AnnotatedText)
+    WHERE toString(d.id) = $doc_id
+    RETURN elementId(d) AS join_id, labels(d) AS labels, toString(d.id) AS app_id,
+           d.publicId AS public_id, d.title AS title, d.text AS text, d.source AS source,
+           d.creationtime AS creationtime, d.filename AS filename, d.uri AS source_url,
+           d.dct_synthetic AS dct_synthetic, d.dct_missing AS dct_missing, d.dct_source AS dct_source,
+           d.author AS author, d.filetype AS filetype
+    ORDER BY app_id
+
+
+- query_id: Q08_doc_id_node_count
+  purpose: Count nodes whose doc_id is the selected document.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: doc_id_node_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: toString(doc_id) equals the selected document. Excludes nodes reached only by containment.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: Sentence and token nodes may lack doc_id and are counted separately.
+  cypher: |
+    MATCH (n) WHERE toString(n.doc_id) = $doc_id RETURN count(n) AS doc_id_node_count
+
+
+- query_id: Q09_doc_id_relationship_count
+  purpose: Count relationships whose both endpoints carry the selected doc_id.
+  expected_source_labels: []
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: doc_id_relationship_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: Both endpoints have toString(doc_id) equal to the selected document.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: Containment relationships are counted separately.
+  cypher: |
+    MATCH (a)-[r]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN count(r) AS doc_id_relationship_count
+
+
+- query_id: Q10_containment_counts
+  purpose: Count sentences and tokens contained by the selected document.
+  expected_source_labels: [AnnotatedText, Sentence, TagOccurrence]
+  expected_relationship_types: [CONTAINS_SENTENCE, HAS_TOKEN]
+  parameters: [doc_id]
+  expected_row_shape: sentence_count, token_count, sentence_rel_count, token_rel_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: Traversal from the selected AnnotatedText through CONTAINS_SENTENCE and HAS_TOKEN.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: Does not include other documents.
+  cypher: |
+    MATCH (d:AnnotatedText)-[cs:CONTAINS_SENTENCE]->(s)-[ht:HAS_TOKEN]->(t)
+    WHERE toString(d.id) = $doc_id
+    RETURN count(DISTINCT s) AS sentence_count, count(DISTINCT t) AS token_count,
+           count(DISTINCT cs) AS sentence_rel_count, count(ht) AS token_rel_count
+
+
+- query_id: Q11_sentences
+  purpose: Read sentence nodes contained by the selected document.
+  expected_source_labels: [Sentence]
+  expected_relationship_types: [CONTAINS_SENTENCE]
+  parameters: [doc_id]
+  expected_row_shape: sentence fields
+  duplicate_handling: One row per sentence. Ordered by sent_index then application id.
+  document_scoping_method: CONTAINS_SENTENCE from the selected AnnotatedText.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Character offsets are not stored on Sentence.
+  cypher: |
+    MATCH (d:AnnotatedText)-[:CONTAINS_SENTENCE]->(s)
+    WHERE toString(d.id) = $doc_id
+    RETURN elementId(s) AS join_id, labels(s) AS labels, s.id AS app_id, s.text AS text,
+           s.source AS source, s.sent_index AS sent_index
+    ORDER BY coalesce(s.sent_index, 999999), s.id
+
+
+- query_id: Q12_tokens
+  purpose: Read token nodes contained by the selected document.
+  expected_source_labels: [TagOccurrence]
+  expected_relationship_types: [HAS_TOKEN]
+  parameters: [doc_id]
+  expected_row_shape: token fields
+  duplicate_handling: One row per token. Ordered by document token index.
+  document_scoping_method: HAS_TOKEN from a sentence contained by the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: WordNet expansion properties are not copied.
+  cypher: |
+    MATCH (d:AnnotatedText)-[:CONTAINS_SENTENCE]->(s)-[:HAS_TOKEN]->(t)
+    WHERE toString(d.id) = $doc_id
+    RETURN elementId(t) AS join_id, labels(t) AS labels, t.id AS app_id, t.text AS text,
+           t.lemma AS lemma, t.pos AS pos, t.upos AS upos, t.source AS source,
+           t.start_tok AS start_tok, t.end_tok AS end_tok, t.tok_index_doc AS tok_index_doc,
+           t.start_char AS start_char, t.end_char AS end_char, s.id AS sentence_id
+    ORDER BY t.tok_index_doc, t.id
+
+
+- query_id: Q13_span_probe
+  purpose: Sample mention spans to observe the stored offset convention.
+  expected_source_labels: [EntityMention]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: text, start_char, end_char, start_tok, end_tok
+  duplicate_handling: At most five rows, ordered by application id. Not domain records.
+  document_scoping_method: EntityMention with the selected doc_id.
+  read_only_safety_classification: read_only_probe
+  allow_unscoped: false
+  known_limitations: Used only to record whether stored character offsets are half-open.
+  cypher: |
+    MATCH (n:EntityMention)
+    WHERE toString(n.doc_id) = $doc_id AND n.start_char IS NOT NULL AND n.end_char IS NOT NULL
+    RETURN coalesce(n.text, n.value, n.head) AS text, n.start_char AS start_char,
+           n.end_char AS end_char, n.start_tok AS start_tok, n.end_tok AS end_tok
+    ORDER BY n.id
+    LIMIT 5
+
+
+- query_id: Q14_entity_mentions
+  purpose: Read entity and nominal mentions, excluding frame arguments.
+  expected_source_labels: [EntityMention, NominalMention]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: mention fields
+  duplicate_handling: One row per node. A node with both EntityMention and NominalMention is one row.
+  document_scoping_method: doc_id equals the selected document, and the node is not a FrameArgument.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: FrameArgument co-labels are excluded here and counted separately.
+  cypher: |
+    MATCH (n)
+    WHERE toString(n.doc_id) = $doc_id
+      AND (n:EntityMention OR n:NominalMention)
+      AND NOT n:FrameArgument
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q15_named_entities
+  purpose: Read named-entity nodes that are not already entity mentions or frame arguments.
+  expected_source_labels: [NamedEntity]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: mention fields
+  duplicate_handling: One row per node. Later record building skips an application id already returned as an entity mention.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: A named entity is not treated as a second mention when it shares an application id.
+  cypher: |
+    MATCH (n:NamedEntity)
+    WHERE toString(n.doc_id) = $doc_id AND NOT n:FrameArgument
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q16_canonical_entities
+  purpose: Read canonical entity nodes for the selected document.
+  expected_source_labels: [Entity]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: entity fields
+  duplicate_handling: One row per Entity. Multi-labels stay on the same row.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Entities without doc_id are not pulled in from other documents.
+  cypher: |
+    MATCH (n:Entity)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q17_entity_refers_to
+  purpose: Read mention-to-entity REFERS_TO links inside the selected document.
+  expected_source_labels: [EntityMention, NamedEntity, Entity]
+  expected_relationship_types: [REFERS_TO]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: The mention doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: A mention with no REFERS_TO link remains mention-only.
+  cypher: |
+    MATCH (a)-[r:REFERS_TO]->(b:Entity)
+    WHERE toString(a.doc_id) = $doc_id
+      AND (a:EntityMention OR a:NamedEntity OR a:NominalMention)
+      AND NOT a:FrameArgument
+    RETURN elementId(r) AS join_id, type(r) AS relationship_type,
+           a.id AS start_app_id, b.id AS end_app_id, labels(a) AS start_labels, labels(b) AS end_labels,
+           r.source AS source, r.type AS type_prop, r.confidence AS confidence
+    ORDER BY a.id, b.id
+
+
+- query_id: Q18_event_mentions
+  purpose: Read event mention nodes for the selected document.
+  expected_source_labels: [EventMention]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: event mention fields
+  duplicate_handling: One row per EventMention.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Event class codes are source codes.
+  cypher: |
+    MATCH (n:EventMention)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q19_canonical_events
+  purpose: Read canonical event nodes for the selected document.
+  expected_source_labels: [TEvent]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: event fields
+  duplicate_handling: One row per TEvent. The application identifier is eid because the id property is empty.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: eid is retained as a source annotation identifier and is not a public IRI.
+  cypher: |
+    MATCH (n:TEvent)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.eid
+
+
+- query_id: Q20_event_refers_to
+  purpose: Read event-mention to canonical-event REFERS_TO links.
+  expected_source_labels: [EventMention, TEvent]
+  expected_relationship_types: [REFERS_TO]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: The event mention doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: A missing link is recorded as a mention without a canonical event.
+  cypher: |
+    MATCH (a:EventMention)-[r:REFERS_TO]->(b:TEvent)
+    WHERE toString(a.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id, a.id AS start_app_id, b.eid AS end_eid,
+           r.source AS source, r.confidence AS confidence
+    ORDER BY a.id, b.eid
+
+
+- query_id: Q21_frame_describes_event
+  purpose: Read frame-to-event links for the selected document.
+  expected_source_labels: [Frame, TEvent]
+  expected_relationship_types: [FRAME_DESCRIBES_EVENT]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: The frame doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Used only to align frame-argument endpoints with a canonical event.
+  cypher: |
+    MATCH (a:Frame)-[r:FRAME_DESCRIBES_EVENT]->(b:TEvent)
+    WHERE toString(a.doc_id) = $doc_id
+    RETURN a.id AS frame_id, b.eid AS event_eid, r.source AS source
+    ORDER BY a.id, b.eid
+
+
+- query_id: Q22_event_participant
+  purpose: Read primary EVENT_PARTICIPANT links inside the selected document.
+  expected_source_labels: [Entity, FrameArgument, EventMention, TEvent]
+  expected_relationship_types: [EVENT_PARTICIPANT]
+  parameters: [doc_id]
+  expected_row_shape: participant link fields
+  duplicate_handling: One row per relationship. Not merged with other participant layers in this query.
+  document_scoping_method: Both endpoints have the selected doc_id.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: FrameArgument endpoints are not treated as entity mentions.
+  cypher: |
+    MATCH (a)-[r:EVENT_PARTICIPANT]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id,
+    type(r) AS relationship_type,
+    elementId(a) AS start_join_id,
+    elementId(b) AS end_join_id,
+    labels(a) AS start_labels,
+    labels(b) AS end_labels,
+    a.id AS start_app_id,
+    b.id AS end_app_id,
+    a.eid AS start_eid,
+    b.eid AS end_eid,
+    a.tid AS start_tid,
+    b.tid AS end_tid,
+    toString(a.doc_id) AS start_doc_id,
+    toString(b.doc_id) AS end_doc_id,
+    r.source AS source,
+    r.type AS type_prop,
+    r.role AS role,
+    r.raw_role AS raw_role,
+    r.confidence AS confidence,
+    r.rule_id AS rule_id,
+    r.source_kind AS source_kind,
+    r.relType AS rel_type,
+    r.relTypeOriginal AS rel_type_original,
+    r.relTypeCanonical AS rel_type_canonical,
+    r.status AS status,
+    r.suppressed AS suppressed,
+    r.suppressedBy AS suppressed_by,
+    r.suppressionReason AS suppression_reason,
+    r.technique_tier AS technique_tier,
+    r.evidence_source AS evidence_source
+    ORDER BY coalesce(a.id, a.eid, ''), coalesce(b.id, b.eid, ''), coalesce(r.role, r.raw_role, '')
+
+
+- query_id: Q23_has_frame_argument
+  purpose: Read supporting HAS_FRAME_ARGUMENT links inside the selected document.
+  expected_source_labels: [FrameArgument, Frame]
+  expected_relationship_types: [HAS_FRAME_ARGUMENT]
+  parameters: [doc_id]
+  expected_row_shape: participant link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: Both endpoints have the selected doc_id.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: This layer is supporting linguistic evidence.
+  cypher: |
+    MATCH (a)-[r:HAS_FRAME_ARGUMENT]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id,
+    type(r) AS relationship_type,
+    elementId(a) AS start_join_id,
+    elementId(b) AS end_join_id,
+    labels(a) AS start_labels,
+    labels(b) AS end_labels,
+    a.id AS start_app_id,
+    b.id AS end_app_id,
+    a.eid AS start_eid,
+    b.eid AS end_eid,
+    a.tid AS start_tid,
+    b.tid AS end_tid,
+    toString(a.doc_id) AS start_doc_id,
+    toString(b.doc_id) AS end_doc_id,
+    r.source AS source,
+    r.type AS type_prop,
+    r.role AS role,
+    r.raw_role AS raw_role,
+    r.confidence AS confidence,
+    r.rule_id AS rule_id,
+    r.source_kind AS source_kind,
+    r.relType AS rel_type,
+    r.relTypeOriginal AS rel_type_original,
+    r.relTypeCanonical AS rel_type_canonical,
+    r.status AS status,
+    r.suppressed AS suppressed,
+    r.suppressedBy AS suppressed_by,
+    r.suppressionReason AS suppression_reason,
+    r.technique_tier AS technique_tier,
+    r.evidence_source AS evidence_source
+    ORDER BY coalesce(a.id, ''), coalesce(b.id, ''), coalesce(r.raw_role, r.type, '')
+
+
+- query_id: Q24_participant
+  purpose: Read legacy PARTICIPANT links inside the selected document.
+  expected_source_labels: [Entity, FrameArgument, EventMention, Frame]
+  expected_relationship_types: [PARTICIPANT]
+  parameters: [doc_id]
+  expected_row_shape: participant link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: Both endpoints have the selected doc_id.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: This layer is diagnostic. It is not a third candidate by itself.
+  cypher: |
+    MATCH (a)-[r:PARTICIPANT]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id,
+    type(r) AS relationship_type,
+    elementId(a) AS start_join_id,
+    elementId(b) AS end_join_id,
+    labels(a) AS start_labels,
+    labels(b) AS end_labels,
+    a.id AS start_app_id,
+    b.id AS end_app_id,
+    a.eid AS start_eid,
+    b.eid AS end_eid,
+    a.tid AS start_tid,
+    b.tid AS end_tid,
+    toString(a.doc_id) AS start_doc_id,
+    toString(b.doc_id) AS end_doc_id,
+    r.source AS source,
+    r.type AS type_prop,
+    r.role AS role,
+    r.raw_role AS raw_role,
+    r.confidence AS confidence,
+    r.rule_id AS rule_id,
+    r.source_kind AS source_kind,
+    r.relType AS rel_type,
+    r.relTypeOriginal AS rel_type_original,
+    r.relTypeCanonical AS rel_type_canonical,
+    r.status AS status,
+    r.suppressed AS suppressed,
+    r.suppressedBy AS suppressed_by,
+    r.suppressionReason AS suppression_reason,
+    r.technique_tier AS technique_tier,
+    r.evidence_source AS evidence_source
+    ORDER BY coalesce(a.id, ''), coalesce(b.id, b.eid, ''), coalesce(r.raw_role, r.type, '')
+
+
+- query_id: Q25_time_mentions
+  purpose: Read time mention nodes for the selected document.
+  expected_source_labels: [TimexMention]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: time mention fields
+  duplicate_handling: One row per TimexMention. A co-labelled SpacyTimexCandidate is the same row.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: SpacyTimexCandidate nodes that are not TimexMention nodes are counted, not copied as mentions.
+  cypher: |
+    MATCH (n:TimexMention)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q26_time_entities
+  purpose: Read canonical time nodes for the selected document.
+  expected_source_labels: [TIMEX]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: time entity fields
+  duplicate_handling: One row per TIMEX. Creation-time nodes are included and flagged later.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: The id property may be empty. tid is a source annotation identifier.
+  cypher: |
+    MATCH (n:TIMEX)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY coalesce(n.tid, n.id, '')
+
+
+- query_id: Q27_time_refers_to
+  purpose: Read time-mention to time-entity REFERS_TO links.
+  expected_source_labels: [TimexMention, TIMEX]
+  expected_relationship_types: [REFERS_TO]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: The time mention doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: A time entity with no mention is still a canonical time record.
+  cypher: |
+    MATCH (a:TimexMention)-[r:REFERS_TO]->(b:TIMEX)
+    WHERE toString(a.doc_id) = $doc_id
+    RETURN a.id AS start_app_id, b.tid AS end_tid, r.source AS source, r.confidence AS confidence
+    ORDER BY a.id, b.tid
+
+
+- query_id: Q28_created_on
+  purpose: Read the document creation-time link.
+  expected_source_labels: [AnnotatedText, TIMEX]
+  expected_relationship_types: [CREATED_ON]
+  parameters: [doc_id]
+  expected_row_shape: publication time fields
+  duplicate_handling: Expected one row.
+  document_scoping_method: The selected AnnotatedText is the start node.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Publication time is not an event time.
+  cypher: |
+    MATCH (d:AnnotatedText)-[r:CREATED_ON]->(t:TIMEX)
+    WHERE toString(d.id) = $doc_id
+    RETURN t.tid AS tid, t.value AS value, t.text AS text, t.functionInDocument AS function_in_document,
+           t.type AS type_prop, r.source AS source
+    ORDER BY t.tid
+
+
+- query_id: Q29_has_time_anchor
+  purpose: Read explicit event-time anchors inside the selected document.
+  expected_source_labels: [TEvent, TIMEX]
+  expected_relationship_types: [HAS_TIME_ANCHOR]
+  parameters: [doc_id]
+  expected_row_shape: temporal link fields
+  duplicate_handling: One row per relationship. These rows are not a TLINK total.
+  document_scoping_method: Both endpoints have the selected doc_id.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Eligibility is decided later by the enrichment engine.
+  cypher: |
+    MATCH (a)-[r:HAS_TIME_ANCHOR]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id,
+    type(r) AS relationship_type,
+    elementId(a) AS start_join_id,
+    elementId(b) AS end_join_id,
+    labels(a) AS start_labels,
+    labels(b) AS end_labels,
+    a.id AS start_app_id,
+    b.id AS end_app_id,
+    a.eid AS start_eid,
+    b.eid AS end_eid,
+    a.tid AS start_tid,
+    b.tid AS end_tid,
+    toString(a.doc_id) AS start_doc_id,
+    toString(b.doc_id) AS end_doc_id,
+    r.source AS source,
+    r.type AS type_prop,
+    r.role AS role,
+    r.raw_role AS raw_role,
+    r.confidence AS confidence,
+    r.rule_id AS rule_id,
+    r.source_kind AS source_kind,
+    r.relType AS rel_type,
+    r.relTypeOriginal AS rel_type_original,
+    r.relTypeCanonical AS rel_type_canonical,
+    r.status AS status,
+    r.suppressed AS suppressed,
+    r.suppressedBy AS suppressed_by,
+    r.suppressionReason AS suppression_reason,
+    r.technique_tier AS technique_tier,
+    r.evidence_source AS evidence_source
+    ORDER BY coalesce(a.eid, a.id, ''), coalesce(b.tid, b.id, '')
+
+
+- query_id: Q30_tlink
+  purpose: Read temporal links inside the selected document for the diagnostic report.
+  expected_source_labels: [TEvent, TIMEX]
+  expected_relationship_types: [TLINK]
+  parameters: [doc_id]
+  expected_row_shape: temporal link fields
+  duplicate_handling: One row per TLINK. The row count is not an accepted-fact count.
+  document_scoping_method: Both endpoints have the selected doc_id.
+  read_only_safety_classification: read_only_diagnostic
+  allow_unscoped: false
+  known_limitations: Ordering links are not normalised into the core candidate set for this run.
+  cypher: |
+    MATCH (a)-[r:TLINK]->(b)
+    WHERE toString(a.doc_id) = $doc_id AND toString(b.doc_id) = $doc_id
+    RETURN elementId(r) AS join_id,
+    type(r) AS relationship_type,
+    elementId(a) AS start_join_id,
+    elementId(b) AS end_join_id,
+    labels(a) AS start_labels,
+    labels(b) AS end_labels,
+    a.id AS start_app_id,
+    b.id AS end_app_id,
+    a.eid AS start_eid,
+    b.eid AS end_eid,
+    a.tid AS start_tid,
+    b.tid AS end_tid,
+    toString(a.doc_id) AS start_doc_id,
+    toString(b.doc_id) AS end_doc_id,
+    r.source AS source,
+    r.type AS type_prop,
+    r.role AS role,
+    r.raw_role AS raw_role,
+    r.confidence AS confidence,
+    r.rule_id AS rule_id,
+    r.source_kind AS source_kind,
+    r.relType AS rel_type,
+    r.relTypeOriginal AS rel_type_original,
+    r.relTypeCanonical AS rel_type_canonical,
+    r.status AS status,
+    r.suppressed AS suppressed,
+    r.suppressedBy AS suppressed_by,
+    r.suppressionReason AS suppression_reason,
+    r.technique_tier AS technique_tier,
+    r.evidence_source AS evidence_source
+    ORDER BY coalesce(a.eid, a.tid, a.id, ''), coalesce(b.eid, b.tid, b.id, ''), coalesce(r.relType, '')
+
+
+- query_id: Q31_values
+  purpose: Read canonical value nodes for the selected document.
+  expected_source_labels: [VALUE]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: value fields
+  duplicate_handling: One row per VALUE node.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: No event-value relationship is created from co-presence.
+  cypher: |
+    MATCH (n:VALUE)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q32_value_mentions
+  purpose: Read value mention nodes for the selected document.
+  expected_source_labels: [ValueMention]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: value mention fields
+  duplicate_handling: One row per ValueMention.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: A value mention is not an entity mention.
+  cypher: |
+    MATCH (n:ValueMention)
+    WHERE toString(n.doc_id) = $doc_id
+    RETURN elementId(n) AS join_id,
+    labels(n) AS labels,
+    n.id AS app_id,
+    toString(n.doc_id) AS doc_id,
+    n.source AS source,
+    n.text AS text,
+    n.value AS value,
+    n.pred AS pred,
+    n.class AS class_code,
+    n.eid AS eid,
+    n.tid AS tid,
+    n.start_char AS start_char,
+    n.end_char AS end_char,
+    n.start_tok AS start_tok,
+    n.end_tok AS end_tok,
+    n.confidence AS confidence,
+    n.lemma AS lemma,
+    n.ent_class AS ent_class,
+    n.type AS type_prop,
+    n.head AS head,
+    n.framework AS framework,
+    n.functionInDocument AS function_in_document
+    ORDER BY n.id
+
+
+- query_id: Q33_value_refers_to
+  purpose: Read value-mention to value REFERS_TO links.
+  expected_source_labels: [ValueMention, VALUE]
+  expected_relationship_types: [REFERS_TO]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship.
+  document_scoping_method: The value mention doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Used to attach a mention key to a canonical value.
+  cypher: |
+    MATCH (a:ValueMention)-[r:REFERS_TO]->(b:VALUE)
+    WHERE toString(a.doc_id) = $doc_id
+    RETURN a.id AS start_app_id, b.id AS end_app_id, r.source AS source, r.confidence AS confidence
+    ORDER BY a.id, b.id
+
+
+- query_id: Q34_frame_argument_count
+  purpose: Count frame-argument nodes without copying them as entity mentions.
+  expected_source_labels: [FrameArgument]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: frame_argument_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: The count is a gap input, not a mention total.
+  cypher: |
+    MATCH (n:FrameArgument) WHERE toString(n.doc_id) = $doc_id RETURN count(n) AS frame_argument_count
+
+
+- query_id: Q35_spacy_timex_only_count
+  purpose: Count spaCy time candidates that are not time mentions.
+  expected_source_labels: [SpacyTimexCandidate]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: spacy_timex_only_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: doc_id equals the selected document and the node is not a TimexMention.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: These nodes are not added to the time-mention record set.
+  cypher: |
+    MATCH (n:SpacyTimexCandidate)
+    WHERE toString(n.doc_id) = $doc_id AND NOT n:TimexMention
+    RETURN count(n) AS spacy_timex_only_count
+
+
+- query_id: Q36_quality_finding_count
+  purpose: Count quality-finding nodes for the selected document.
+  expected_source_labels: [QualityFinding]
+  expected_relationship_types: []
+  parameters: [doc_id]
+  expected_row_shape: quality_finding_count
+  duplicate_handling: Single aggregate.
+  document_scoping_method: doc_id equals the selected document.
+  read_only_safety_classification: read_only_aggregate
+  allow_unscoped: false
+  known_limitations: Quality findings are not ontology instances.
+  cypher: |
+    MATCH (n:QualityFinding) WHERE toString(n.doc_id) = $doc_id RETURN count(n) AS quality_finding_count
+
+- query_id: Q37_frame_argument_refers_to
+  purpose: Read frame-argument to entity links so a frame argument can be aligned with a canonical entity.
+  expected_source_labels: [FrameArgument, Entity]
+  expected_relationship_types: [REFERS_TO]
+  parameters: [doc_id]
+  expected_row_shape: link fields
+  duplicate_handling: One row per relationship. A frame argument is not an entity mention.
+  document_scoping_method: The frame-argument doc_id equals the selected document.
+  read_only_safety_classification: read_only_document
+  allow_unscoped: false
+  known_limitations: Alignment does not copy the frame argument into the entity-mention inventory.
+  cypher: |
+    MATCH (a:FrameArgument)-[r:REFERS_TO]->(b:Entity)
+    WHERE toString(a.doc_id) = $doc_id
+    RETURN a.id AS start_app_id, b.id AS end_app_id, r.source AS source
+    ORDER BY a.id, b.id

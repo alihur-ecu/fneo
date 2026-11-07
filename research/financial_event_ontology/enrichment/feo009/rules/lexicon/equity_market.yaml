@@ -1,0 +1,26 @@
+# Collective equity-market descriptors from ENT-02 and OR-CLASS equity-market notes.
+name: equity_market
+source: FEO-005A equity-market requirements; ENT-02 evidence card
+aggregate_phrases:
+  - stock markets
+  - equity markets
+  - equity market
+  - stock market
+bare_market:
+  - the market
+  - markets
+  - market
+geographic_names:
+  - asia
+  - europe
+  - america
+  - japan
+  - worldwide
+  - global
+physical_marketplace_cues:
+  - marketplace
+  - trading floor
+  - stock exchange
+notes:
+  - The phrase stock market index is an index descriptor, not an equity market.
+  - A geographic name alone is not an equity market.

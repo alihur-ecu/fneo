@@ -1,0 +1,10 @@
+# Ontology validation toolchain. Does not start Neo4j and does not publish anything.
+services:
+  robot:
+    build:
+      context: ./docker/ontology-validation
+    image: fneo-ontology-validation:robot-1.9.11
+    working_dir: /work
+    volumes:
+      - .:/work
+    entrypoint: ["robot"]

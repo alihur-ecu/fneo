@@ -1,0 +1,5 @@
+row_id,task,review_id,document_id,frozen_label,later_label
+R024,event,FEO012-EVT-0309,122475,correct_market_change,not_market_change
+R040,event,FEO012-EVT-0323,124259,correct_market_change,not_market_change
+R060,affected_market,FEO012-MKT-0103,122475,correct,incorrect
+R062,affected_market,FEO012-MKT-0107,124259,correct,incorrect

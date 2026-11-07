@@ -1,0 +1,19 @@
+# FDQ-002
+# Question: Which equity markets are mentioned separately from named market indices?
+# Expected answer columns: document equityMarket mention textualForm
+# Layer: core_financial
+# Schema-support status: schema_supported
+# Synthetic data file: core
+# Limitation: An index mention is not an answer. The classes are disjoint.
+# This query targets the public ontology. It does not claim corpus answerability.
+PREFIX fneo: <https://w3id.org/fneo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?document ?equityMarket ?mention ?textualForm
+WHERE {
+  ?equityMarket a fneo:EquityMarket .
+  ?mention fneo:denotes ?equityMarket ;
+           fneo:mentionedIn ?document .
+  FILTER NOT EXISTS { ?equityMarket a fneo:MarketIndex }
+  OPTIONAL { ?mention fneo:textualForm ?textualForm }
+}

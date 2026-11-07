@@ -1,0 +1,9 @@
+tool	finding_id	affected_term	severity	accepted	action	rationale	target_version
+OOPS!	not-executed		n/a	n/a	not executed	The OOPS! service was not called. No finding is recorded.	n/a
+FOOPS!	not-executed		n/a	n/a	not executed	FOOPS! was not called. No score is recorded.	n/a
+Widoco	not-executed		n/a	n/a	not executed	Widoco was not run. Documentation generation is blocked until Java and the Widoco jar are available.	n/a
+local-metadata	creator-generic	https://w3id.org/fneo/ontology	metadata	fixed in 0.1.0	dcterms:creator is the ORCID IRI for Ali HUR	The generic contributor string was replaced. This is metadata, not an axiom change.	0.1.0-rc2
+local-metadata	internal-identifiers	ontology annotations	documentation	fixed in 0.1.0	Internal task codes were removed from ontology annotations and comments	The codes were development history. The semantic rationale remains in CHANGELOG.md and scope notes.	0.1.0-rc2
+local-metadata	temporal-experimental	extension temporal relations	documentation	accepted by design	Marked experimental in ontology metadata	Symmetry and a separate temporal module are deferred.	0.2.0
+local-profile	simultaneousWith-symmetry	https://w3id.org/fneo/simultaneousWith	design	deferred to 0.2.0	Symmetry was not added	The candidate explicitly keeps the property non-symmetric.	0.2.0
+local-profile	materialisationEligibility-string	https://w3id.org/fneo/materialisationEligibility	design	deferred to 0.2.0	Left as xsd:string	A boolean or controlled value would change the populated datatype.	0.2.0

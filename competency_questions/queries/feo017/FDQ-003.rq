@@ -1,0 +1,20 @@
+# FDQ-003 executed query for FEO-017.
+# Question: Which reported events describe a change in a named market index or equity market?
+# Answer unit: one MarketChangeEvent.
+# The pre-existing query optional-joins every EventMention and therefore repeats an event
+# once for each mention. This query keeps hasAffectedMarket, which the question requires,
+# and does not join mentions. Mention traces are FDQ-003.mention-trace.rq.
+# Document is projected from reportsEvent. No reference label filters a row.
+PREFIX fneo: <https://w3id.org/fneo/>
+
+SELECT DISTINCT ?event ?affected ?populationMethod ?document ?sourceDocumentIdentifier
+WHERE {
+  ?event a fneo:MarketChangeEvent ;
+         fneo:hasAffectedMarket ?affected .
+  OPTIONAL { ?event fneo:populationMethod ?populationMethod }
+  OPTIONAL {
+    ?document fneo:reportsEvent ?event ;
+              fneo:sourceDocumentIdentifier ?sourceDocumentIdentifier .
+  }
+}
+ORDER BY ?sourceDocumentIdentifier ?event ?affected

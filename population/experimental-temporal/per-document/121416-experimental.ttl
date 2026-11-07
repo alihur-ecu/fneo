@@ -1,0 +1,4 @@
+# EXPERIMENTAL_TEMPORAL profile.
+# No experimental-profile decisions were emitted for this document.
+# Source ordering relations are inventoried separately and are not accepted facts.
+# This graph is not part of the accepted core.

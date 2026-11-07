@@ -1,0 +1,44 @@
+# Controlled index names and negative cues.
+# Drawn from the FEO-005A class requirements and the ENT-01 evidence card.
+# Repeated names are not cross-document identity.
+name: market_index
+source: FEO-005A OR-CLASS-011; ENT-01 evidence card
+controlled_names:
+  - dow jones industrial average
+  - nikkei 225
+  - standard and poor's 500
+  - s&p 500
+  - ftse-100
+  - ftse 100
+  - dow jones
+  - nasdaq composite
+  - nikkei
+  - nasdaq
+  - ftse
+descriptors:
+  - stock market index
+  - share index
+  - market index
+  - index
+exchanges_not_indices:
+  - new york stock exchange
+  - london stock exchange
+  - nasdaq stock exchange
+  - nyse
+  - lse
+issuing_company_cues:
+  - corporation
+  - incorporated
+  - company
+  - inc.
+  - ltd.
+unrelated_acronyms:
+  - gdp
+  - imf
+  - ceo
+  - oecd
+  - cpi
+notes:
+  - A controlled name is index context even when the word index is absent.
+  - An exchange name is not an index, including when it contains Nasdaq.
+  - Conjunction descriptors are not split by this lexicon.

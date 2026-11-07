@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/fneo/schema/enrichment-decision",
+  "title": "Enrichment decision",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "decision_id",
+    "candidate_id",
+    "rule_id",
+    "rule_version",
+    "status",
+    "confidence",
+    "evidence_references",
+    "reasons",
+    "satisfied_conditions",
+    "failed_conditions",
+    "missing_conditions",
+    "profile",
+    "direct_triple_eligible",
+    "qualified_assertion_required",
+    "manual_review_status",
+    "source_role_preservation",
+    "warnings",
+    "explanation"
+  ],
+  "properties": {
+    "decision_id": {"type": "string", "minLength": 1},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "rule_id": {"type": "string", "minLength": 1},
+    "rule_version": {"type": "string", "minLength": 1},
+    "target_iri": {"type": "string"},
+    "target_label": {"type": "string"},
+    "status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "requires_review",
+        "rejected",
+        "out_of_scope",
+        "insufficient_evidence",
+        "suppressed"
+      ]
+    },
+    "confidence": {"type": "string", "pattern": "^(0\\.[0-9]{2}|1\\.00)$"},
+    "evidence_references": {"type": "array", "items": {"type": "string"}},
+    "reasons": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "satisfied_conditions": {"type": "array", "items": {"type": "string"}},
+    "failed_conditions": {"type": "array", "items": {"type": "string"}},
+    "missing_conditions": {"type": "array", "items": {"type": "string"}},
+    "profile": {
+      "type": "string",
+      "enum": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ]
+    },
+    "direct_triple_eligible": {"type": "boolean"},
+    "qualified_assertion_required": {"type": "boolean"},
+    "manual_review_status": {
+      "type": "string",
+      "enum": ["not_reviewed", "review_required", "manually_accepted", "manually_rejected"]
+    },
+    "manual_review_reason": {"type": "string"},
+    "source_role_preservation": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "explanation": {"type": "string", "minLength": 20}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"status": {"const": "requires_review"}},
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {"manual_review_reason": {"type": "string", "minLength": 1}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "accepted"}},
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {"evidence_references": {"type": "array", "minItems": 1}}
+      }
+    }
+  ]
+}

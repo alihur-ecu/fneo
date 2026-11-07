@@ -1,0 +1,26 @@
+# FDQ-005 executed query for FEO-017.
+# Question: What textual evidence supports a reported change in a named market index or equity market?
+# Answer unit: one supporting evidence path (one MarketChangeEvent and one TextualEvidence resource).
+# Several evidence paths for one event remain separate answers.
+# The pre-existing query crosses every supportedBy evidence with every EventMention.
+# This query does not join mentions. A mention is attached later only when its token span
+# equals the evidence token span, so each path keeps its own mention.
+# Character offsets are projected when the evidence resource stores them.
+# No reference label filters a row.
+PREFIX fneo: <https://w3id.org/fneo/>
+
+SELECT DISTINCT ?event ?evidence ?evidenceText ?tokenStart ?tokenEnd ?characterStart ?characterEnd ?document ?sourceDocumentIdentifier
+WHERE {
+  ?event a fneo:MarketChangeEvent ;
+         fneo:supportedBy ?evidence .
+  OPTIONAL { ?evidence fneo:evidenceText ?evidenceText }
+  OPTIONAL { ?evidence fneo:tokenStart ?tokenStart }
+  OPTIONAL { ?evidence fneo:tokenEnd ?tokenEnd }
+  OPTIONAL { ?evidence fneo:characterStart ?characterStart }
+  OPTIONAL { ?evidence fneo:characterEnd ?characterEnd }
+  OPTIONAL {
+    ?document fneo:reportsEvent ?event ;
+              fneo:sourceDocumentIdentifier ?sourceDocumentIdentifier .
+  }
+}
+ORDER BY ?sourceDocumentIdentifier ?event ?evidence

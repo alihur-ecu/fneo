@@ -1,0 +1,28 @@
+# Central-bank names from OR-CLASS-021 and the ENT-03 evidence card.
+name: central_bank
+source: FEO-005A OR-CLASS-021; ENT-03 evidence card
+controlled_names:
+  - u.s. federal reserve
+  - us federal reserve
+  - the federal reserve
+  - federal reserve
+  - european central bank
+  - bank of england
+  - bank of japan
+collective_expressions:
+  - the world's central banks
+  - the worlds central banks
+  - world's central banks
+  - worlds central banks
+  - central banks
+organisation_cues:
+  - reserve
+  - central bank
+  - bank
+funding_verbs:
+  - infuse
+  - inject
+  - bailout
+notes:
+  - A collective mention is not an extra institution and is not accepted as one bank.
+  - The organisation source code is not sufficient.

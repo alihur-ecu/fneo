@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:fneo="https://w3id.org/fneo/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://w3id.org/fneo/originalTemporalRelationLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">original temporal relation label</rdfs:label>
+    <fneo:definition xml:lang="en">The original operational or annotation relation label, retained for audit and not used as a public property name.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The literal retains the original operational relation label. Values such as BEFORE stay in this literal and are not used as public property names.</fneo:scopeNote>
+    <fneo:example xml:lang="en">BEFORE on an assertion whose public property is precedes.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/EquityShare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialObject"/>
+    <rdfs:label xml:lang="en">equity share</rdfs:label>
+    <fneo:definition xml:lang="en">An equity share, distinct from the organisation that issues that share.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial object. Disjoint with financial organisation in this version. An issuing relation is not defined in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional ordinary share distinguished from its issuing organisation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/FinancialOrganisation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ClosureDerived">
+    <rdf:type rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">closure derived</rdfs:label>
+    <fneo:definition xml:lang="en">The inference status for a relation derived by temporal closure.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Closure-derived order is experimental. It is not treated as equally reliable as explicit time anchoring.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A closure-derived link retained only as a candidate.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb35">
+    <rdf:first rdf:resource="https://w3id.org/fneo/FinancialMarket"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb36"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb3">
+    <rdf:first rdf:resource="https://w3id.org/fneo/DownwardDirection"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/preferredNamespacePrefix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">preferred namespace prefix</rdfs:label>
+    <fneo:definition xml:lang="en">The preferred prefix for the term namespace.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The prefix fneo expands to the term base, not to the ontology IRI.</fneo:scopeNote>
+    <fneo:example xml:lang="en">fneo</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TimeEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">time entity</rdfs:label>
+    <fneo:definition xml:lang="en">A canonical time with a lexical form and, where recorded, a normalised value.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Publication time and event time are different relations to time entities. Time entity is not a subclass of entity. The normalised value is a string because stored forms mix dates, timestamps, durations, and underspecified values.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The publication timestamp of a news document, or a weekday anchored to an event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasMention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb30"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:label xml:lang="en">has mention</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a canonical entity, event, or time entity to a textual mention that denotes it.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The domain is the union of entity, event, and time entity. That union does not introduce a shared superclass. The inverse of denotes is not declared.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional index linked to the mention of its name.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/populatedByRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">populated by rule</rdfs:label>
+    <fneo:definition xml:lang="en">The identifier of the rule or protocol that populated a qualified assertion.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Required on a qualified assertion produced by a rule. Must agree with ruleIdentifier when both are present. Not an ontology class name.</fneo:scopeNote>
+    <fneo:example xml:lang="en">SYN-TIME-EXPLICIT on an accepted temporal assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Financial News Event Ontology</rdfs:label>
+    <owl:versionIRI rdf:resource="https://w3id.org/fneo/ontology/0.1.0-rc2"/>
+    <owl:versionInfo>0.1.0-rc2</owl:versionInfo>
+    <owl:priorVersion rdf:resource="https://w3id.org/fneo/ontology/0.1.0-rc1"/>
+    <dcterms:title xml:lang="en">Financial News Event Ontology</dcterms:title>
+    <fneo:acronym>FNEO</fneo:acronym>
+    <dcterms:description xml:lang="en">A corpus-grounded ontology for entities, events, participant roles, financial objects, values, times, qualified assertions, and textual evidence in financial news.</dcterms:description>
+    <fneo:scopeNote xml:lang="en">The ontology represents financial-news reports. It does not model trading recommendations, investment advice, portfolio construction, accounting, regulation, live market systems, or predictive analytics. Extension temporal relations are experimental.</fneo:scopeNote>
+    <fneo:developmentStatus xml:lang="en">Development release candidate 0.1.0-rc2 of version 0.1.0. Not a stable release. The ontology IRI is unchanged.</fneo:developmentStatus>
+    <fneo:namespaceStatus xml:lang="en">Provisional. The prefix fneo: expands to https://w3id.org/fneo/. The ontology IRI is https://w3id.org/fneo/ontology. This W3ID has not been registered, and this file does not claim that the namespace resolves.</fneo:namespaceStatus>
+    <fneo:preferredNamespacePrefix>fneo</fneo:preferredNamespacePrefix>
+    <fneo:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://w3id.org/fneo/</fneo:preferredNamespaceUri>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:creator rdf:resource="https://orcid.org/0000-0001-9537-2648"/>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-30</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-06</dcterms:modified>
+    <fneo:competencyQuestionCatalogue>competency_questions/catalogue/cq_to_ontology_requirements.csv</fneo:competencyQuestionCatalogue>
+    <fneo:bibliographicCitation xml:lang="en">Hur, Ali. Financial News Event Ontology, development release candidate 0.1.0-rc2. ORCID https://orcid.org/0000-0001-9537-2648. Provisional title, acronym, and namespace. No DOI and no public release date are assigned.</fneo:bibliographicCitation>
+    <fneo:backwardCompatibility xml:lang="en">Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. Relative to 0.1.0-rc1, the OWL range of hasAffectedMarket is the union of FinancialMarket and MarketIndex. The core application profile still requires a populated value to be a MarketIndex or an EquityMarket. That profile check is not the OWL range.</fneo:backwardCompatibility>
+    <fneo:priorVersionNote xml:lang="en">Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. The prior version IRI is https://w3id.org/fneo/ontology/0.1.0-rc1.</fneo:priorVersionNote>
+    <rdfs:comment xml:lang="en">Controlled lists in this version are the version 0.1 sets. The value classes are not closed with owl:oneOf. Extension temporal relations are experimental: they are not core publication commitments, symmetry is not declared for simultaneousWith, and a reasoner entailment of an inverse temporal triple is not independently extracted evidence. dcterms:modified records the metadata-revision date 2026-11-06, not a public release date.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/acronym">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">acronym</rdfs:label>
+    <fneo:definition xml:lang="en">The provisional acronym of the ontology.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">FNEO is provisional until the name is confirmed.</fneo:scopeNote>
+    <fneo:example xml:lang="en">FNEO</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb16">
+    <rdf:first rdf:resource="https://w3id.org/fneo/InverseGenerated"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb17"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/NumericalValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">numerical value</rdfs:label>
+    <fneo:definition xml:lang="en">A numerical expression reported in a document, including its lexical form and, where parseable, a numeric value.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">In the core profile a numerical value stays a document-level expression. Direct attachment to an event is an extension relation and is not required.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The lexical expression 2.5 percent in a fabricated sentence.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/backwardCompatibility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">backward compatibility</rdfs:label>
+    <fneo:definition xml:lang="en">A statement of compatibility with earlier public versions.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">No stable public release precedes version 0.1.0. A development candidate may still name a prior version IRI.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/sourceRoleLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/EventParticipation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">source role label</rdfs:label>
+    <fneo:definition xml:lang="en">The source semantic-role label stored for a participant link when one is available.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Mapping information on an event participation or a companion record. Not a financial-domain role and not a public object property. A missing label is unknown, not a violation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A preserved source label such as change-target, without promoting it to a class.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasReportedValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:label xml:lang="en">has reported value</rdfs:label>
+    <fneo:definition xml:lang="en">An extension relation from a reported event to a numerical value, used only when a manually validated mapping exists.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not a core requirement. Sentence co-presence is not evidence for this property. Absence on a market-change event is information in the core profile.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A manually validated link from an event to a document-level quantity.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TemporalRelationAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:label xml:lang="en">temporal relation assertion</rdfs:label>
+    <fneo:definition xml:lang="en">A qualified assertion specialised for a temporal relation, preserving the temporal subject, relation type, temporal object, commitment, inference status, and audit labels.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">An accepted temporal assertion may also carry a direct temporal triple. A suppressed, rejected, proposed, or review-required temporal assertion must not carry a positive direct temporal triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An explicit before-relation between two synthetic events, with a matching precedes triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/PercentageValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:label xml:lang="en">percentage value</rdfs:label>
+    <fneo:definition xml:lang="en">A numerical value whose reported form is a percentage.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The lexical form keeps the percent sign or the word percent. numericalValue is an xsd:decimal in percentage points: 2.5 means 2.5 percent, not the fraction 0.025. Percentage-occurrence querying is extension evaluation. Document co-presence with an index is not an attachment.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Lexical form 2.5% with numerical value 2.5.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/EventParticipation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:label xml:lang="en">event participation</rdfs:label>
+    <fneo:definition xml:lang="en">A qualified assertion used when participation needs role, evidence, confidence, validation, or review metadata.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Does not replace hasParticipant or hasAffectedMarket on an accepted assertion. The source role label is mapping information, not a financial-role taxonomy. A financial-role vocabulary is deferred.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A qualified link from a market-change event to the index it affects.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/temporalObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:label xml:lang="en">temporal object</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a temporal relation assertion to the object of the temporal relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The range is left open for the same reason as temporal subject. Event-event and event-time readings are distinguished by the temporal relation type and by shapes.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The later event in an accepted before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialMarket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEntity"/>
+    <rdfs:label xml:lang="en">financial market</rdfs:label>
+    <fneo:definition xml:lang="en">A financial entity that is a market, used as the broader class for an equity market.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">A named market index is not a subclass of this class. Equity market is the approved subclass in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A collective equity market.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/numericalValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">numerical value</rdfs:label>
+    <fneo:definition xml:lang="en">The parsed numeric value of a numerical expression when parsing succeeds.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The datatype is xsd:decimal. For a percentage value the scale is percentage points: 2.5 means 2.5 percent, not 0.025. An unparseable expression may omit this literal.</fneo:scopeNote>
+    <fneo:example xml:lang="en">2.5 as a decimal for a lexical percentage 2.5%.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb8">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Suppressed"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasCommitmentStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/CommitmentStatus"/>
+    <rdfs:label xml:lang="en">has commitment status</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a temporal relation assertion to a commitment-status individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">No parallel literal property is defined. Suppressed commitment and proposed do not authorise a positive direct temporal triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Committed on an accepted before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasManualReviewStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/ManualReviewStatus"/>
+    <rdfs:label xml:lang="en">has manual review status</rdfs:label>
+    <fneo:definition xml:lang="en">Relates an individual or assertion to a manual-review-status individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">No global domain, so extension classes and qualified assertions can share the property. No parallel literal property is defined.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Manually accepted on a fictional central bank.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/participationEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/EventParticipation"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">participation event</rdfs:label>
+    <fneo:definition xml:lang="en">Relates an event-participation resource to the event in the participation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">More specific than assertion subject. Accepted participations still expose the direct hasParticipant or hasAffectedMarket triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The market-change event in a qualified affected-market participation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/materialisationEligibility">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">materialisation eligibility</rdfs:label>
+    <fneo:definition xml:lang="en">Whether a qualified temporal assertion may materialise a positive direct RDF triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Accepted eligibility still requires the assertion to be accepted, committed where applicable, not suppressed, canonically mapped, and traceable. Other values must not co-exist with a positive direct temporal triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">accepted on an explicit precedes assertion, or not_accepted on a suppressed candidate.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/assertionObjectLiteral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:label xml:lang="en">assertion object literal</rdfs:label>
+    <fneo:definition xml:lang="en">The literal object of a qualified statement when that object is a literal rather than an individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Do not use both assertionObject and assertionObjectLiteral for one assertion. Ordinary unqualified literals, such as labels, do not need this property.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A qualified literal statement whose object is a string.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb44">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb45"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/UpwardDirection">
+    <rdf:type rdf:resource="https://w3id.org/fneo/MarketDirection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">upward direction</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled value for an upward market direction.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An upward reading on a rise in a fictional equity market.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/suppressionReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">suppression reason</rdfs:label>
+    <fneo:definition xml:lang="en">A short explanation of why a temporal or other qualified assertion was suppressed.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Used with validation status Suppressed or commitment status SuppressedCommitment. Suppression does not materialise a positive direct triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An inverse-generated candidate retained for audit and not accepted.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0001-9537-2648">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Ali HUR</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ManuallyRejected">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ManualReviewStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">manually rejected</rdfs:label>
+    <fneo:definition xml:lang="en">The review status for an individual or assertion that a reviewer has rejected.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Manual rejection does not by itself delete the resource. It does not authorise a positive direct triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reviewer-rejected ambiguous organisation name.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/definition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">definition</rdfs:label>
+    <fneo:definition xml:lang="en">A local definition annotation used so the ontology can state term definitions without importing SKOS.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Corresponds in purpose to skos:definition. The SKOS ontology is not imported.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The definition of market-change event.</fneo:example>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/developmentStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">development status</rdfs:label>
+    <fneo:definition xml:lang="en">States whether the ontology version is a development version or a stable release.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Version 0.1.0 is a development version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Development version 0.1.0.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb26">
+    <rdf:first rdf:resource="https://w3id.org/fneo/After"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb27"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/characterEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb49"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">character end</rdfs:label>
+    <fneo:definition xml:lang="en">The exclusive end of a half-open character interval [characterStart, characterEnd).</fneo:definition>
+    <fneo:scopeNote xml:lang="en">When both character offsets are present for a non-empty span, characterEnd is greater than characterStart.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The exclusive character index after a mention.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasMonetaryAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/fneo/hasReportedValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/MonetaryAmount"/>
+    <rdfs:label xml:lang="en">has monetary amount</rdfs:label>
+    <fneo:definition xml:lang="en">An extension relation from an event to a monetary amount under a manually validated mapping.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subproperty of has reported value. Sparse and not a core population target. Co-presence is not a shortcut.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reviewed link from an event to a sum of money.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/sourceAnnotationIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">source annotation identifier</rdfs:label>
+    <fneo:definition xml:lang="en">The identifier of a source annotation, stored as provenance.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not ontology identity. Identifiers are not assumed to be stable across annotation editions. For a market-change event, an annotation identifier can stand as source grounding beside an event mention.</fneo:scopeNote>
+    <fneo:example xml:lang="en">SYN-ANN-FALL on a synthetic event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/DownwardDirection">
+    <rdf:type rdf:resource="https://w3id.org/fneo/MarketDirection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">downward direction</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled value for a downward market direction.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A downward reading on a fall in a fictional index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/tokenEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb43"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">token end</rdfs:label>
+    <fneo:definition xml:lang="en">The exclusive end of a half-open token interval [tokenStart, tokenEnd).</fneo:definition>
+    <fneo:scopeNote xml:lang="en">When both token offsets are present for a non-empty span, tokenEnd is greater than tokenStart.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Token index 7 as the exclusive end of a one-token span.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/abstractExtensionPoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">abstract extension point</rdfs:label>
+    <fneo:definition xml:lang="en">Marks a class that is retained as an abstract extension point and is not a population target in this version.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The value true does not mean the class is deprecated and does not add a subclass axiom.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Financial situation is an abstract extension point.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/reportsEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/FinancialNewsDocument"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">reports event</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a financial news document to an event reported in that document.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not functional. One document may report many events. Document membership can also be recovered through a mention.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A synthetic brief reports two market-change events.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">event</rdfs:label>
+    <fneo:definition xml:lang="en">A reported event denoted by one or more textual expressions, distinct from those expressions, from entities, and from claims about the event.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">A financial-event category is not implied by this class. Event is disjoint with entity, time entity, and numerical value in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reported fall, distinct from the index that fell and from the wording that reports it.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/Entity"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Simultaneous">
+    <rdf:type rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">simultaneous</rdfs:label>
+    <fneo:definition xml:lang="en">The temporal relation type that pairs with the object property simultaneousWith.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Symmetry is not declared on simultaneousWith in release candidate 0.1.0-rc2. Symmetry is pending verification of the operational source-relation semantics. The individual is still the controlled type for that reading. The temporal extension is experimental.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Simultaneous on a suppressed candidate that has no simultaneousWith triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/characterStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb46"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">character start</rdfs:label>
+    <fneo:definition xml:lang="en">The inclusive start of a half-open character interval [characterStart, characterEnd).</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional when token offsets exist. Do not invent character offsets that were not stored.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The inclusive character index of a mention in a synthetic sentence.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Rejected">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ValidationStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">rejected</rdfs:label>
+    <fneo:definition xml:lang="en">The validation status for an assertion that has been rejected and must not materialise a positive direct semantic triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The rejected resource may be retained for audit.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A rejected temporal candidate with no precedes or follows triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialSector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEntity"/>
+    <rdfs:label xml:lang="en">financial sector</rdfs:label>
+    <fneo:definition xml:lang="en">An expression referring to a financial sector, kept distinguishable from a financial system, a market index, a bank, and crisis or recession wording.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial entity. Not declared disjoint with financial system. Ambiguous expressions are not populated automatically.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The wording of a fictional financial sector after manual review.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/RelationAssertion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">relation assertion</rdfs:label>
+    <fneo:definition xml:lang="en">A qualified-assertion resource that records statement-level metadata for a domain relation when that metadata is material.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not applied to every RDF triple. Not defined as rdf:Statement alone. Accepted assertions expose a direct triple and this resource. Review-required, rejected, and suppressed assertions do not materialise a positive direct triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A participation record that carries confidence and a validation status.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/sourceDocumentIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/FinancialNewsDocument"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">source document identifier</rdfs:label>
+    <fneo:definition xml:lang="en">The identifier of the source document, stored as provenance on a financial news document.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The literal supports traceability. It is not the identity of the ontology individual. The core profile requires one on a financial news document.</fneo:scopeNote>
+    <fneo:example xml:lang="en">SYN-DOC-001 on a synthetic brief.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialObject"/>
+    <rdfs:label xml:lang="en">currency</rdfs:label>
+    <fneo:definition xml:lang="en">A named currency, distinct from a monetary amount and from a market index.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial object. Disjoint with monetary amount in this version. A currency code on an amount is not this class.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional currency name such as the Northwind dollar.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/MonetaryAmount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasEventTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:label xml:lang="en">has event time</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event to a time entity that explicitly anchors the event.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Distinct from publication time. Not mandatory for every market-change event. Absence is a core warning, not a violation, and not an OWL cardinality restriction.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A market-change event anchored to a Tuesday time entity.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Accepted">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ValidationStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">accepted</rdfs:label>
+    <fneo:definition xml:lang="en">The validation status for an assertion that is accepted and may materialise a direct semantic triple together with its qualified resource.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Accepted materialisation still requires the qualified resource when statement metadata is material.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An accepted participation that also has a hasAffectedMarket triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ManuallyAccepted">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ManualReviewStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">manually accepted</rdfs:label>
+    <fneo:definition xml:lang="en">The review status for an individual or assertion that a reviewer has accepted.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Manual acceptance is an outcome of review. It is distinct from the validation individual Accepted, which governs materialisation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reviewer-accepted fictional central bank.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/mentionedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/FinancialNewsDocument"/>
+    <rdfs:label xml:lang="en">mentioned in</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a textual mention to the financial news document in which it occurs.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not functional. Many mentions share one document. Numerical values are reached from a document through a mention that denotes the value, because this property's domain is textual mention.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An index mention occurs in a synthetic brief.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/entityCorefersWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdfs:label xml:lang="en">entity corefers with</rdfs:label>
+    <fneo:definition xml:lang="en">Optionally relates two entities that a reviewed judgement treats as the same entity within one document.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional identity module. Not required by core shapes. Symmetry and transitivity are not declared.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Two entity individuals judged to corefer inside one synthetic document.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/RequiresReview">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ValidationStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">requires review</rdfs:label>
+    <fneo:definition xml:lang="en">The validation status for a candidate assertion that is retained for review and must not materialise a positive direct semantic triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The candidate resource remains in the graph. Competency-question answers should not treat it as an accepted fact.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A participation candidate with no matching direct triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/CentralBank">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialOrganisation"/>
+    <rdfs:label xml:lang="en">central bank</rdfs:label>
+    <fneo:definition xml:lang="en">A central bank, or a collective mention of central banks, classified in context.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial organisation. Not declared disjoint with commercial bank. Classification requires review rather than a source organisation code alone.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional central bank named in a synthetic brief.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/assertionPredicateIRI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:label xml:lang="en">assertion predicate IRI</rdfs:label>
+    <fneo:definition xml:lang="en">The IRI of the predicate of the domain statement that a qualified assertion describes, stored as a literal so the ontology does not pun a property as an individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Range xsd:anyURI. The literal stores the predicate IRI so the ontology does not pun a property as an individual. Properties remain properties. RDF reification is a candidate alignment, not the model.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The IRI of hasAffectedMarket stored as an anyURI literal.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb34">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb35"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasValidationStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/ValidationStatus"/>
+    <rdfs:label xml:lang="en">has validation status</rdfs:label>
+    <fneo:definition xml:lang="en">Relates an assertion or a typed statement to a validation-status individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">No global domain, because both qualified assertions and market-change events may carry a status. No parallel literal property is defined.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Accepted on a materialised participation, or requires-review on a candidate.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ReviewRequired">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ManualReviewStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">review required</rdfs:label>
+    <fneo:definition xml:lang="en">The review status for an individual or assertion that must be reviewed before it is treated as accepted.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Ambiguous financial-system or financial-sector wording may remain review-required. That state is not a core violation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A sector wording held for review.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialMeasurement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <fneo:abstractExtensionPoint rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</fneo:abstractExtensionPoint>
+    <rdfs:label xml:lang="en">financial measurement</rdfs:label>
+    <fneo:definition xml:lang="en">An abstract extension point for a measurement, such as a level or a price reading, kept distinct from the event that reports a change and from the numerical expression used to write the measurement.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not a populated class in this version, not a parent of numerical value, and not a core validation target. No populated subclass is defined.</fneo:scopeNote>
+    <fneo:example xml:lang="en">No core instance. A quantity written beside an index name remains a numerical value.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb29">
+    <rdf:first rdf:resource="https://w3id.org/fneo/IncludesRelation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/During">
+    <rdf:type rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">during</rdfs:label>
+    <fneo:definition xml:lang="en">The temporal relation type that pairs with the object property occursDuring.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The direct triple, when accepted, runs from an event to a time entity.</fneo:scopeNote>
+    <fneo:example xml:lang="en">During on an accepted occursDuring assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Before">
+    <rdf:type rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">before</rdfs:label>
+    <fneo:definition xml:lang="en">The temporal relation type that pairs with the object property precedes.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Use this individual on temporalRelationType. Do not use it as a property name.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Before on an accepted assertion whose direct triple uses precedes.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">financial event</rdfs:label>
+    <fneo:definition xml:lang="en">A reported event that the ontology types as financial.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subclass of event. The only approved financial-event subclass in this version is market-change event.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reported change in a named index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/publicationTimeLiteral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">publication time literal</rdfs:label>
+    <fneo:definition xml:lang="en">Preserves the source lexical expression of a publication or creation time. The domain is TimeEntity.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Domain is TimeEntity only. This property is not a property of FinancialNewsDocument. It is distinct from normalisedTimeValue, which records the normalised form on the same time entity. The lexical expression is not a second publication-time relation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">3 March 2026 beside a normalised timestamp.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/InverseGenerated">
+    <rdf:type rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">inverse generated</rdfs:label>
+    <fneo:definition xml:lang="en">The inference status for a relation generated as an inverse of another relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Inverse-generated candidates do not become accepted direct triples merely because an inverse axiom exists in the ontology.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An inverse-generated follows candidate that remains suppressed.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialNewsDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">financial news document</rdfs:label>
+    <fneo:definition xml:lang="en">A financial news report treated as the source document for mentions, reported events, publication time, and numerical expressions.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The document is not a mention span and not an event. A source-document identifier on the document is provenance, not the identity of the ontology individual.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fabricated market brief with one publication time.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb51">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasInferenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdfs:label xml:lang="en">has inference status</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a temporal relation assertion to an inference-status individual.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">No parallel literal property is defined. Inverse-generated, closure-derived, rule-inferred, and model-inferred statuses are metadata, not acceptance.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Explicit on an accepted temporal assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb20">
+    <rdf:first rdf:resource="https://w3id.org/fneo/NotReviewed"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/example">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">example</rdfs:label>
+    <fneo:definition xml:lang="en">A short example of how a term is used.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Examples in the ontology are illustrative. Synthetic graphs under the example stem are the machine-readable illustrations.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional index name used as a market index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Explicit">
+    <rdf:type rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">explicit</rdfs:label>
+    <fneo:definition xml:lang="en">The inference status for a relation taken from explicit evidence rather than from inference or a learned model.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Explicit status supports the core and extension temporal profiles. It is not a substitute for textual evidence.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An explicit event-time anchor or an explicit before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialSituation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <fneo:abstractExtensionPoint rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</fneo:abstractExtensionPoint>
+    <rdfs:label xml:lang="en">financial situation</rdfs:label>
+    <fneo:definition xml:lang="en">An abstract extension point for a continuing economic situation, kept conceptually distinct from a dated reported event.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not populated in this version, not a core validation target, and not given a subclass. A disjointness axiom with event is not asserted. Primary competency questions do not use this class.</fneo:scopeNote>
+    <fneo:example xml:lang="en">No populated instance. Situation wording is not retyped as this class in version 0.1.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/normalisedTimeValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">normalised time value</rdfs:label>
+    <fneo:definition xml:lang="en">The normalised value recorded for a time entity, including dates, timestamps, durations, and underspecified forms.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The range is xsd:string because one XML Schema date type would reject durations and underspecified forms. This property does not order events.</fneo:scopeNote>
+    <fneo:example xml:lang="en">2026-03-03T09:00:00 on a publication time entity.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb18">
+    <rdf:first rdf:resource="https://w3id.org/fneo/ModelInferred"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/priorVersionNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">prior version note</rdfs:label>
+    <fneo:definition xml:lang="en">An explicit statement of the prior version IRI when a development candidate precedes this file.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">owl:priorVersion is used when a prior ontology IRI exists. This candidate points at development candidate 0.1.0-rc1. No stable public release precedes 0.1.0.</fneo:scopeNote>
+    <fneo:example xml:lang="en">https://w3id.org/fneo/ontology/0.1.0-rc1</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/textualForm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">textual form</rdfs:label>
+    <fneo:definition xml:lang="en">The surface text of a mention or other short linguistic unit.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">This is the mention string. It is not a second copy of the whole document. Percentage values use numericalLexicalForm for the lexical percentage.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The string fell on an event mention.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/currencyCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/MonetaryAmount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">currency code</rdfs:label>
+    <fneo:definition xml:lang="en">A currency code recorded on a monetary amount when the currency is identified.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension literal. A code is not a currency individual. Absence is informational in the extension profile.</fneo:scopeNote>
+    <fneo:example xml:lang="en">NWD on a fictional monetary amount.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/supportedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb37"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdfs:label xml:lang="en">supported by</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event or a qualified assertion to the textual evidence that supports it.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The domain is the union of event and relation assertion. The range is textual evidence. A typed market-change event requires at least one supporting evidence individual under the core profile.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A market-change event supported by a fabricated sentence.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/generatedBySoftwareAgent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    <rdfs:label xml:lang="en">generated by software agent</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a population activity or a qualified assertion to the software agent associated with it.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Local property. See also prov:wasAssociatedWith. PROV-O is not imported. The range is unconstrained because no agent class is approved in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A population activity associated with an identified extractor build.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/canonicalPublicRelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">canonical public relation</rdfs:label>
+    <fneo:definition xml:lang="en">The approved public relation name to which a source temporal relation is mapped.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Typical values are hasEventTime, precedes, follows, simultaneousWith, occursDuring, and includes. An unmapped label has no canonical public relation and is not materialised.</fneo:scopeNote>
+    <fneo:example xml:lang="en">precedes on an accepted before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/occursDuring">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/fneo/includes"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:label xml:lang="en">occurs during</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event to a time entity interval during which the event is reported to occur, when an accepted extension relation supports that reading.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Inverse of includes. The property does not invent an interval for an underspecified time. A reasoner may entail includes from an asserted occursDuring triple. That entailment is not independently extracted evidence.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An event occurs during a stated afternoon interval.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Committed">
+    <rdf:type rdf:resource="https://w3id.org/fneo/CommitmentStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">committed</rdfs:label>
+    <fneo:definition xml:lang="en">The commitment status for a temporal relation that is committed and, when also accepted, may materialise a direct temporal triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Commitment alone is recorded on the qualified resource. The extension profile checks that a committed ordering relation has its direct triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Committed on an explicit before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/denotes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:label xml:lang="en">denotes</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a textual mention to the canonical referent of that mention.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">There is no single global range and the property is not functional. Class-specific shapes constrain entity mentions, event mentions, and time mentions. A maximum count of one applies in SHACL to in-profile mentions, not as an OWL axiom.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An index mention denotes the index individual.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasPercentageChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/fneo/hasReportedValue"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/MarketChangeEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/PercentageValue"/>
+    <rdfs:label xml:lang="en">has percentage change</rdfs:label>
+    <fneo:definition xml:lang="en">An extension relation from a market-change event to a percentage value under a manually validated mapping.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subproperty of has reported value. Not required by the core profile. A document-level percentage does not by itself create this link.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reviewed link from a market-change event to a 2.5 percentage-point value.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/numericalLexicalForm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">numerical lexical form</rdfs:label>
+    <fneo:definition xml:lang="en">The lexical form of a numerical expression as it appears in the text.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">For a percentage, this form preserves the percent sign or the word percent. It is the property used for percentage surface form. textualForm remains the mention string.</fneo:scopeNote>
+    <fneo:example xml:lang="en">2.5% on a percentage value whose numeric value is 2.5.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/After">
+    <rdf:type rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">after</rdfs:label>
+    <fneo:definition xml:lang="en">The temporal relation type that pairs with the object property follows.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Use this individual on temporalRelationType. Do not use it as a property name.</fneo:scopeNote>
+    <fneo:example xml:lang="en">After on an assertion whose direct triple, if accepted, uses follows.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/participatingEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/EventParticipation"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdfs:label xml:lang="en">participating entity</rdfs:label>
+    <fneo:definition xml:lang="en">Relates an event-participation resource to the entity that participates.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">More specific than assertion object. A financial-role object property is not defined. Use sourceRoleLabel for a preserved source label.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The index that participates in a qualified market-change participation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/QuantityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:label xml:lang="en">quantity value</rdfs:label>
+    <fneo:definition xml:lang="en">A numerical value that is a non-percentage quantity, such as a point change, distinct from a percentage and from a monetary amount.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under numerical value. Not a core evaluation target and not an event attachment by default.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fabricated point quantity stored as document-level data.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/temporalSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:label xml:lang="en">temporal subject</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a temporal relation assertion to the subject of the temporal relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The range is left open so the property can point at an event or a time entity without a union axiom that this version does not require. Core checks use the temporal relation type to decide which direct property is relevant.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The earlier event in an accepted before-relation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/temporalRelationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdfs:label xml:lang="en">temporal relation type</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a temporal relation assertion to a controlled temporal relation type.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The type individual is not the direct property. Before pairs with precedes, After with follows, Simultaneous with simultaneousWith, During with occursDuring, and IncludesRelation with includes.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Before on an assertion that also uses precedes when accepted.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/EquityMarket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialMarket"/>
+    <rdfs:label xml:lang="en">equity market</rdfs:label>
+    <fneo:definition xml:lang="en">A collective equity market mentioned as a market aggregate, kept distinct from a named market index and from an organisation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subclass of financial market. Disjoint with market index in this version. Geographic modifiers remain boundary cases for population, which is outside this schema.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional equity market named as a market rather than as an index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/populatedByActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    <rdfs:label xml:lang="en">populated by activity</rdfs:label>
+    <fneo:definition xml:lang="en">Relates an ontology individual to the population activity that produced it.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Local property. See also prov:wasGeneratedBy. PROV-O is not imported. A software-agent class is not defined in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A qualified assertion linked to a named population activity IRI.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb47">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb48"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/MarketDirection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">market direction</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for an optional direction of a market-change event.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The version 0.1 individuals are upward and downward. The class is not closed with owl:oneOf. Direction is not mandatory. There is no mixed-direction individual.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A downward direction on one market-change event and no direction on another.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb25">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Before"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb26"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb45">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/confidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">confidence</rdfs:label>
+    <fneo:definition xml:lang="en">A confidence value recorded for an automatically proposed assertion or other provenance-bearing statement.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Scales are not comparable across components. A missing confidence is unknown, not zero. Optional for manual assertions.</fneo:scopeNote>
+    <fneo:example xml:lang="en">0.95 on an accepted qualified participation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/tokenStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb40"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">token start</rdfs:label>
+    <fneo:definition xml:lang="en">The inclusive start of a half-open token interval [tokenStart, tokenEnd).</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional when a character span is stored, and sufficient evidence when a character span is absent. Token indexes are provenance coordinates, not ontology identity.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Token index 6 for the word fell in a synthetic sentence.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/precedes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://w3id.org/fneo/follows"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">precedes</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event to another reported event that it precedes under an accepted extension temporal relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Inverse of follows. Not transitive, asymmetric, or irreflexive as OWL characteristics. A direct triple exists only for an accepted assertion. An OWL reasoner may entail the inverse triple from that assertion. The entailed triple is not independently extracted evidence. Evaluation separates asserted direct temporal facts, reasoner-entailed temporal facts, qualified temporal assertions, and operational source relations. The raw source label is retained on the qualified assertion, not as a property name.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fall event precedes a later rise event in a synthetic brief.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb7">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Rejected"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/preferredNamespaceUri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">preferred namespace URI</rdfs:label>
+    <fneo:definition xml:lang="en">The IRI stem to which the preferred prefix expands.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Term IRIs are formed by appending a local name to this stem.</fneo:scopeNote>
+    <fneo:example xml:lang="en">https://w3id.org/fneo/</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">entity</rdfs:label>
+    <fneo:definition xml:lang="en">A canonical entity denoted by one or more textual mentions, distinct from those mentions and from events.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not every entity is a financial entity. This class is disjoint with event in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The canonical record for a fictional market index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdfs:label xml:lang="en">has participant</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event to an entity that participated in it, without naming a financial role.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Domain event and range entity. No OWL property characteristics are declared. Source role labels are not values of this property.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A market-change event has the affected index as a participant through the subproperty hasAffectedMarket.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/CommercialBank">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialOrganisation"/>
+    <rdfs:label xml:lang="en">commercial bank</rdfs:label>
+    <fneo:definition xml:lang="en">A commercial bank or bank group, classified in context.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial organisation. Not declared disjoint with central bank. Ambiguous names are not forced into this class.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional commercial bank, distinct from a central bank in the same brief.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/scopeNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">scope note</rdfs:label>
+    <fneo:definition xml:lang="en">A local scope note that records how a term is meant to be applied in this version.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Corresponds in purpose to skos:scopeNote. The SKOS ontology is not imported.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A note that market direction is optional.</fneo:example>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ruleIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">rule identifier</rdfs:label>
+    <fneo:definition xml:lang="en">The identifier of the enrichment rule or manual protocol that produced an assertion.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Provenance string, not a public class name. When populatedByRule is also present the two strings should not diverge.</fneo:scopeNote>
+    <fneo:example xml:lang="en">SYN-PART-001 on a synthetic participation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/includes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">includes</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a time entity interval to a reported event that the interval includes, when an accepted extension relation supports that reading.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Inverse of occurs during. The public name is includes. A raw operational label is not copied into the property name. A reasoner-entailed includes triple is not a separately accepted extraction.</fneo:scopeNote>
+    <fneo:example xml:lang="en">An interval includes a reported market-change event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/relationSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">relation source</rdfs:label>
+    <fneo:definition xml:lang="en">The source or derivation activity from which a temporal relation was taken.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Lightweight provenance string. A later alignment may map it toward PROV-O. No import is required.</fneo:scopeNote>
+    <fneo:example xml:lang="en">synthetic-explicit on a hand-authored temporal assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEntity"/>
+    <rdfs:label xml:lang="en">financial object</rdfs:label>
+    <fneo:definition xml:lang="en">A financial entity that is an object such as a market index, an equity share, or a currency, rather than an organisation or a market venue.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Abstract modelling class. Market index, equity share, and currency specialise it. It is not a gold population target by itself, and a market index is not a financial market.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A named index, a share, or a named currency.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/EntityMention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:label xml:lang="en">entity mention</rdfs:label>
+    <fneo:definition xml:lang="en">A textual mention that denotes an entity.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">An entity mention is not the entity it denotes. In the core profile an in-profile entity mention denotes one entity.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A mention of a fictional market index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/MonetaryAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/NumericalValue"/>
+    <rdfs:label xml:lang="en">monetary amount</rdfs:label>
+    <fneo:definition xml:lang="en">A numerical value that is a sum of money, distinct from a currency.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under numerical value. Disjoint with currency. A currency code may be recorded on the amount. Sentence co-presence with an event is not an attachment.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fabricated sum with a currency code, stored as document-level data.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/eventCorefersWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">event corefers with</rdfs:label>
+    <fneo:definition xml:lang="en">Optionally relates two events that a reviewed judgement treats as the same event within one document.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Optional identity module. A one-to-one canonicalisation link is not this property. Symmetry and transitivity are not declared.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Two event individuals judged to corefer inside one synthetic document.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/MarketChangeEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEvent"/>
+    <rdfs:label xml:lang="en">market-change event</rdfs:label>
+    <fneo:definition xml:lang="en">A reported financial event in which a named market index or equity market undergoes a change in its represented level, value, or condition.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subclass of financial event. Direction is optional and is not a subclass split. Distinct triggers or affected markets use distinct event individuals. No mixed-direction class is defined.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A reported fall in a fictional index, distinct from a reported rise in a fictional equity market.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb2">
+    <rdf:first rdf:resource="https://w3id.org/fneo/UpwardDirection"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/simultaneousWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">simultaneous with</rdfs:label>
+    <fneo:definition xml:lang="en">Relates two reported events that an accepted extension relation treats as simultaneous.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Symmetry is not declared. This release candidate keeps simultaneousWith non-symmetric. Symmetry is pending verification of the operational source-relation semantics. A reasoner must not be treated as supplying the reverse triple. The temporal extension is experimental.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Two events explicitly judged simultaneous, with an accepted qualified assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb28">
+    <rdf:first rdf:resource="https://w3id.org/fneo/During"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/SuppressedCommitment">
+    <rdf:type rdf:resource="https://w3id.org/fneo/CommitmentStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">suppressed commitment</rdfs:label>
+    <fneo:definition xml:lang="en">The commitment status for a temporal candidate whose commitment is suppressed.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">A suppressed commitment must not materialise a positive direct temporal triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The commitment state of an inverse-generated candidate that is held back.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/EventMention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:label xml:lang="en">event mention</rdfs:label>
+    <fneo:definition xml:lang="en">A textual expression that denotes a reported event.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">An event mention is not the event it denotes. A one-to-one link from expression to event is canonicalisation, not event coreference.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The word fell used as the expression of a market-change event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb32">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb33"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdfs:label xml:lang="en">financial entity</rdfs:label>
+    <fneo:definition xml:lang="en">An entity that the ontology types as financial, including markets, financial organisations, financial objects, financial systems, and financial sectors.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not every entity is a financial entity. The class does not copy a source organisation code or a source financial code.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional equity market after classification.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/bibliographicCitation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">bibliographic citation</rdfs:label>
+    <fneo:definition xml:lang="en">A short citation string for this ontology version.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Author names are not invented here. See the modelling notes for the attribution choice.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Financial News Event Ontology, development version 0.1.0, 2026.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasMarketDirection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/MarketChangeEvent"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/MarketDirection"/>
+    <rdfs:label xml:lang="en">has market direction</rdfs:label>
+    <fneo:definition xml:lang="en">Optionally relates a market-change event to a controlled direction value.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not mandatory. The core profile reports absence as information, not as a violation. No mixed-direction value exists. When the property is present, validation status and a population method are expected.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fall linked to downward direction.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/MarketIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialObject"/>
+    <rdfs:label xml:lang="en">market index</rdfs:label>
+    <fneo:definition xml:lang="en">A named market index mentioned as an index, kept distinct from a collective equity market, a currency, a bank, and a price.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subclass of financial object. Not a subclass of financial market. Disjoint with equity market and with financial organisation in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional index such as the Northwind Market Index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/EquityMarket"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb21">
+    <rdf:first rdf:resource="https://w3id.org/fneo/ReviewRequired"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/sourceKind">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TemporalRelationAssertion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">source kind</rdfs:label>
+    <fneo:definition xml:lang="en">The kind of temporal source, such as explicit annotation, population derivation, inverse generation, rule inference, closure, or learned prediction.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Source kind selects the temporal profile. It does not by itself accept a relation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">explicit on an accepted temporal assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TemporalRelationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">temporal relation type</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for the object-valued type of a temporal relation assertion.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Individuals are Before, After, Simultaneous, During, and IncludesRelation. They are not the object properties precedes, follows, simultaneousWith, occursDuring, and includes. The class is not closed with owl:oneOf.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Before paired with a direct precedes triple when the assertion is accepted.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialOrganisation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEntity"/>
+    <rdfs:label xml:lang="en">financial organisation</rdfs:label>
+    <fneo:definition xml:lang="en">A financial entity that is an organisation in a financial role.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Abstract modelling class. Central bank and commercial bank specialise it. A source organisation code is not equivalent to this class. The two bank classes are not declared disjoint.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fictional central bank.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/MarketIndex"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/NotReviewed">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ManualReviewStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">not reviewed</rdfs:label>
+    <fneo:definition xml:lang="en">The review status for an individual or assertion that has not been reviewed.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not reviewed is distinct from rejected. Extension classes may warn when review status is absent entirely.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A draft classification that has not yet been reviewed.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/CommitmentStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">commitment status</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for the commitment state of a qualified temporal relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Individuals represent the status. A parallel literal is not defined. Proposed and suppressed commitment do not materialise a positive direct temporal triple.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Committed on an accepted precedes assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TextualEvidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">textual evidence</rdfs:label>
+    <fneo:definition xml:lang="en">A passage, token span, or stored text excerpt that supports a reported event or another ontology assertion.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Evidence is not the event it supports. Token spans are sufficient. Character offsets are included only when stored.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The sentence that reports a fall in a fictional index.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb41">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb42"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb38">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb39"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TimeMention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdfs:label xml:lang="en">time mention</rdfs:label>
+    <fneo:definition xml:lang="en">A textual mention of a time expression, distinct from the time entity that the mention denotes.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">A time mention is not a time entity, an entity mention, or an event mention. Character offsets are optional when token offsets exist.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The word Tuesday as a mention of a normalised day.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/evidenceText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">evidence text</rdfs:label>
+    <fneo:definition xml:lang="en">The text of a supporting passage when the evidence is wider than a single mention string.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Distinct from textual form. A reconstructed passage is still evidence text. It is not claimed to be a gold sentence element.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A fabricated sentence that supports a market-change event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Proposed">
+    <rdf:type rdf:resource="https://w3id.org/fneo/CommitmentStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">proposed</rdfs:label>
+    <fneo:definition xml:lang="en">The commitment status for a temporal candidate that has been proposed and must not materialise a positive direct temporal triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Proposed is an experimental or review state, not an accepted fact.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A proposed ordering candidate without a direct temporal triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasAffectedMarket">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/fneo/hasParticipant"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/MarketChangeEvent"/>
+    <rdfs:range rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb34"/>
+    <rdfs:label xml:lang="en">has affected market</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a market-change event to the market or market index whose represented condition or value is reported as changing.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Subproperty of hasParticipant. Domain is MarketChangeEvent. The OWL range is the union of FinancialMarket and MarketIndex, so the ontology remains reusable for further financial-market subclasses. EquityMarket is inside that union because it is a FinancialMarket. The evaluated core application profile is narrower: a populated value must be a MarketIndex or an EquityMarket. That SHACL check is not the OWL range. The property is not declared functional.</fneo:scopeNote>
+    <fneo:example xml:lang="en">One event affects a fictional index. A distinct event affects a fictional equity market.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ModelInferred">
+    <rdf:type rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">model inferred</rdfs:label>
+    <fneo:definition xml:lang="en">The inference status for a relation produced by a learned temporal model.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Learned relations are experimental and are not accepted direct facts in this version.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A model score retained on a candidate that has no direct triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/assertionObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:label xml:lang="en">assertion object</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a qualified assertion resource to the individual that is the object of the domain statement it qualifies.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Literal objects use assertionObjectLiteral instead. Not an OWL functional property. The core profile expects one individual object when the statement is not literal-valued.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The index that is the object of a qualified affected-market statement.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ManualReviewStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">manual review status</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for whether an assertion or extension individual has been routed to, or has completed, manual review.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Distinct from validation status so that routing and outcome can differ. A parallel literal is not defined. Missing review on an extension bank, system, or sector is a warning, not a violation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Manually accepted on a fictional central bank.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb17">
+    <rdf:first rdf:resource="https://w3id.org/fneo/ClosureDerived"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/populationMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">population method</rdfs:label>
+    <fneo:definition xml:lang="en">The method that produced an assertion, such as manual review, a documented rule, or a later mapping.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Provenance string. Suggested values include manual_review, documented_rule, and unreviewed_import. The property is not an OWL enumeration.</fneo:scopeNote>
+    <fneo:example xml:lang="en">manual_review on a hand-classified market-change event.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/competencyQuestionCatalogue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">competency-question catalogue</rdfs:label>
+    <fneo:definition xml:lang="en">A pointer to the approved competency-question catalogue used to justify this version.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The pointer is a release-relative path, not a public URL and not a claim that the catalogue has been populated.</fneo:scopeNote>
+    <fneo:example xml:lang="en">competency_questions/catalogue/cq_to_ontology_requirements.csv</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb39">
+    <rdf:first rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb19">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/Suppressed">
+    <rdf:type rdf:resource="https://w3id.org/fneo/ValidationStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">suppressed</rdfs:label>
+    <fneo:definition xml:lang="en">The validation status for an assertion that is suppressed and must not materialise a positive direct semantic triple.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Suppression is auditable through the qualified resource and, where relevant, suppressionReason.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A suppressed simultaneous candidate with no simultaneousWith triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/FinancialSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/fneo/FinancialEntity"/>
+    <rdfs:label xml:lang="en">financial system</rdfs:label>
+    <fneo:definition xml:lang="en">An expression referring to a financial system, kept distinguishable from a financial sector, a market index, a bank, and crisis or recession wording.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Extension class under financial entity. Not declared disjoint with financial sector. Ambiguous expressions stay review-required and are not a validation violation.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The wording of a fictional financial system after manual review.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/namespaceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:label xml:lang="en">namespace status</rdfs:label>
+    <fneo:definition xml:lang="en">Records that the namespace and W3ID stem are provisional and not registered.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">This annotation qualifies the namespace, not the domain semantics.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Provisional and not registered.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/hasPublicationTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/FinancialNewsDocument"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdfs:label xml:lang="en">has publication time</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a financial news document to the time entity that is its publication or creation time.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not an OWL functional property. The core profile uses SHACL maxCount 1. The normalised literal sits on the time entity, not as a second datatype property on the document.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A synthetic brief linked to one publication time.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb27">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Simultaneous"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb28"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/ValidationStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">validation status</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for the validation state of an assertion or a typed financial statement.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Individuals represent the status. A parallel literal status property is not defined. The class is not closed with owl:oneOf. Core shapes use these individuals.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Accepted on a materialised participation, and requires-review on a candidate that has no direct triple.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/TextualMention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">textual mention</rdfs:label>
+    <fneo:definition xml:lang="en">A textual occurrence of an entity, event, time, or value, distinct from the canonical object that the occurrence denotes.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Entity mentions, event mentions, and time mentions specialise this class. A value expression may remain a textual mention when no narrower mention class is approved.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The surface string of a fictional index name.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/Entity"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/fneo/Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/assertionSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/RelationAssertion"/>
+    <rdfs:label xml:lang="en">assertion subject</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a qualified assertion resource to the subject of the domain statement it qualifies.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Not an OWL functional property. The core profile expects one subject on a qualified assertion. Ordinary triples without material statement metadata do not use this property.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The market-change event that is the subject of a qualified participation.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb37">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb38"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb42">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb46">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb47"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb12">
+    <rdf:first rdf:resource="https://w3id.org/fneo/SuppressedCommitment"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/follows">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:range rdf:resource="https://w3id.org/fneo/Event"/>
+    <rdfs:label xml:lang="en">follows</rdfs:label>
+    <fneo:definition xml:lang="en">Relates a reported event to another reported event that it follows under an accepted extension temporal relation.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Inverse of precedes. Declaring the inverse does not accept inverse-generated candidates. Those remain qualified resources without a positive direct triple until they are accepted. A reasoner-entailed follows triple is not a separately accepted extraction.</fneo:scopeNote>
+    <fneo:example xml:lang="en">The inverse reading of an accepted precedes link.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/issued">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb31"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb14">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Explicit"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/IncludesRelation">
+    <rdf:type rdf:resource="https://w3id.org/fneo/TemporalRelationType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">includes relation</rdfs:label>
+    <fneo:definition xml:lang="en">The temporal relation type that pairs with the object property includes.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">The individual is named IncludesRelation so that it does not collide with the property includes.</fneo:scopeNote>
+    <fneo:example xml:lang="en">IncludesRelation on an accepted includes assertion.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb10">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Committed"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb43">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb44"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb23">
+    <rdf:first rdf:resource="https://w3id.org/fneo/ManuallyRejected"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb10"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb36">
+    <rdf:first rdf:resource="https://w3id.org/fneo/MarketIndex"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/RuleInferred">
+    <rdf:type rdf:resource="https://w3id.org/fneo/InferenceStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">rule inferred</rdfs:label>
+    <fneo:definition xml:lang="en">The inference status for a relation produced by a rule rather than stated explicitly.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Rule-inferred temporal candidates stay in the experimental profile unless a separate acceptance decision materialises them.</fneo:scopeNote>
+    <fneo:example xml:lang="en">A rule-inferred ordering retained only as a candidate.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/fneo/InferenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">inference status</rdfs:label>
+    <fneo:definition xml:lang="en">The controlled-value class for how a temporal or other qualified relation was obtained.</fneo:definition>
+    <fneo:scopeNote xml:lang="en">Explicit, rule-inferred, inverse-generated, closure-derived, and model-inferred are the version 0.1 individuals. Experimental statuses are not treated as explicit evidence. A parallel literal is not defined.</fneo:scopeNote>
+    <fneo:example xml:lang="en">Explicit on an accepted temporal assertion, and inverse-generated on a suppressed candidate.</fneo:example>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/fneo/ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb11">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Proposed"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb15">
+    <rdf:first rdf:resource="https://w3id.org/fneo/RuleInferred"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb22">
+    <rdf:first rdf:resource="https://w3id.org/fneo/ManuallyAccepted"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb23"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb48">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualEvidence"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb31">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Entity"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb32"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb50">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TextualMention"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb51"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+    <owl:distinctMembers rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb25"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb49">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb50"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/modified">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb40">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb41"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb6">
+    <rdf:first rdf:resource="https://w3id.org/fneo/RequiresReview"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb33">
+    <rdf:first rdf:resource="https://w3id.org/fneo/TimeEntity"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb5">
+    <rdf:first rdf:resource="https://w3id.org/fneo/Accepted"/>
+    <rdf:rest rdf:nodeID="nc7d7651d12f2401282192aa5ebdcd58bb6"/>
+  </rdf:Description>
+</rdf:RDF>

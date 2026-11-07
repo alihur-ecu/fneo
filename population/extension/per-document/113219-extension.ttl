@@ -1,0 +1,75 @@
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> rdfs:label "enrichment activity feo011-doc-113219"^^xsd:string ;
+    fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> .
+
+<https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> rdfs:label "deterministic enrichment engine"^^xsd:string .
+
+<https://w3id.org/fneo/resource/assertion/relation/b86f5e91d0deca542b9d> rdf:type fneo:RelationAssertion ;
+    fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string .
+
+<https://w3id.org/fneo/resource/assertion/relation/bf1262ecbb0c432b5247> rdf:type fneo:RelationAssertion ;
+    fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/113219> rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Stock markets worldwide fall dramatically"^^xsd:string ;
+    fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/113219/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:sourceDocumentIdentifier "113219"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> rdf:type fneo:Event ;
+    rdfs:label "drop in"^^xsd:string ;
+    fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-ee728d0fcb2308bf> .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string ;
+    fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-3fab7fcbc65f7380> .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-3fab7fcbc65f7380> rdf:type fneo:EventMention ;
+    fneo:characterEnd "147"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "141"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/113219> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "26"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "25"^^xsd:nonNegativeInteger .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-ee728d0fcb2308bf> rdf:type fneo:EventMention ;
+    fneo:characterEnd "349"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "339"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/113219> ;
+    fneo:textualForm "drop in"^^xsd:string ;
+    fneo:tokenEnd "66"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "64"^^xsd:nonNegativeInteger .
+
+<https://w3id.org/fneo/resource/rule/FE-DIR-001> rdfs:label "FE-DIR-001"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/113219/publication> rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string ;
+    fneo:normalisedTimeValue "2008-09-17T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-09-17T00:00:00"^^xsd:string .

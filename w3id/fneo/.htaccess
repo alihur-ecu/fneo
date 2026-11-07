@@ -1,0 +1,26 @@
+# Proposed W3ID redirect for https://w3id.org/fneo/
+# Status: UNTESTED.
+# Do not submit this file until all of the following are true:
+#   1. The GitHub repository alihur-ecu/fneo exists and is public.
+#   2. GitHub Pages is serving documentation.
+#   3. Raw ontology files are public over HTTPS.
+#   4. The HTTPS targets below have been requested and return the ontology.
+# https://w3id.org/fneo/ is not registered.
+
+# Replace INTENDED_RAW_BASE with the raw GitHub base after the repository exists.
+# Example shape, not a live URL:
+#   https://raw.githubusercontent.com/alihur-ecu/fneo/<public-commit>/ontology
+
+Header set Access-Control-Allow-Origin *
+
+RewriteEngine On
+
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^ontology/0\.1\.0-rc2$ INTENDED_RAW_BASE/fneo.ttl [R=303,L]
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^ontology/0\.1\.0-rc2$ INTENDED_RAW_BASE/fneo.owl [R=303,L]
+RewriteCond %{HTTP_ACCEPT} application/ld\+json
+RewriteRule ^ontology/0\.1\.0-rc2$ INTENDED_RAW_BASE/fneo.jsonld [R=303,L]
+RewriteRule ^ontology/0\.1\.0-rc2$ INTENDED_RAW_BASE/fneo.ttl [R=303,L]
+RewriteRule ^ontology$ INTENDED_RAW_BASE/fneo.ttl [R=303,L]
+RewriteRule ^$ INTENDED_PAGES_BASE/ [R=303,L]

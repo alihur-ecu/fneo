@@ -1,0 +1,5860 @@
+[
+  {
+    "@id": "https://w3id.org/fneo/InferenceStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "inference status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for how a temporal or other qualified relation was obtained."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Explicit on an accepted temporal assertion, and inverse-generated on a suppressed candidate."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Explicit, rule-inferred, inverse-generated, closure-derived, and model-inferred are the version 0.1 individuals. Experimental statuses are not treated as explicit evidence. A parallel literal is not defined."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/developmentStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "development status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "States whether the ontology version is a development version or a stable release."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Development version 0.1.0."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Version 0.1.0 is a development version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/currencyCode",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/MonetaryAmount"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "currency code"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A currency code recorded on a monetary amount when the currency is identified."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "NWD on a fictional monetary amount."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension literal. A code is not a currency individual. Absence is informational in the extension profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Explicit",
+    "@type": [
+      "https://w3id.org/fneo/InferenceStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "explicit"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inference status for a relation taken from explicit evidence rather than from inference or a learned model."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An explicit event-time anchor or an explicit before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Explicit status supports the core and extension temporal profiles. It is not a substitute for textual evidence."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/EquityMarket",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "equity market"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialMarket"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A collective equity market mentioned as a market aggregate, kept distinct from a named market index and from an organisation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional equity market named as a market rather than as an index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subclass of financial market. Disjoint with market index in this version. Geographic modifiers remain boundary cases for population, which is outside this schema."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/IncludesRelation",
+    "@type": [
+      "https://w3id.org/fneo/TemporalRelationType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "includes relation"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The temporal relation type that pairs with the object property includes."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "IncludesRelation on an accepted includes assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The individual is named IncludesRelation so that it does not collide with the property includes."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasMonetaryAmount",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has monetary amount"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/MonetaryAmount"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/fneo/hasReportedValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An extension relation from an event to a monetary amount under a manually validated mapping."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reviewed link from an event to a sum of money."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subproperty of has reported value. Sparse and not a core population target. Co-presence is not a shortcut."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ManuallyAccepted",
+    "@type": [
+      "https://w3id.org/fneo/ManualReviewStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "manually accepted"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The review status for an individual or assertion that a reviewer has accepted."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reviewer-accepted fictional central bank."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Manual acceptance is an outcome of review. It is distinct from the validation individual Accepted, which governs materialisation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/generatedBySoftwareAgent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "generated by software agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a population activity or a qualified assertion to the software agent associated with it."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A population activity associated with an identified extractor build."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Local property. See also prov:wasAssociatedWith. PROV-O is not imported. The range is unconstrained because no agent class is approved in this version."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/source",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasEventTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has event time"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event to a time entity that explicitly anchors the event."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A market-change event anchored to a Tuesday time entity."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Distinct from publication time. Not mandatory for every market-change event. Absence is a core warning, not a violation, and not an OWL cardinality restriction."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/MonetaryAmount",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "monetary amount"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A numerical value that is a sum of money, distinct from a currency."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fabricated sum with a currency code, stored as document-level data."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under numerical value. Disjoint with currency. A currency code may be recorded on the amount. Sentence co-presence with an event is not an attachment."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasMarketDirection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/MarketChangeEvent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has market direction"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/MarketDirection"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Optionally relates a market-change event to a controlled direction value."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fall linked to downward direction."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not mandatory. The core profile reports absence as information, not as a violation. No mixed-direction value exists. When the property is present, validation status and a population method are expected."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/definition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "definition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A local definition annotation used so the ontology can state term definitions without importing SKOS."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The definition of market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Corresponds in purpose to skos:definition. The SKOS ontology is not imported."
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0001-9537-2648",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Ali HUR"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/scopeNote",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "scope note"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#scopeNote"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A local scope note that records how a term is meant to be applied in this version."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A note that market direction is optional."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Corresponds in purpose to skos:scopeNote. The SKOS ontology is not imported."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialNewsDocument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial news document"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A financial news report treated as the source document for mentions, reported events, publication time, and numerical expressions."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fabricated market brief with one publication time."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The document is not a mention span and not an event. A source-document identifier on the document is provenance, not the identity of the ontology individual."
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/RuleInferred",
+    "@type": [
+      "https://w3id.org/fneo/InferenceStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "rule inferred"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inference status for a relation produced by a rule rather than stated explicitly."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A rule-inferred ordering retained only as a candidate."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Rule-inferred temporal candidates stay in the experimental profile unless a separate acceptance decision materialises them."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ontology",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://orcid.org/0000-0001-9537-2648"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@language": "en",
+        "@value": "A corpus-grounded ontology for entities, events, participant roles, financial objects, values, times, qualified assertions, and textual evidence in financial news."
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-10-30"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-11-06"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Financial News Event Ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Controlled lists in this version are the version 0.1 sets. The value classes are not closed with owl:oneOf. Extension temporal relations are experimental: they are not core publication commitments, symmetry is not declared for simultaneousWith, and a reasoner entailment of an inverse temporal triple is not independently extracted evidence. dcterms:modified records the metadata-revision date 2026-11-06, not a public release date."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Financial News Event Ontology"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://w3id.org/fneo/ontology/0.1.0-rc1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionIRI": [
+      {
+        "@id": "https://w3id.org/fneo/ontology/0.1.0-rc2"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "0.1.0-rc2"
+      }
+    ],
+    "https://w3id.org/fneo/acronym": [
+      {
+        "@value": "FNEO"
+      }
+    ],
+    "https://w3id.org/fneo/backwardCompatibility": [
+      {
+        "@language": "en",
+        "@value": "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. Relative to 0.1.0-rc1, the OWL range of hasAffectedMarket is the union of FinancialMarket and MarketIndex. The core application profile still requires a populated value to be a MarketIndex or an EquityMarket. That profile check is not the OWL range."
+      }
+    ],
+    "https://w3id.org/fneo/bibliographicCitation": [
+      {
+        "@language": "en",
+        "@value": "Hur, Ali. Financial News Event Ontology, development release candidate 0.1.0-rc2. ORCID https://orcid.org/0000-0001-9537-2648. Provisional title, acronym, and namespace. No DOI and no public release date are assigned."
+      }
+    ],
+    "https://w3id.org/fneo/competencyQuestionCatalogue": [
+      {
+        "@value": "competency_questions/catalogue/cq_to_ontology_requirements.csv"
+      }
+    ],
+    "https://w3id.org/fneo/developmentStatus": [
+      {
+        "@language": "en",
+        "@value": "Development release candidate 0.1.0-rc2 of version 0.1.0. Not a stable release. The ontology IRI is unchanged."
+      }
+    ],
+    "https://w3id.org/fneo/namespaceStatus": [
+      {
+        "@language": "en",
+        "@value": "Provisional. The prefix fneo: expands to https://w3id.org/fneo/. The ontology IRI is https://w3id.org/fneo/ontology. This W3ID has not been registered, and this file does not claim that the namespace resolves."
+      }
+    ],
+    "https://w3id.org/fneo/preferredNamespacePrefix": [
+      {
+        "@value": "fneo"
+      }
+    ],
+    "https://w3id.org/fneo/preferredNamespaceUri": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3id.org/fneo/"
+      }
+    ],
+    "https://w3id.org/fneo/priorVersionNote": [
+      {
+        "@language": "en",
+        "@value": "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. The prior version IRI is https://w3id.org/fneo/ontology/0.1.0-rc1."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The ontology represents financial-news reports. It does not model trading recommendations, investment advice, portfolio construction, accounting, regulation, live market systems, or predictive analytics. Extension temporal relations are experimental."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/entityCorefersWith",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "entity corefers with"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Optionally relates two entities that a reviewed judgement treats as the same entity within one document."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Two entity individuals judged to corefer inside one synthetic document."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional identity module. Not required by core shapes. Symmetry and transitivity are not declared."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/populatedByRule",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "populated by rule"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The identifier of the rule or protocol that populated a qualified assertion."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "SYN-TIME-EXPLICIT on an accepted temporal assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Required on a qualified assertion produced by a rule. Must agree with ruleIdentifier when both are present. Not an ontology class name."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ClosureDerived",
+    "@type": [
+      "https://w3id.org/fneo/InferenceStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "closure derived"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inference status for a relation derived by temporal closure."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A closure-derived link retained only as a candidate."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Closure-derived order is experimental. It is not treated as equally reliable as explicit time anchoring."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialMarket",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial market"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A financial entity that is a market, used as the broader class for an equity market."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A collective equity market."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "A named market index is not a subclass of this class. Equity market is the approved subclass in this version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialSector",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial sector"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An expression referring to a financial sector, kept distinguishable from a financial system, a market index, a bank, and crisis or recession wording."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The wording of a fictional financial sector after manual review."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial entity. Not declared disjoint with financial system. Ambiguous expressions are not populated automatically."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/After",
+    "@type": [
+      "https://w3id.org/fneo/TemporalRelationType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "after"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The temporal relation type that pairs with the object property follows."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "After on an assertion whose direct triple, if accepted, uses follows."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Use this individual on temporalRelationType. Do not use it as a property name."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/reportsEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialNewsDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "reports event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a financial news document to an event reported in that document."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A synthetic brief reports two market-change events."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not functional. One document may report many events. Document membership can also be recovered through a mention."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasValidationStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has validation status"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/ValidationStatus"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates an assertion or a typed statement to a validation-status individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Accepted on a materialised participation, or requires-review on a candidate."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "No global domain, because both qualified assertions and market-change events may carry a status. No parallel literal property is defined."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasPublicationTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialNewsDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has publication time"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a financial news document to the time entity that is its publication or creation time."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A synthetic brief linked to one publication time."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not an OWL functional property. The core profile uses SHACL maxCount 1. The normalised literal sits on the time entity, not as a second datatype property on the document."
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/name",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/sourceRoleLabel",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/EventParticipation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "source role label"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The source semantic-role label stored for a participant link when one is available."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A preserved source label such as change-target, without promoting it to a class."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Mapping information on an event participation or a companion record. Not a financial-domain role and not a public object property. A missing label is unknown, not a violation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasAffectedMarket",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/MarketChangeEvent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has affected market"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb34"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/fneo/hasParticipant"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a market-change event to the market or market index whose represented condition or value is reported as changing."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "One event affects a fictional index. A distinct event affects a fictional equity market."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subproperty of hasParticipant. Domain is MarketChangeEvent. The OWL range is the union of FinancialMarket and MarketIndex, so the ontology remains reusable for further financial-market subclasses. EquityMarket is inside that union because it is a FinancialMarket. The evaluated core application profile is narrower: a populated value must be a MarketIndex or an EquityMarket. That SHACL check is not the OWL range. The property is not declared functional."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb34",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/FinancialMarket"
+          },
+          {
+            "@id": "https://w3id.org/fneo/MarketIndex"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/assertionObject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "assertion object"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a qualified assertion resource to the individual that is the object of the domain statement it qualifies."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The index that is the object of a qualified affected-market statement."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Literal objects use assertionObjectLiteral instead. Not an OWL functional property. The core profile expects one individual object when the statement is not literal-valued."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/CentralBank",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "central bank"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialOrganisation"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A central bank, or a collective mention of central banks, classified in context."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional central bank named in a synthetic brief."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial organisation. Not declared disjoint with commercial bank. Classification requires review rather than a source organisation code alone."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ReviewRequired",
+    "@type": [
+      "https://w3id.org/fneo/ManualReviewStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "review required"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The review status for an individual or assertion that must be reviewed before it is treated as accepted."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A sector wording held for review."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Ambiguous financial-system or financial-sector wording may remain review-required. That state is not a core violation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TemporalRelationType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "temporal relation type"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for the object-valued type of a temporal relation assertion."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Before paired with a direct precedes triple when the assertion is accepted."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Individuals are Before, After, Simultaneous, During, and IncludesRelation. They are not the object properties precedes, follows, simultaneousWith, occursDuring, and includes. The class is not closed with owl:oneOf."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/modified",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/textualForm",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "textual form"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The surface text of a mention or other short linguistic unit."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The string fell on an event mention."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "This is the mention string. It is not a second copy of the whole document. Percentage values use numericalLexicalForm for the lexical percentage."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/normalisedTimeValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "normalised time value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The normalised value recorded for a time entity, including dates, timestamps, durations, and underspecified forms."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "2026-03-03T09:00:00 on a publication time entity."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The range is xsd:string because one XML Schema date type would reject durations and underspecified forms. This property does not order events."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/CommitmentStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "commitment status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for the commitment state of a qualified temporal relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Committed on an accepted precedes assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Individuals represent the status. A parallel literal is not defined. Proposed and suppressed commitment do not materialise a positive direct temporal triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/EventParticipation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "event participation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A qualified assertion used when participation needs role, evidence, confidence, validation, or review metadata."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A qualified link from a market-change event to the index it affects."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Does not replace hasParticipant or hasAffectedMarket on an accepted assertion. The source role label is mapping information, not a financial-role taxonomy. A financial-role vocabulary is deferred."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/DownwardDirection",
+    "@type": [
+      "https://w3id.org/fneo/MarketDirection",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "downward direction"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled value for a downward market direction."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A downward reading on a fall in a fictional index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TextualEvidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "textual evidence"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A passage, token span, or stored text excerpt that supports a reported event or another ontology assertion."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The sentence that reports a fall in a fictional index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Evidence is not the event it supports. Token spans are sufficient. Character offsets are included only when stored."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialOrganisation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial organisation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEntity"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/MarketIndex"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A financial entity that is an organisation in a financial role."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional central bank."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Abstract modelling class. Central bank and commercial bank specialise it. A source organisation code is not equivalent to this class. The two bank classes are not declared disjoint."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/temporalSubject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "temporal subject"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a temporal relation assertion to the subject of the temporal relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The earlier event in an accepted before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The range is left open so the property can point at an event or a time entity without a union axiom that this version does not require. Core checks use the temporal relation type to decide which direct property is relevant."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/NotReviewed",
+    "@type": [
+      "https://w3id.org/fneo/ManualReviewStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "not reviewed"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The review status for an individual or assertion that has not been reviewed."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A draft classification that has not yet been reviewed."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not reviewed is distinct from rejected. Extension classes may warn when review status is absent entirely."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/MarketChangeEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "market-change event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEvent"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A reported financial event in which a named market index or equity market undergoes a change in its represented level, value, or condition."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reported fall in a fictional index, distinct from a reported rise in a fictional equity market."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subclass of financial event. Direction is optional and is not a subclass split. Distinct triggers or affected markets use distinct event individuals. No mixed-direction class is defined."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/denotes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "denotes"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a textual mention to the canonical referent of that mention."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An index mention denotes the index individual."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "There is no single global range and the property is not functional. Class-specific shapes constrain entity mentions, event mentions, and time mentions. A maximum count of one applies in SHACL to in-profile mentions, not as an OWL axiom."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/participationEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/EventParticipation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "participation event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates an event-participation resource to the event in the participation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The market-change event in a qualified affected-market participation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "More specific than assertion subject. Accepted participations still expose the direct hasParticipant or hasAffectedMarket triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A canonical entity denoted by one or more textual mentions, distinct from those mentions and from events."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The canonical record for a fictional market index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not every entity is a financial entity. This class is disjoint with event in this version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/populationMethod",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "population method"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The method that produced an assertion, such as manual review, a documented rule, or a later mapping."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "manual_review on a hand-classified market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Provenance string. Suggested values include manual_review, documented_rule, and unreviewed_import. The property is not an OWL enumeration."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ValidationStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "validation status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for the validation state of an assertion or a typed financial statement."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Accepted on a materialised participation, and requires-review on a candidate that has no direct triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Individuals represent the status. A parallel literal status property is not defined. The class is not closed with owl:oneOf. Core shapes use these individuals."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb24",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Before"
+          },
+          {
+            "@id": "https://w3id.org/fneo/After"
+          },
+          {
+            "@id": "https://w3id.org/fneo/Simultaneous"
+          },
+          {
+            "@id": "https://w3id.org/fneo/During"
+          },
+          {
+            "@id": "https://w3id.org/fneo/IncludesRelation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Rejected",
+    "@type": [
+      "https://w3id.org/fneo/ValidationStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "rejected"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The validation status for an assertion that has been rejected and must not materialise a positive direct semantic triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A rejected temporal candidate with no precedes or follows triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The rejected resource may be retained for audit."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/RelationAssertion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "relation assertion"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A qualified-assertion resource that records statement-level metadata for a domain relation when that metadata is material."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A participation record that carries confidence and a validation status."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not applied to every RDF triple. Not defined as rdf:Statement alone. Accepted assertions expose a direct triple and this resource. Review-required, rejected, and suppressed assertions do not materialise a positive direct triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/simultaneousWith",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "simultaneous with"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates two reported events that an accepted extension relation treats as simultaneous."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Two events explicitly judged simultaneous, with an accepted qualified assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Symmetry is not declared. This release candidate keeps simultaneousWith non-symmetric. Symmetry is pending verification of the operational source-relation semantics. A reasoner must not be treated as supplying the reverse triple. The temporal extension is experimental."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/precedes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "precedes"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/fneo/follows"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event to another reported event that it precedes under an accepted extension temporal relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fall event precedes a later rise event in a synthetic brief."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Inverse of follows. Not transitive, asymmetric, or irreflexive as OWL characteristics. A direct triple exists only for an accepted assertion. An OWL reasoner may entail the inverse triple from that assertion. The entailed triple is not independently extracted evidence. Evaluation separates asserted direct temporal facts, reasoner-entailed temporal facts, qualified temporal assertions, and operational source relations. The raw source label is retained on the qualified assertion, not as a property name."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/bibliographicCitation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "bibliographic citation"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A short citation string for this ontology version."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Financial News Event Ontology, development version 0.1.0, 2026."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Author names are not invented here. See the modelling notes for the attribution choice."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/tokenEnd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb43"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "token end"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The exclusive end of a half-open token interval [tokenStart, tokenEnd)."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Token index 7 as the exclusive end of a one-token span."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "When both token offsets are present for a non-empty span, tokenEnd is greater than tokenStart."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb43",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/TextualMention"
+          },
+          {
+            "@id": "https://w3id.org/fneo/TextualEvidence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasManualReviewStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has manual review status"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/ManualReviewStatus"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates an individual or assertion to a manual-review-status individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Manually accepted on a fictional central bank."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "No global domain, so extension classes and qualified assertions can share the property. No parallel literal property is defined."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/example",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "example"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A short example of how a term is used."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional index name used as a market index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Examples in the ontology are illustrative. Synthetic graphs under the example stem are the machine-readable illustrations."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Simultaneous",
+    "@type": [
+      "https://w3id.org/fneo/TemporalRelationType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "simultaneous"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The temporal relation type that pairs with the object property simultaneousWith."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Simultaneous on a suppressed candidate that has no simultaneousWith triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Symmetry is not declared on simultaneousWith in release candidate 0.1.0-rc2. Symmetry is pending verification of the operational source-relation semantics. The individual is still the controlled type for that reading. The temporal extension is experimental."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/evidenceText",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TextualEvidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "evidence text"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The text of a supporting passage when the evidence is wider than a single mention string."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fabricated sentence that supports a market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Distinct from textual form. A reconstructed passage is still evidence text. It is not claimed to be a gold sentence element."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/participatingEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/EventParticipation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "participating entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates an event-participation resource to the entity that participates."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The index that participates in a qualified market-change participation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "More specific than assertion object. A financial-role object property is not defined. Use sourceRoleLabel for a preserved source label."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An entity that the ontology types as financial, including markets, financial organisations, financial objects, financial systems, and financial sectors."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional equity market after classification."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not every entity is a financial entity. The class does not copy a source organisation code or a source financial code."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/competencyQuestionCatalogue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "competency-question catalogue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A pointer to the approved competency-question catalogue used to justify this version."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "competency_questions/catalogue/cq_to_ontology_requirements.csv"
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The pointer is a release-relative path, not a public URL and not a claim that the catalogue has been populated."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/suppressionReason",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "suppression reason"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A short explanation of why a temporal or other qualified assertion was suppressed."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An inverse-generated candidate retained for audit and not accepted."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Used with validation status Suppressed or commitment status SuppressedCommitment. Suppression does not materialise a positive direct triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/assertionObjectLiteral",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "assertion object literal"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The literal object of a qualified statement when that object is a literal rather than an individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A qualified literal statement whose object is a string."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Do not use both assertionObject and assertionObjectLiteral for one assertion. Ordinary unqualified literals, such as labels, do not need this property."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/abstractExtensionPoint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "abstract extension point"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Marks a class that is retained as an abstract extension point and is not a population target in this version."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Financial situation is an abstract extension point."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The value true does not mean the class is deprecated and does not add a subclass axiom."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/priorVersionNote",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "prior version note"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An explicit statement of the prior version IRI when a development candidate precedes this file."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "https://w3id.org/fneo/ontology/0.1.0-rc1"
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "owl:priorVersion is used when a prior ontology IRI exists. This candidate points at development candidate 0.1.0-rc1. No stable public release precedes 0.1.0."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasInferenceStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has inference status"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/InferenceStatus"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a temporal relation assertion to an inference-status individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Explicit on an accepted temporal assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "No parallel literal property is defined. Inverse-generated, closure-derived, rule-inferred, and model-inferred statuses are metadata, not acceptance."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasCommitmentStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has commitment status"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/CommitmentStatus"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a temporal relation assertion to a commitment-status individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Committed on an accepted before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "No parallel literal property is defined. Suppressed commitment and proposed do not authorise a positive direct temporal triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/characterEnd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb49"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "character end"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The exclusive end of a half-open character interval [characterStart, characterEnd)."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The exclusive character index after a mention."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "When both character offsets are present for a non-empty span, characterEnd is greater than characterStart."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb49",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/TextualMention"
+          },
+          {
+            "@id": "https://w3id.org/fneo/TextualEvidence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Currency",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "currency"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialObject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/MonetaryAmount"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A named currency, distinct from a monetary amount and from a market index."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional currency name such as the Northwind dollar."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial object. Disjoint with monetary amount in this version. A currency code on an amount is not this class."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/temporalRelationType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "temporal relation type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationType"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a temporal relation assertion to a controlled temporal relation type."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Before on an assertion that also uses precedes when accepted."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The type individual is not the direct property. Before pairs with precedes, After with follows, Simultaneous with simultaneousWith, During with occursDuring, and IncludesRelation with includes."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/backwardCompatibility",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "backward compatibility"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A statement of compatibility with earlier public versions."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "No stable public release precedes version 0.1.0. A development candidate may still name a prior version IRI."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/InverseGenerated",
+    "@type": [
+      "https://w3id.org/fneo/InferenceStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "inverse generated"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inference status for a relation generated as an inverse of another relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An inverse-generated follows candidate that remains suppressed."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Inverse-generated candidates do not become accepted direct triples merely because an inverse axiom exists in the ontology."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/confidence",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "confidence"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A confidence value recorded for an automatically proposed assertion or other provenance-bearing statement."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "0.95 on an accepted qualified participation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Scales are not comparable across components. A missing confidence is unknown, not zero. Optional for manual assertions."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/eventCorefersWith",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "event corefers with"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Optionally relates two events that a reviewed judgement treats as the same event within one document."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Two event individuals judged to corefer inside one synthetic document."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional identity module. A one-to-one canonicalisation link is not this property. Symmetry and transitivity are not declared."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/assertionSubject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "assertion subject"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a qualified assertion resource to the subject of the domain statement it qualifies."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The market-change event that is the subject of a qualified participation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not an OWL functional property. The core profile expects one subject on a qualified assertion. Ordinary triples without material statement metadata do not use this property."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/sourceDocumentIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialNewsDocument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "source document identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The identifier of the source document, stored as provenance on a financial news document."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "SYN-DOC-001 on a synthetic brief."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The literal supports traceability. It is not the identity of the ontology individual. The core profile requires one on a financial news document."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Committed",
+    "@type": [
+      "https://w3id.org/fneo/CommitmentStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "committed"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The commitment status for a temporal relation that is committed and, when also accepted, may materialise a direct temporal triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Committed on an explicit before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Commitment alone is recorded on the qualified resource. The extension profile checks that a committed ordering relation has its direct triple."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/QuantityValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "quantity value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A numerical value that is a non-percentage quantity, such as a point change, distinct from a percentage and from a monetary amount."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fabricated point quantity stored as document-level data."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under numerical value. Not a core evaluation target and not an event attachment by default."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasReportedValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has reported value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An extension relation from a reported event to a numerical value, used only when a manually validated mapping exists."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A manually validated link from an event to a document-level quantity."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not a core requirement. Sentence co-presence is not evidence for this property. Absence on a market-change event is information in the core profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Event",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "event"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      },
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      },
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A reported event denoted by one or more textual expressions, distinct from those expressions, from entities, and from claims about the event."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reported fall, distinct from the index that fell and from the wording that reports it."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "A financial-event category is not implied by this class. Event is disjoint with entity, time entity, and numerical value in this version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/namespaceStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "namespace status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Records that the namespace and W3ID stem are provisional and not registered."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Provisional and not registered."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "This annotation qualifies the namespace, not the domain semantics."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/NumericalValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "numerical value"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A numerical expression reported in a document, including its lexical form and, where parseable, a numeric value."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The lexical expression 2.5 percent in a fabricated sentence."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "In the core profile a numerical value stays a document-level expression. Direct attachment to an event is an extension relation and is not required."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/publicationTimeLiteral",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "publication time literal"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Preserves the source lexical expression of a publication or creation time. The domain is TimeEntity."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "3 March 2026 beside a normalised timestamp."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Domain is TimeEntity only. This property is not a property of FinancialNewsDocument. It is distinct from normalisedTimeValue, which records the normalised form on the same time entity. The lexical expression is not a second publication-time relation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialSituation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial situation"
+      }
+    ],
+    "https://w3id.org/fneo/abstractExtensionPoint": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An abstract extension point for a continuing economic situation, kept conceptually distinct from a dated reported event."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "No populated instance. Situation wording is not retyped as this class in version 0.1."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not populated in this version, not a core validation target, and not given a subclass. A disjointness axiom with event is not asserted. Primary competency questions do not use this class."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/acronym",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "acronym"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The provisional acronym of the ontology."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "FNEO"
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "FNEO is provisional until the name is confirmed."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/temporalObject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "temporal object"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a temporal relation assertion to the object of the temporal relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The later event in an accepted before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The range is left open for the same reason as temporal subject. Event-event and event-time readings are distinguished by the temporal relation type and by shapes."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/CommercialBank",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "commercial bank"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialOrganisation"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A commercial bank or bank group, classified in context."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional commercial bank, distinct from a central bank in the same brief."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial organisation. Not declared disjoint with central bank. Ambiguous names are not forced into this class."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/materialisationEligibility",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "materialisation eligibility"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Whether a qualified temporal assertion may materialise a positive direct RDF triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "accepted on an explicit precedes assertion, or not_accepted on a suppressed candidate."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Accepted eligibility still requires the assertion to be accepted, committed where applicable, not suppressed, canonically mapped, and traceable. Other values must not co-exist with a positive direct temporal triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/follows",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "follows"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event to another reported event that it follows under an accepted extension temporal relation."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The inverse reading of an accepted precedes link."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Inverse of precedes. Declaring the inverse does not accept inverse-generated candidates. Those remain qualified resources without a positive direct triple until they are accepted. A reasoner-entailed follows triple is not a separately accepted extraction."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TemporalRelationAssertion",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "temporal relation assertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A qualified assertion specialised for a temporal relation, preserving the temporal subject, relation type, temporal object, commitment, inference status, and audit labels."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An explicit before-relation between two synthetic events, with a matching precedes triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "An accepted temporal assertion may also carry a direct temporal triple. A suppressed, rejected, proposed, or review-required temporal assertion must not carry a positive direct temporal triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/tokenStart",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb40"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "token start"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inclusive start of a half-open token interval [tokenStart, tokenEnd)."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Token index 6 for the word fell in a synthetic sentence."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional when a character span is stored, and sufficient evidence when a character span is absent. Token indexes are provenance coordinates, not ontology identity."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb40",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/TextualMention"
+          },
+          {
+            "@id": "https://w3id.org/fneo/TextualEvidence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/sourceAnnotationIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "source annotation identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The identifier of a source annotation, stored as provenance."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "SYN-ANN-FALL on a synthetic event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not ontology identity. Identifiers are not assumed to be stable across annotation editions. For a market-change event, an annotation identifier can stand as source grounding beside an event mention."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/populatedByActivity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "populated by activity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates an ontology individual to the population activity that produced it."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A qualified assertion linked to a named population activity IRI."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Local property. See also prov:wasGeneratedBy. PROV-O is not imported. A software-agent class is not defined in this version."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb13",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Explicit"
+          },
+          {
+            "@id": "https://w3id.org/fneo/RuleInferred"
+          },
+          {
+            "@id": "https://w3id.org/fneo/InverseGenerated"
+          },
+          {
+            "@id": "https://w3id.org/fneo/ClosureDerived"
+          },
+          {
+            "@id": "https://w3id.org/fneo/ModelInferred"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/numericalValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "numerical value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#decimal"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The parsed numeric value of a numerical expression when parsing succeeds."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "2.5 as a decimal for a lexical percentage 2.5%."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The datatype is xsd:decimal. For a percentage value the scale is percentage points: 2.5 means 2.5 percent, not 0.025. An unparseable expression may omit this literal."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/includes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "includes"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a time entity interval to a reported event that the interval includes, when an accepted extension relation supports that reading."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An interval includes a reported market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Inverse of occurs during. The public name is includes. A raw operational label is not copied into the property name. A reasoner-entailed includes triple is not a separately accepted extraction."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/During",
+    "@type": [
+      "https://w3id.org/fneo/TemporalRelationType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "during"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The temporal relation type that pairs with the object property occursDuring."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "During on an accepted occursDuring assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The direct triple, when accepted, runs from an event to a time entity."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/SuppressedCommitment",
+    "@type": [
+      "https://w3id.org/fneo/CommitmentStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "suppressed commitment"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The commitment status for a temporal candidate whose commitment is suppressed."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The commitment state of an inverse-generated candidate that is held back."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "A suppressed commitment must not materialise a positive direct temporal triple."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/canonicalPublicRelation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "canonical public relation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The approved public relation name to which a source temporal relation is mapped."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "precedes on an accepted before-relation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Typical values are hasEventTime, precedes, follows, simultaneousWith, occursDuring, and includes. An unmapped label has no canonical public relation and is not materialised."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasMention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb30"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a canonical entity, event, or time entity to a textual mention that denotes it."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional index linked to the mention of its name."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The domain is the union of entity, event, and time entity. That union does not introduce a shared superclass. The inverse of denotes is not declared."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb30",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Entity"
+          },
+          {
+            "@id": "https://w3id.org/fneo/Event"
+          },
+          {
+            "@id": "https://w3id.org/fneo/TimeEntity"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/occursDuring",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "occurs during"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TimeEntity"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/fneo/includes"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event to a time entity interval during which the event is reported to occur, when an accepted extension relation supports that reading."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An event occurs during a stated afternoon interval."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Inverse of includes. The property does not invent an interval for an underspecified time. A reasoner may entail includes from an asserted occursDuring triple. That entailment is not independently extracted evidence."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/EventMention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "event mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A textual expression that denotes a reported event."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The word fell used as the expression of a market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "An event mention is not the event it denotes. A one-to-one link from expression to event is canonicalisation, not event coreference."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/characterStart",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb46"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "character start"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inclusive start of a half-open character interval [characterStart, characterEnd)."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The inclusive character index of a mention in a synthetic sentence."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional when token offsets exist. Do not invent character offsets that were not stored."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb46",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/TextualMention"
+          },
+          {
+            "@id": "https://w3id.org/fneo/TextualEvidence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/EquityShare",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "equity share"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialObject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialOrganisation"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An equity share, distinct from the organisation that issues that share."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional ordinary share distinguished from its issuing organisation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial object. Disjoint with financial organisation in this version. An issuing relation is not defined in this version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A reported event that the ontology types as financial."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reported change in a named index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subclass of event. The only approved financial-event subclass in this version is market-change event."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Proposed",
+    "@type": [
+      "https://w3id.org/fneo/CommitmentStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "proposed"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The commitment status for a temporal candidate that has been proposed and must not materialise a positive direct temporal triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A proposed ordering candidate without a direct temporal triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Proposed is an experimental or review state, not an accepted fact."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/UpwardDirection"
+          },
+          {
+            "@id": "https://w3id.org/fneo/DownwardDirection"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/sourceKind",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "source kind"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The kind of temporal source, such as explicit annotation, population derivation, inverse generation, rule inference, closure, or learned prediction."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "explicit on an accepted temporal assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Source kind selects the temporal profile. It does not by itself accept a relation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/supportedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb37"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "supported by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/TextualEvidence"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event or a qualified assertion to the textual evidence that supports it."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A market-change event supported by a fabricated sentence."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The domain is the union of event and relation assertion. The range is textual evidence. A typed market-change event requires at least one supporting evidence individual under the core profile."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb37",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Event"
+          },
+          {
+            "@id": "https://w3id.org/fneo/RelationAssertion"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TimeMention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "time mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A textual mention of a time expression, distinct from the time entity that the mention denotes."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The word Tuesday as a mention of a normalised day."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "A time mention is not a time entity, an entity mention, or an event mention. Character offsets are optional when token offsets exist."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/issued",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasPercentageChange",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/MarketChangeEvent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has percentage change"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/PercentageValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/fneo/hasReportedValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An extension relation from a market-change event to a percentage value under a manually validated mapping."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reviewed link from a market-change event to a 2.5 percentage-point value."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subproperty of has reported value. Not required by the core profile. A document-level percentage does not by itself create this link."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Accepted"
+          },
+          {
+            "@id": "https://w3id.org/fneo/RequiresReview"
+          },
+          {
+            "@id": "https://w3id.org/fneo/Rejected"
+          },
+          {
+            "@id": "https://w3id.org/fneo/Suppressed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/preferredNamespacePrefix",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "preferred namespace prefix"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The preferred prefix for the term namespace."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "fneo"
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The prefix fneo expands to the term base, not to the ontology IRI."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb9",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/Committed"
+          },
+          {
+            "@id": "https://w3id.org/fneo/Proposed"
+          },
+          {
+            "@id": "https://w3id.org/fneo/SuppressedCommitment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/relationSource",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "relation source"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The source or derivation activity from which a temporal relation was taken."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "synthetic-explicit on a hand-authored temporal assertion."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Lightweight provenance string. A later alignment may map it toward PROV-O. No import is required."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/EntityMention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "entity mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A textual mention that denotes an entity."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A mention of a fictional market index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "An entity mention is not the entity it denotes. In the core profile an in-profile entity mention denotes one entity."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Before",
+    "@type": [
+      "https://w3id.org/fneo/TemporalRelationType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "before"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The temporal relation type that pairs with the object property precedes."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Before on an accepted assertion whose direct triple uses precedes."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Use this individual on temporalRelationType. Do not use it as a property name."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/preferredNamespaceUri",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "preferred namespace URI"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The IRI stem to which the preferred prefix expands."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "https://w3id.org/fneo/"
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Term IRIs are formed by appending a local name to this stem."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/PercentageValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "percentage value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A numerical value whose reported form is a percentage."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Lexical form 2.5% with numerical value 2.5."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The lexical form keeps the percent sign or the word percent. numericalValue is an xsd:decimal in percentage points: 2.5 means 2.5 percent, not the fraction 0.025. Percentage-occurrence querying is extension evaluation. Document co-presence with an index is not an attachment."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/numericalLexicalForm",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/NumericalValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "numerical lexical form"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The lexical form of a numerical expression as it appears in the text."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "2.5% on a percentage value whose numeric value is 2.5."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "For a percentage, this form preserves the percent sign or the word percent. It is the property used for percentage surface form. textualForm remains the mention string."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/MarketDirection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "market direction"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for an optional direction of a market-change event."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A downward direction on one market-change event and no direction on another."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The version 0.1 individuals are upward and downward. The class is not closed with owl:oneOf. Direction is not mandatory. There is no mixed-direction individual."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Suppressed",
+    "@type": [
+      "https://w3id.org/fneo/ValidationStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "suppressed"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The validation status for an assertion that is suppressed and must not materialise a positive direct semantic triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A suppressed simultaneous candidate with no simultaneousWith triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Suppression is auditable through the qualified resource and, where relevant, suppressionReason."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TimeEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "time entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A canonical time with a lexical form and, where recorded, a normalised value."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The publication timestamp of a news document, or a weekday anchored to an event."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Publication time and event time are different relations to time entities. Time entity is not a subclass of entity. The normalised value is a string because stored forms mix dates, timestamps, durations, and underspecified values."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ModelInferred",
+    "@type": [
+      "https://w3id.org/fneo/InferenceStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "model inferred"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The inference status for a relation produced by a learned temporal model."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A model score retained on a candidate that has no direct triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Learned relations are experimental and are not accepted direct facts in this version."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/mentionedIn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TextualMention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "mentioned in"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialNewsDocument"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a textual mention to the financial news document in which it occurs."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An index mention occurs in a synthetic brief."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not functional. Many mentions share one document. Numerical values are reached from a document through a mention that denotes the value, because this property's domain is textual mention."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/Accepted",
+    "@type": [
+      "https://w3id.org/fneo/ValidationStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "accepted"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The validation status for an assertion that is accepted and may materialise a direct semantic triple together with its qualified resource."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An accepted participation that also has a hasAffectedMarket triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Accepted materialisation still requires the qualified resource when statement metadata is material."
+      }
+    ]
+  },
+  {
+    "@id": "_:nc7d7651d12f2401282192aa5ebdcd58bb19",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDifferent"
+    ],
+    "http://www.w3.org/2002/07/owl#distinctMembers": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/fneo/NotReviewed"
+          },
+          {
+            "@id": "https://w3id.org/fneo/ReviewRequired"
+          },
+          {
+            "@id": "https://w3id.org/fneo/ManuallyAccepted"
+          },
+          {
+            "@id": "https://w3id.org/fneo/ManuallyRejected"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialMeasurement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial measurement"
+      }
+    ],
+    "https://w3id.org/fneo/abstractExtensionPoint": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An abstract extension point for a measurement, such as a level or a price reading, kept distinct from the event that reports a change and from the numerical expression used to write the measurement."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "No core instance. A quantity written beside an index name remains a numerical value."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Not a populated class in this version, not a parent of numerical value, and not a core validation target. No populated subclass is defined."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/hasParticipant",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has participant"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "Relates a reported event to an entity that participated in it, without naming a financial role."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A market-change event has the affected index as a participant through the subproperty hasAffectedMarket."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Domain event and range entity. No OWL property characteristics are declared. Source role labels are not values of this property."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/UpwardDirection",
+    "@type": [
+      "https://w3id.org/fneo/MarketDirection",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "upward direction"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled value for an upward market direction."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "An upward reading on a rise in a fictional equity market."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ManualReviewStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "manual review status"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The controlled-value class for whether an assertion or extension individual has been routed to, or has completed, manual review."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "Manually accepted on a fictional central bank."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Distinct from validation status so that routing and outcome can differ. A parallel literal is not defined. Missing review on an extension bank, system, or sector is a warning, not a violation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialSystem",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial system"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "An expression referring to a financial system, kept distinguishable from a financial sector, a market index, a bank, and crisis or recession wording."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The wording of a fictional financial system after manual review."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Extension class under financial entity. Not declared disjoint with financial sector. Ambiguous expressions stay review-required and are not a validation violation."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/TextualMention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "textual mention"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/Entity"
+      },
+      {
+        "@id": "https://w3id.org/fneo/Event"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A textual occurrence of an entity, event, time, or value, distinct from the canonical object that the occurrence denotes."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The surface string of a fictional index name."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Entity mentions, event mentions, and time mentions specialise this class. A value expression may remain a textual mention when no narrower mention class is approved."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/originalTemporalRelationLabel",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/TemporalRelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "original temporal relation label"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The original operational or annotation relation label, retained for audit and not used as a public property name."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "BEFORE on an assertion whose public property is precedes."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The literal retains the original operational relation label. Values such as BEFORE stay in this literal and are not used as public property names."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/FinancialObject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "financial object"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialEntity"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A financial entity that is an object such as a market index, an equity share, or a currency, rather than an organisation or a market venue."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A named index, a share, or a named currency."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Abstract modelling class. Market index, equity share, and currency specialise it. It is not a gold population target by itself, and a market index is not a financial market."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ManuallyRejected",
+    "@type": [
+      "https://w3id.org/fneo/ManualReviewStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "manually rejected"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The review status for an individual or assertion that a reviewer has rejected."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A reviewer-rejected ambiguous organisation name."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Manual rejection does not by itself delete the resource. It does not authorise a positive direct triple."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/RequiresReview",
+    "@type": [
+      "https://w3id.org/fneo/ValidationStatus",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "requires review"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The validation status for a candidate assertion that is retained for review and must not materialise a positive direct semantic triple."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A participation candidate with no matching direct triple."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The candidate resource remains in the graph. Competency-question answers should not treat it as an accepted fact."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/ruleIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "rule identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The identifier of the enrichment rule or manual protocol that produced an assertion."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "SYN-PART-001 on a synthetic participation."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Provenance string, not a public class name. When populatedByRule is also present the two strings should not diverge."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/MarketIndex",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "market index"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/fneo/FinancialObject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/fneo/EquityMarket"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "A named market index mentioned as an index, kept distinct from a collective equity market, a currency, a bank, and a price."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "A fictional index such as the Northwind Market Index."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Subclass of financial object. Not a subclass of financial market. Disjoint with equity market and with financial organisation in this version."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/fneo/assertionPredicateIRI",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/fneo/RelationAssertion"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/fneo/ontology"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "assertion predicate IRI"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+      }
+    ],
+    "https://w3id.org/fneo/definition": [
+      {
+        "@language": "en",
+        "@value": "The IRI of the predicate of the domain statement that a qualified assertion describes, stored as a literal so the ontology does not pun a property as an individual."
+      }
+    ],
+    "https://w3id.org/fneo/example": [
+      {
+        "@language": "en",
+        "@value": "The IRI of hasAffectedMarket stored as an anyURI literal."
+      }
+    ],
+    "https://w3id.org/fneo/scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Range xsd:anyURI. The literal stores the predicate IRI so the ontology does not pun a property as an individual. Properties remain properties. RDF reification is a candidate alignment, not the model."
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+# FDQ-004 executed query for FEO-017.
+# Question: Which named market index or equity market is affected by a reported market change?
+# Answer unit: one MarketChangeEvent-affected market pair, from the direct hasAffectedMarket triple.
+# The pre-existing query optional-joins EventParticipation and repeats a pair once for each
+# qualified participation. Those participations remain available in FDQ-004.participation-trace.rq.
+# A source role label is not the relation and is not used to drop a pair.
+# No reference label filters a row.
+PREFIX fneo: <https://w3id.org/fneo/>
+
+SELECT DISTINCT ?event ?affected ?document ?sourceDocumentIdentifier
+WHERE {
+  ?event a fneo:MarketChangeEvent ;
+         fneo:hasAffectedMarket ?affected .
+  OPTIONAL {
+    ?document fneo:reportsEvent ?event ;
+              fneo:sourceDocumentIdentifier ?sourceDocumentIdentifier .
+  }
+}
+ORDER BY ?sourceDocumentIdentifier ?event ?affected

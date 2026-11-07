@@ -1,0 +1,22 @@
+{
+  "decision_id": "dec-example",
+  "candidate_id": "cand-dow",
+  "rule_id": "FE-MKTIDX-001",
+  "rule_version": "feo009-0.1.0",
+  "target_iri": "https://w3id.org/fneo/MarketIndex",
+  "status": "accepted",
+  "confidence": "0.90",
+  "evidence_references": ["https://w3id.org/fneo/resource/evidence/synthetic/DOC1/e1"],
+  "reasons": ["Rule FE-MKTIDX-001 returned accepted."],
+  "satisfied_conditions": ["index_context"],
+  "failed_conditions": [],
+  "missing_conditions": [],
+  "profile": "CORE_DETERMINISTIC",
+  "direct_triple_eligible": true,
+  "qualified_assertion_required": true,
+  "manual_review_status": "not_reviewed",
+  "manual_review_reason": "",
+  "source_role_preservation": [],
+  "warnings": [],
+  "explanation": "Rule FE-MKTIDX-001 was applied. Evidence satisfied: index context. Final status: accepted. Direct-triple eligibility is eligible."
+}

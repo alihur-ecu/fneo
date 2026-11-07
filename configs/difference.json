@@ -1,0 +1,17 @@
+{
+  "scientific_difference": "The refined operating point adds the blocking condition negative_market_not_undergoer_of_trigger to rule FE-MCE-001. Affected-market rules, ontology, shapes, mappings, and the adapter are not part of this difference.",
+  "changed_rule_id": "FE-MCE-001",
+  "added_negative_conditions": [
+    "negative_market_not_undergoer_of_trigger"
+  ],
+  "added_blocking_conditions": [
+    "negative_market_not_undergoer_of_trigger"
+  ],
+  "baseline_market_change_sha256": "88696ae484a28b2da4c56123addfbdb82859a0ca62ea79b58f4ab34d1d2dd126",
+  "refined_market_change_sha256": "c64f323830ab25861727db36dd090f44d303f0a47295553e55e71977e565bfd2",
+  "refined_condition_sha256": "b1b0fb657fa25e5efdce6160a6fc8c70b706095e6dce86e4fb879885437b61bd",
+  "commands": {
+    "baseline": "python reproduction/reproduce_all.py  # baseline stage uses configs/baseline/market_change_rules.json",
+    "refined": "python reproduction/reproduce_all.py  # refined stage uses configs/refined/market_change_rules.json and condition.py"
+  }
+}

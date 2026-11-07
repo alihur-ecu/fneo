@@ -1,0 +1,25 @@
+# Tracked example for the FEO-010 single-document adapter.
+# Copy to adapter-config.toml for a local run. Do not put a password in either file.
+# The local copy is gitignored. The password is read from FEO_NEO4J_PASSWORD.
+
+neo4j_uri = "bolt://127.0.0.1:17688"
+neo4j_username = "neo4j"
+neo4j_password_env = "FEO_NEO4J_PASSWORD"
+neo4j_database = "neo4j"
+expected_container_name = "financial-event-ontology-neo4j-full"
+
+document_id = "61327"
+population_profile = "CORE_DETERMINISTIC"
+extension_profiles_enabled = false
+experimental_temporal_enabled = false
+
+ontology_ttl = "research/financial_event_ontology/ontology/feo007a/ontology/fneo-0.1.0-rc2.ttl"
+core_shapes = "research/financial_event_ontology/ontology/feo007a/validation/fneo-core-shapes.ttl"
+supplemental_shapes = "research/financial_event_ontology/ontology/feo007a/validation/supplemental-shapes.ttl"
+extension_shapes = "research/financial_event_ontology/ontology/feo007a/validation/fneo-extension-shapes.ttl"
+enrichment_engine = "research/financial_event_ontology/enrichment/feo009"
+mapping_version = "feo008-mapping-0.1.0"
+engine_mapping_version = "feo009-enrichment-0.1.0"
+adapter_version = "feo010a-adapter-0.1.0"
+corpus_key = "meantime-en-stock"
+output_directory = "research/financial_event_ontology/population/feo010a"

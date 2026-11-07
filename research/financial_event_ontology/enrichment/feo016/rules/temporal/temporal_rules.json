@@ -1,0 +1,1287 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit event-time anchor. Event order is not event time, and no event time is preferable to an unsupported one.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasEventTime",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "event_time",
+      "exclusive_group": "event_time",
+      "priority": 60,
+      "applicability_conditions": [
+        "applies_event_time"
+      ],
+      "required_conditions": [
+        "explicit_event_time_relation",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_event_ordering_as_event_time",
+        "publication_time_is_not_event_time",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_event_ordering_as_event_time",
+        "publication_time_is_not_event_time",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_wrong_temporal_endpoint"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_event_ordering_as_event_time",
+        "publication_time_is_not_event_time",
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "explicit_event_time_relation": "0.30",
+        "active_committed_nonsuppressed": "0.25",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "RelationAssertionShape",
+        "TimeEntityShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "An event anchored by an explicit HAS_TIME_ANCHOR link to Tuesday."
+      ],
+      "known_limitations": [
+        "Publication time is not used as a fallback event time."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-ANCHOR-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Record a time mention as denoting a time entity, distinct from the mention.",
+      "target_class": "https://w3id.org/fneo/TimeEntity",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "structural_time",
+      "exclusive_group": "structural_time",
+      "priority": 10,
+      "applicability_conditions": [
+        "applies_time_entity"
+      ],
+      "required_conditions": [
+        "structural_mention_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "invalid_offset",
+        "negative_event_ordering_as_event_time",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "invalid_offset"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "structural_mention_present": "0.50",
+        "document_present": "0.40"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "structural_direct",
+      "applicable_shacl_shapes": [
+        "TimeMentionShape",
+        "TimeEntityShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "Tuesday denotes a time entity."
+      ],
+      "known_limitations": [
+        "A time mention is not an event-time anchor by itself."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "STR-TIME-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit committed precedes relation when every eligibility condition holds. The inverse is not materialised.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_temporal_precedes"
+      ],
+      "required_conditions": [
+        "temporal_relation_eligible",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "canonical_temporal_mapping",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "temporal_relation_eligible": "0.40",
+        "active_committed_nonsuppressed": "0.20",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "TemporalRelationAssertionShape",
+        "CommittedTemporalShape"
+      ],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An explicit precedes link between typed endpoints."
+      ],
+      "known_limitations": [
+        "simultaneousWith is not treated as symmetric.",
+        "A reasoner-entailed inverse is not extraction evidence."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-BEFORE-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit committed follows relation when every eligibility condition holds. The inverse is not materialised.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/follows",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_temporal_follows"
+      ],
+      "required_conditions": [
+        "temporal_relation_eligible",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "canonical_temporal_mapping",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "temporal_relation_eligible": "0.40",
+        "active_committed_nonsuppressed": "0.20",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "TemporalRelationAssertionShape",
+        "CommittedTemporalShape"
+      ],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An explicit follows link between typed endpoints."
+      ],
+      "known_limitations": [
+        "simultaneousWith is not treated as symmetric.",
+        "A reasoner-entailed inverse is not extraction evidence."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-AFTER-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit committed simultaneousWith relation when every eligibility condition holds. The inverse is not materialised.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/simultaneousWith",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_temporal_simultaneous"
+      ],
+      "required_conditions": [
+        "temporal_relation_eligible",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "canonical_temporal_mapping",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "temporal_relation_eligible": "0.40",
+        "active_committed_nonsuppressed": "0.20",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "TemporalRelationAssertionShape",
+        "CommittedTemporalShape"
+      ],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An explicit simultaneousWith link between typed endpoints."
+      ],
+      "known_limitations": [
+        "simultaneousWith is not treated as symmetric.",
+        "A reasoner-entailed inverse is not extraction evidence."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-SIM-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit committed occursDuring relation when every eligibility condition holds. The inverse is not materialised.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/occursDuring",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_temporal_during"
+      ],
+      "required_conditions": [
+        "temporal_relation_eligible",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "canonical_temporal_mapping",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "temporal_relation_eligible": "0.40",
+        "active_committed_nonsuppressed": "0.20",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "TemporalRelationAssertionShape",
+        "CommittedTemporalShape"
+      ],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An explicit occursDuring link between typed endpoints."
+      ],
+      "known_limitations": [
+        "simultaneousWith is not treated as symmetric.",
+        "A reasoner-entailed inverse is not extraction evidence."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-DUR-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an explicit committed includes relation when every eligibility condition holds. The inverse is not materialised.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/includes",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_temporal_includes"
+      ],
+      "required_conditions": [
+        "temporal_relation_eligible",
+        "active_committed_nonsuppressed",
+        "explicit_inference",
+        "traceable_temporal_evidence",
+        "canonical_temporal_mapping",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_reasoner_entailment_as_evidence",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_materialise_ineligible_temporal",
+        "negative_wrong_temporal_endpoint",
+        "temporal_status_suppressed",
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_wrong_temporal_endpoint"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "temporal_relation_eligible": "0.40",
+        "active_committed_nonsuppressed": "0.20",
+        "explicit_inference": "0.15",
+        "traceable_temporal_evidence": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "TemporalRelationAssertionShape",
+        "CommittedTemporalShape"
+      ],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An explicit includes link between typed endpoints."
+      ],
+      "known_limitations": [
+        "simultaneousWith is not treated as symmetric.",
+        "A reasoner-entailed inverse is not extraction evidence."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-INC-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "An inverse-generated temporal link is not extracted evidence.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_inverse"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "inverse_generated_relation",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "inverse_generated_relation"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "inverse_generated_relation",
+          "status": "suppressed"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "An inverse-generated temporal link is not extracted evidence."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-INV-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A suppressed temporal link is not an accepted fact.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_suppressed"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "temporal_status_suppressed",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "temporal_status_suppressed"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "temporal_status_suppressed",
+          "status": "suppressed"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A suppressed temporal link is not an accepted fact."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-SUP-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A proposed temporal link stays a candidate and is not a direct fact.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_proposed"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "temporal_status_proposed",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "temporal_status_proposed"
+      ],
+      "review_conditions": [
+        "temporal_status_proposed"
+      ],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "temporal_status_proposed",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A proposed temporal link stays a candidate and is not a direct fact."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-PRO-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A rule-inferred temporal link is not explicit evidence.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_rule"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "rule_inferred_relation",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "rule_inferred_relation"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "rule_inferred_relation"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "rule_inferred_relation",
+          "status": "rejected"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A rule-inferred temporal link is not explicit evidence."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-RUL-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A closure-derived temporal link is not explicit evidence.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_closure"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "closure_derived_relation",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "closure_derived_relation"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "closure_derived_relation"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "closure_derived_relation",
+          "status": "rejected"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A closure-derived temporal link is not explicit evidence."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-CLO-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A model-inferred temporal link is not explicit evidence.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_model"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "model_inferred_relation",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "model_inferred_relation"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "model_inferred_relation"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "model_inferred_relation",
+          "status": "rejected"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A model-inferred temporal link is not explicit evidence."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-MOD-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A reasoner-entailed inverse is not independent extraction evidence.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_reasoner"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "reasoner_entailed_inverse",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "reasoner_entailed_inverse"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "reasoner_entailed_inverse"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "reasoner_entailed_inverse",
+          "status": "rejected"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A reasoner-entailed inverse is not independent extraction evidence."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-RSN-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A temporal bucket total is not a set of accepted facts.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_bucket"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_bucket_total",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_bucket_total"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [
+        "negative_bucket_total"
+      ],
+      "outcome_overrides": [
+        {
+          "when": "negative_bucket_total",
+          "status": "out_of_scope"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "A temporal bucket total is not a set of accepted facts."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-RAW-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Begins relations are deferred because the release candidate has no begins individual.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_temporal_deferred"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_deferred_temporal_label",
+        "negative_materialise_ineligible_temporal",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_deferred_temporal_label"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [
+        "negative_bucket_total"
+      ],
+      "outcome_overrides": [
+        {
+          "when": "negative_deferred_temporal_label",
+          "status": "out_of_scope"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "Begins relations are deferred because the release candidate has no begins individual."
+      ],
+      "known_limitations": [
+        "Ineligible temporal candidates are not mixed into core accepted output."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-BEG-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Ends relations are deferred because the release candidate has no ends individual.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 93,
+      "applicability_conditions": [
+        "applies_temporal_ends"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_deferred_temporal_label",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_deferred_temporal_label"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [
+        "negative_deferred_temporal_label"
+      ],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "ENDS is not mapped to a public property."
+      ],
+      "known_limitations": [
+        "Deferred with begins and measure. No direct temporal triple is emitted."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-END-001",
+      "predicate_from_candidate": true
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "MEASURE is not a temporal-order property in the release candidate and stays deferred.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/precedes",
+      "population_profile": "EXPERIMENTAL_TEMPORAL",
+      "assertion_profile": "EXPERIMENTAL_TEMPORAL",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "temporal_candidate"
+      ],
+      "phase": "temporal",
+      "exclusive_group": "temporal",
+      "priority": 92,
+      "applicability_conditions": [
+        "applies_temporal_measure"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_deferred_temporal_label",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_deferred_temporal_label"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [
+        "negative_deferred_temporal_label"
+      ],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "temporal",
+      "examples": [
+        "MEASURE is not copied as an order property."
+      ],
+      "known_limitations": [
+        "Deferred. No direct temporal triple is emitted."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "TMP-MEA-001",
+      "predicate_from_candidate": true
+    }
+  ]
+}

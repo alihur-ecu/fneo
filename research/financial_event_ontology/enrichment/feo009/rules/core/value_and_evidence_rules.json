@@ -1,0 +1,572 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "Type a percentage in percentage points and preserve the lexical form. Do not convert 5.25% to 0.0525.",
+      "target_class": "https://w3id.org/fneo/PercentageValue",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "value_candidate"
+      ],
+      "phase": "value_type",
+      "exclusive_group": "value_type",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_percentage"
+      ],
+      "required_conditions": [
+        "percentage_lexical_preserved",
+        "percentage_points_not_fraction",
+        "value_type_numeric",
+        "value_lexical_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_percentage_as_fraction",
+        "invalid_percentage_fraction",
+        "negative_co_presence_attachment",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_percentage_as_fraction",
+        "invalid_percentage_fraction"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_percentage_as_fraction",
+        "invalid_percentage_fraction",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "percentage_lexical_preserved": "0.35",
+        "percentage_points_not_fraction": "0.35",
+        "value_lexical_present": "0.15",
+        "document_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "PercentageValueShape",
+        "NumericalValueShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "5.25% is stored as 5.25, not 0.0525."
+      ],
+      "known_limitations": [
+        "Value typing does not attach the value to an event."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "VAL-PERCENT-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Type a monetary amount and keep any currency code on the amount, not as a currency individual.",
+      "target_class": "https://w3id.org/fneo/MonetaryAmount",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "value_candidate"
+      ],
+      "phase": "value_type",
+      "exclusive_group": "value_type",
+      "priority": 70,
+      "applicability_conditions": [
+        "applies_monetary"
+      ],
+      "required_conditions": [
+        "monetary_amount_components",
+        "value_lexical_present",
+        "value_type_numeric",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_currency_code_creates_currency",
+        "negative_amount_is_currency",
+        "negative_co_presence_attachment",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_currency_code_creates_currency"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "monetary_amount_components": "0.40",
+        "value_lexical_present": "0.25",
+        "value_type_numeric": "0.20",
+        "document_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "MonetaryAmountShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "US$ 2.24 billion remains an amount, not a currency."
+      ],
+      "known_limitations": [
+        "Direct event attachment is not part of this rule."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "VAL-MONEY-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Type a non-percentage quantity and keep its lexical form. A point change is not a percentage.",
+      "target_class": "https://w3id.org/fneo/QuantityValue",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "value_candidate"
+      ],
+      "phase": "value_type",
+      "exclusive_group": "value_type",
+      "priority": 60,
+      "applicability_conditions": [
+        "applies_quantity"
+      ],
+      "required_conditions": [
+        "quantity_not_percentage",
+        "value_lexical_present",
+        "value_type_numeric",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "percentage_lexical_preserved",
+        "negative_co_presence_attachment",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "percentage_lexical_preserved"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "quantity_not_percentage": "0.40",
+        "value_lexical_present": "0.25",
+        "value_type_numeric": "0.20",
+        "document_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "QuantityValueShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "416 points as a document-level quantity."
+      ],
+      "known_limitations": [
+        "Quantity typing does not create an event-value link."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "VAL-QTY-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Type a generic numerical value at document level and preserve its lexical form.",
+      "target_class": "https://w3id.org/fneo/NumericalValue",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "value_candidate"
+      ],
+      "phase": "value_type",
+      "exclusive_group": "value_type",
+      "priority": 40,
+      "applicability_conditions": [
+        "applies_numerical"
+      ],
+      "required_conditions": [
+        "generic_number",
+        "value_lexical_present",
+        "value_type_numeric",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_percentage_as_fraction",
+        "negative_co_presence_attachment",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_co_presence_attachment"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "generic_number": "0.40",
+        "value_lexical_present": "0.25",
+        "value_type_numeric": "0.20",
+        "document_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "NumericalValueShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "A document-level cardinal."
+      ],
+      "known_limitations": [
+        "Sentence co-presence does not attach the value to an event."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "VAL-GEN-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Do not treat document or sentence co-presence as an event-value relation. An explicit request becomes a review candidate only.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasReportedValue",
+      "population_profile": "CANDIDATE_REVIEW",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "value_candidate"
+      ],
+      "phase": "event_value",
+      "exclusive_group": "event_value",
+      "priority": 70,
+      "applicability_conditions": [
+        "applies_event_value_link"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_co_presence_attachment",
+        "co_presence_only_event_value",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_co_presence_attachment",
+        "co_presence_only_event_value"
+      ],
+      "review_conditions": [
+        "event_value_explicitly_requested"
+      ],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "event_value_explicitly_requested",
+          "status": "requires_review"
+        },
+        {
+          "when": "co_presence_only_event_value",
+          "status": "rejected"
+        }
+      ],
+      "confidence_contributions": {
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "A percentage in the same sentence as an event is not hasReportedValue."
+      ],
+      "known_limitations": [
+        "No core accepted event-value mapping is implemented."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "VAL-CAND-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Validate document presence and half-open token or character spans. Token evidence is sufficient when character offsets are absent.",
+      "target_class": "https://w3id.org/fneo/TextualEvidence",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "evidence_candidate"
+      ],
+      "phase": "evidence",
+      "exclusive_group": "evidence",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_evidence_record"
+      ],
+      "required_conditions": [
+        "document_present",
+        "valid_evidence_span",
+        "half_open_span",
+        "textual_evidence_present"
+      ],
+      "optional_conditions": [
+        "token_evidence_when_character_absent"
+      ],
+      "negative_conditions": [
+        "invalid_offset",
+        "missing_document",
+        "negative_character_evidence_without_offsets",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "invalid_offset",
+        "missing_document",
+        "negative_character_evidence_without_offsets"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document",
+        "negative_character_evidence_without_offsets"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "valid_evidence_span": "0.40",
+        "half_open_span": "0.20",
+        "textual_evidence_present": "0.20",
+        "document_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "structural_direct",
+      "applicable_shacl_shapes": [
+        "TextualEvidenceShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "A half-open token span [0, 2)."
+      ],
+      "known_limitations": [
+        "Character offsets are not invented when they are absent."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-EV-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Operational metadata that is not a domain individual is out of scope.",
+      "target_class": "",
+      "target_property": "",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "evidence_candidate",
+        "entity_candidate",
+        "event_candidate",
+        "value_candidate",
+        "temporal_candidate",
+        "participation_candidate"
+      ],
+      "phase": "unmapped",
+      "exclusive_group": "unmapped",
+      "priority": 100,
+      "applicability_conditions": [
+        "applies_unmapped"
+      ],
+      "required_conditions": [],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_unmapped_metadata",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_unmapped_metadata"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [
+        "negative_unmapped_metadata"
+      ],
+      "outcome_overrides": [],
+      "confidence_contributions": {},
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "none",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "A quality-finding record is not a domain individual."
+      ],
+      "known_limitations": [
+        "Out of scope produces no positive domain triple."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "NM-SCOPE-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Record insufficient evidence when no domain rule applies.",
+      "target_class": "",
+      "target_property": "",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "evidence_candidate",
+        "entity_candidate",
+        "event_candidate",
+        "value_candidate",
+        "temporal_candidate",
+        "participation_candidate"
+      ],
+      "phase": "fallback",
+      "exclusive_group": "fallback",
+      "priority": 0,
+      "applicability_conditions": [],
+      "required_conditions": [],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_no_applicable_financial_rule"
+      ],
+      "blocking_conditions": [
+        "negative_no_applicable_financial_rule"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "negative_no_applicable_financial_rule",
+          "status": "insufficient_evidence"
+        }
+      ],
+      "confidence_contributions": {},
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "none",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "A candidate outside the rule vocabulary."
+      ],
+      "known_limitations": [
+        "The fallback does not invent a class."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-UNMATCHED-001"
+    }
+  ]
+}

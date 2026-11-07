@@ -1,0 +1,7 @@
+{
+  "rule_id": "FE-EXAMPLE-000",
+  "version": "feo009-0.1.0",
+  "description": "Invalid because negative conditions are absent.",
+  "population_profile": "CORE_DETERMINISTIC",
+  "negative_conditions": []
+}

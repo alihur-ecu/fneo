@@ -1,0 +1,21 @@
+# FDQ-001 executed query for FEO-017.
+# Question: Which named market indices are mentioned in a financial news document?
+# Answer unit: one MarketIndex resource as it occurs in one document.
+# The same resource in another document is a separate answer.
+# Mentions of that resource inside one document are traces, not further answers.
+# DISTINCT is applied only at that semantic answer unit.
+# Mention traces are retrieved by FDQ-001.mention-trace.rq.
+# A negative reference label is not used to drop a row.
+PREFIX fneo: <https://w3id.org/fneo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?document ?sourceDocumentIdentifier ?marketIndex ?indexLabel
+WHERE {
+  ?marketIndex a fneo:MarketIndex .
+  ?mention a fneo:EntityMention ;
+           fneo:denotes ?marketIndex ;
+           fneo:mentionedIn ?document .
+  OPTIONAL { ?marketIndex rdfs:label ?indexLabel }
+  OPTIONAL { ?document fneo:sourceDocumentIdentifier ?sourceDocumentIdentifier }
+}
+ORDER BY ?sourceDocumentIdentifier ?marketIndex

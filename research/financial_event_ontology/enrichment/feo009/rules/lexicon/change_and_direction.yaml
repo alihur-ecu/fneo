@@ -1,0 +1,84 @@
+# Change expressions and optional direction cues from EVT-01.
+# Direction counts in the evidence card are not a decision mechanism.
+name: change_and_direction
+source: FEO-005A RF-008 and RF-010; EVT-01 evidence card
+change_expressions:
+  - plunged
+  - plunge
+  - dropped
+  - drop
+  - declined
+  - decline
+  - slipped
+  - slip
+  - tumbled
+  - tumble
+  - slumped
+  - slump
+  - surged
+  - surge
+  - climbed
+  - climb
+  - rallied
+  - rally
+  - soared
+  - soar
+  - gained
+  - gain
+  - advanced
+  - advance
+  - fallen
+  - fell
+  - fall
+  - risen
+  - rose
+  - rise
+  - sank
+  - slid
+upward:
+  - surged
+  - surge
+  - climbed
+  - climb
+  - rallied
+  - rally
+  - soared
+  - soar
+  - gained
+  - gain
+  - advanced
+  - advance
+  - risen
+  - rose
+  - rise
+  - upward
+downward:
+  - plunged
+  - plunge
+  - dropped
+  - drop
+  - declined
+  - decline
+  - slipped
+  - slip
+  - tumbled
+  - tumble
+  - slumped
+  - slump
+  - fallen
+  - fell
+  - fall
+  - sank
+  - slid
+  - downward
+weekdays:
+  - monday
+  - tuesday
+  - wednesday
+  - thursday
+  - friday
+  - saturday
+  - sunday
+notes:
+  - A change expression alone does not classify a market-change event.
+  - No mixed-direction individual is defined.

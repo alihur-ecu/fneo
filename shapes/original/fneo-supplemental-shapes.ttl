@@ -1,0 +1,63 @@
+# Supplemental SHACL for literal-object materialisation.
+# Accompanies release candidate 0.1.0-rc2.
+# Carried forward from the earlier materialisation supplement.
+# Apply together with the core shapes. Those core shapes already check
+# individual objects. This file checks assertionObjectLiteral, which the core
+# direct-triple constraint does not reach.
+# Licence: CC BY 4.0.
+# Does not import the core shape file.
+# These shapes target the asserted graph. A reasoned inverse is not a separately accepted extraction.
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix fneos: <https://w3id.org/fneo/shape/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fneos:LiteralObjectMaterialisationShape a sh:NodeShape ;
+    sh:name "LiteralObjectMaterialisationShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A qualified assertion does not use both assertionObject and assertionObjectLiteral." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:assertionObject ?object .
+              $this fneo:assertionObjectLiteral ?literal .
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An accepted literal-object assertion exposes the direct datatype triple named by assertionPredicateIRI." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:Accepted .
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObjectLiteral ?literal .
+              FILTER NOT EXISTS { $this fneo:assertionObject ?object }
+              FILTER NOT EXISTS {
+                ?subject ?direct ?literal .
+                FILTER(STR(?direct) = STR(?predicate))
+              }
+            }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A requires-review, rejected, or suppressed literal-object assertion must not materialise a positive direct triple." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus ?status .
+              FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObjectLiteral ?literal .
+              ?subject ?direct ?literal .
+              FILTER(STR(?direct) = STR(?predicate))
+            }
+        """ ;
+    ] .

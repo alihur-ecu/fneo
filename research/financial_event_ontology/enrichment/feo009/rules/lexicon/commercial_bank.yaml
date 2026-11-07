@@ -1,0 +1,29 @@
+# Commercial-bank names from OR-CLASS-022 and the ENT-04 evidence card.
+# Uralsib is excluded. FEO-005A leaves it out of the commercial-bank count
+# because the cited sentence presents an analyst's firm. U-008 defers admission.
+name: commercial_bank
+source: FEO-005A OR-CLASS-022; ENT-04 evidence card; unresolved decision U-008
+controlled_names:
+  - bank of america corporation
+  - bank of america
+collective_expressions:
+  - multi-national banks
+  - multinational banks
+  - us banks
+  - u.s. banks
+excluded_names:
+  - uralsib
+exclusion_reason: >
+  Uralsib is not in the controlled commercial-bank lexicon. The requirements
+  exclude it unless a later decision admits it. This engine does not admit it.
+insurer_cues:
+  - aig
+  - insurer
+  - insurance firm
+  - insurance company
+generic_bank_cues:
+  - bank
+  - lender
+notes:
+  - A new bank-like name is review-required. It is not accepted from the word bank alone.
+  - Central-bank names are not commercial banks.

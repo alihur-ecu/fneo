@@ -1,0 +1,604 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "Reject an affected-market role that is supported only by an argument label.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 100,
+      "applicability_conditions": [
+        "applies_aff_arg_only"
+      ],
+      "required_conditions": [
+        "textual_evidence_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "arg_label_alone",
+        "negative_arg_label_promotes_role"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "arg_label_alone",
+        "negative_arg_label_promotes_role",
+        "invalid_offset"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "Arg1 with no contextual attachment."
+      ],
+      "known_limitations": [
+        "The raw source role is preserved and is not promoted."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-003"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Keep a collective market participant in review and do not split it.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 90,
+      "applicability_conditions": [
+        "applies_aff_collective"
+      ],
+      "required_conditions": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "conjunction_without_distinct_mentions",
+        "negative_collective_cross_document_identity"
+      ],
+      "blocking_conditions": [
+        "conjunction_without_distinct_mentions"
+      ],
+      "review_conditions": [
+        "conjunction_without_distinct_mentions"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "conjunction_without_distinct_mentions",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "A paired index name with one shared attachment."
+      ],
+      "known_limitations": [
+        "Distinct source mentions are required before multiple markets are accepted."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-007"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Review an affected-market attachment that is ambiguous or supported only by a frame argument or a legacy participant link.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_aff_ambiguous"
+      ],
+      "required_conditions": [
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "blocking_ambiguity"
+      ],
+      "blocking_conditions": [
+        "blocking_ambiguity",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only"
+      ],
+      "review_conditions": [
+        "blocking_ambiguity",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "blocking_ambiguity",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "Frame-role disagreement on the affected market."
+      ],
+      "known_limitations": [
+        "A frame argument may support a later review. It does not establish the role by itself."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-002"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept several affected markets when each attachment is explicit and independently supported.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 70,
+      "applicability_conditions": [
+        "applies_aff_multi_market"
+      ],
+      "required_conditions": [
+        "accepted_market_change_event",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "primary_participant_or_approved_equivalent",
+        "textual_evidence_present",
+        "multiple_markets_explicit"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "conjunction_without_distinct_mentions"
+      ],
+      "blocking_conditions": [
+        "arg_label_alone",
+        "conjunction_without_distinct_mentions"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "arg_label_alone",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "accepted_market_change_event": "0.25",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "primary_participant_or_approved_equivalent": "0.15",
+        "textual_evidence_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "One event with two separately attached markets."
+      ],
+      "known_limitations": [
+        "A shared conjunction attachment is not accepted as several markets."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-004"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept several events that each attach to one shared market without copying one role onto every event blindly.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 60,
+      "applicability_conditions": [
+        "applies_aff_multi_event"
+      ],
+      "required_conditions": [
+        "accepted_market_change_event",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "primary_participant_or_approved_equivalent",
+        "textual_evidence_present",
+        "multiple_events_one_market"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "arg_label_alone"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "arg_label_alone",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "accepted_market_change_event": "0.25",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "textual_evidence_present": "0.15",
+        "multiple_events_one_market": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "Two events each attached to one index."
+      ],
+      "known_limitations": [
+        "The market individual is not duplicated."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-005"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept an affected-market attachment when the contextual evidence is primary and the raw source role is absent. Do not invent a label.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 55,
+      "applicability_conditions": [
+        "applies_aff_missing_role"
+      ],
+      "required_conditions": [
+        "accepted_market_change_event",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "primary_participant_or_approved_equivalent",
+        "textual_evidence_present",
+        "missing_source_role"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "negative_invented_source_role",
+        "arg_label_alone"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_invented_source_role",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "accepted_market_change_event": "0.25",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "primary_participant_or_approved_equivalent": "0.20",
+        "textual_evidence_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "An attached index with no stored argument label."
+      ],
+      "known_limitations": [
+        "Absence of a source role is not filled with a frequent label such as Arg1."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-006"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept hasAffectedMarket when an accepted market-change event, an accepted market, and primary participant evidence are contextually attached.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasAffectedMarket",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "affected_market",
+      "exclusive_group": "affected_market",
+      "priority": 50,
+      "applicability_conditions": [
+        "applies_aff_primary"
+      ],
+      "required_conditions": [
+        "accepted_market_change_event",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "primary_participant_or_approved_equivalent",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "event_participant_primary"
+      ],
+      "negative_conditions": [
+        "negative_arg_label_promotes_role",
+        "arg_label_alone",
+        "negative_invented_source_role",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "arg_label_alone",
+        "frame_argument_support_only",
+        "legacy_participant_diagnostic_only"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "arg_label_alone",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "accepted_market_change_event": "0.25",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "primary_participant_or_approved_equivalent": "0.15",
+        "textual_evidence_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "EventParticipationShape",
+        "MarketChangeEventShape"
+      ],
+      "assertion_kind": "participation",
+      "examples": [
+        "The index is the EVENT_PARTICIPANT of fell."
+      ],
+      "known_limitations": [
+        "HAS_FRAME_ARGUMENT and legacy PARTICIPANT are not independent assertions."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-AFF-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept a generic hasParticipant link that was explicitly supplied. An argument label does not become a financial role.",
+      "target_class": "",
+      "target_property": "https://w3id.org/fneo/hasParticipant",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "participation_candidate"
+      ],
+      "phase": "structural_participation",
+      "exclusive_group": "structural_participation",
+      "priority": 40,
+      "applicability_conditions": [
+        "applies_generic_participation"
+      ],
+      "required_conditions": [
+        "explicit_has_participant_relation",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_no_financial_role_from_structural_participation",
+        "negative_arg_label_promotes_role",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "negative_no_financial_role_from_structural_participation"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "explicit_has_participant_relation": "0.50",
+        "textual_evidence_present": "0.30",
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "participation",
+      "examples": [
+        "A non-financial participant link with a preserved source role."
+      ],
+      "known_limitations": [
+        "This rule does not assign hasAffectedMarket."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "QA-PART-001"
+    }
+  ]
+}

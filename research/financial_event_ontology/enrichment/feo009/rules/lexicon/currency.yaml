@@ -1,0 +1,27 @@
+# Currency names from OR-CLASS-023. Distinct from monetary amounts.
+name: currency
+source: FEO-005A OR-CLASS-023; FDQ-011
+controlled_names:
+  - united states dollar
+  - u.s. dollar
+  - us dollar
+  - japanese yen
+  - pound sterling
+  - the dollar
+  - sterling
+  - euro
+  - yen
+amount_cues:
+  - billion
+  - million
+  - thousand
+  - us$
+  - usd
+currency_codes:
+  - usd
+  - eur
+  - jpy
+  - gbp
+notes:
+  - A currency code on a sum does not create a Currency individual.
+  - the dollar is a currency name only when the span is not an amount expression.

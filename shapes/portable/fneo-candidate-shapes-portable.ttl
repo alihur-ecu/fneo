@@ -1,0 +1,106 @@
+# Candidate-overlay shapes for review-required assertions.
+# These shapes are new. They are not a port of an original candidate shape file.
+# Validate them on the union of the system-accepted graph, the review-required
+# overlay, and the ontology. Do not treat the overlay as a standalone accepted graph.
+# SHACL 1.0 only. Severity is stated on the shape and repeated on the SPARQL constraint
+# so the project-local checker and pySHACL 0.40.2 assign the same severity.
+# Licence proposal: CC BY 4.0, subject to release approval.
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix fneos: <https://w3id.org/fneo/shape/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fneos:portable-CandidateNoDirectMaterialisationShape a sh:NodeShape ;
+    sh:name "portable-CandidateNoDirectMaterialisationShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A review-required assertion must not materialise a positive direct semantic triple." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:RequiresReview .
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObject ?object .
+              ?subject ?direct ?object .
+              FILTER(STR(?direct) = STR(?predicate))
+            }
+        """ ;
+    ] .
+
+fneos:portable-CandidateNotAcceptedShape a sh:NodeShape ;
+    sh:name "portable-CandidateNotAcceptedShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A review-required candidate must not also be an accepted assertion." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:RequiresReview .
+              $this fneo:hasValidationStatus fneo:Accepted .
+            }
+        """ ;
+    ] .
+
+fneos:portable-CandidateEvidenceResolvesShape a sh:NodeShape ;
+    sh:name "portable-CandidateEvidenceResolvesShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Evidence cited by a review-required assertion must resolve in the combined dataset." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:RequiresReview .
+              $this fneo:supportedBy ?evidence .
+              FILTER NOT EXISTS { ?evidence ?predicate ?object }
+            }
+        """ ;
+    ] .
+
+fneos:portable-CandidateProvenanceShape a sh:NodeShape ;
+    sh:name "portable-CandidateProvenanceShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A review-required assertion requires rule provenance and population provenance." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:RequiresReview .
+              {
+                FILTER NOT EXISTS { $this fneo:ruleIdentifier ?rule }
+                FILTER NOT EXISTS { $this fneo:populatedByRule ?populatedRule }
+              }
+              UNION
+              {
+                FILTER NOT EXISTS { $this fneo:populationMethod ?method }
+                FILTER NOT EXISTS { $this fneo:populatedByActivity ?activity }
+              }
+            }
+        """ ;
+    ] .
+
+fneos:portable-CandidateSourceActivityShape a sh:NodeShape ;
+    sh:name "portable-CandidateSourceActivityShape" ;
+    sh:targetClass fneo:RelationAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A review-required assertion requires the population activity that carries its document key." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:RequiresReview .
+              FILTER NOT EXISTS { $this fneo:populatedByActivity ?activity }
+            }
+        """ ;
+    ] .

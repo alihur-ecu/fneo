@@ -1,0 +1,23 @@
+# Prepared only. Does not run until a maintainer enables it after review.
+# GitHub Pages is not claimed to exist. No public repository URL is set.
+name: pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: documentation
+      - uses: actions/deploy-pages@v4

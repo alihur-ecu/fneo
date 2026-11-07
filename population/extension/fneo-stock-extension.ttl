@@ -1,0 +1,943 @@
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-113219"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113227> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-113227"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114565> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-114565"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114613> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-114613"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114719> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-114719"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114864> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-114864"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114904> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-114904"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-115587> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-115587"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-116834> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-116834"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-121416> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-121416"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-121978> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-121978"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-122475> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-122475"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-131162> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-131162"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-251007> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-251007"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-61327> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-61327"^^xsd:string .
+
+<https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-76437> fneo:generatedBySoftwareAgent <https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> ;
+    rdfs:label "enrichment activity feo011-doc-76437"^^xsd:string .
+
+<https://w3id.org/fneo/resource/agent/feo009-enrichment-engine> rdfs:label "deterministic enrichment engine"^^xsd:string .
+
+<https://w3id.org/fneo/resource/assertion/relation/07eca6cbf9a59e493124> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-ea7405297dc8b52d> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-121416> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/14d1e9bb08ce18725d30> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-d4ff23a063f28f4d> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114864> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/15b95dacac7644298607> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-fba5d2479b655a20> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-115587> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/185613ed01142d8b33ab> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-1ff2ad1738ca4b04> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-115587> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/19047d30bdfd5dd6c204> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-7a0ccae469b1f54b> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-61327> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/1b0688eeed1919c5ff81> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-28fcf2cafd541456> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114864> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/203e165149cbf35b4485> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-9522e935555acc37> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114613> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/53e235efd4cfdb08d6f4> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-fffedeb8e8de89eb> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-61327> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/544d5e8624ef0459e44c> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/113227/event-f02069d48d63867f> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113227> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/61bb32815f3e9d1328f7> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-a8e0ce645d41e60c> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114565> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/6e0ad578dd2260d99317> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-711cd9433cb988d3> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-76437> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/6f932009e47fa74c9e8e> fneo:assertionObject fneo:UpwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/122475/event-e0a01e99863c3479> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-122475> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/79d4d87d31e299f13107> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-aa9d1aa42978bc4a> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-121416> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/90e41b9de7ff5580f23d> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-7d6153c6c42e5e7a> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114613> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/96d58052efbc87b7f985> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-73979eae0af10278> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114719> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/97e6e37a53d3cc476a16> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-3a792ffa24d11d47> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-76437> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/9ae6e9fa513630fe9eff> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-8f9816c2046cf0b6> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114864> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/a45e14f30752e0cd4e01> fneo:assertionObject fneo:UpwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-f9b1c6f976e5a0e9> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-131162> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/b6d06ee9e6284c8d4a47> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114904/event-9e1067d36a3c86c6> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114904> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/b86f5e91d0deca542b9d> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/bbbc24364d3b5c63a041> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/251007/event-db671d58f8481b95> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-251007> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/bf1262ecbb0c432b5247> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-113219> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/c76c808963047761ff10> fneo:assertionObject fneo:UpwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-cb934e9eace56f4b> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-131162> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/cc67cf877693d4d26d1e> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/121978/event-f5162277703af132> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-121978> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/d4e2b94a036f4880670c> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/116834/event-e33121f675b7e8b4> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-116834> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/d857078f77430a21ff57> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-38e7bf9775309ecb> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114719> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/assertion/relation/ee390b9f64b1b63de070> fneo:assertionObject fneo:DownwardDirection ;
+    fneo:assertionPredicateIRI "https://w3id.org/fneo/hasMarketDirection"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-5067c15b15330542> ;
+    fneo:confidence "0.85"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:NotReviewed ;
+    fneo:hasValidationStatus fneo:Accepted ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-114565> ;
+    fneo:populatedByRule "FE-DIR-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "FE-DIR-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/113219> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/113219/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:sourceDocumentIdentifier "113219"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Stock markets worldwide fall dramatically"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/113227> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/113227/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/113227/event-f02069d48d63867f> ;
+    fneo:sourceDocumentIdentifier "113227"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Russian stock markets suspended amid market turmoil"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/114565> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/114565/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-5067c15b15330542> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-a8e0ce645d41e60c> ;
+    fneo:sourceDocumentIdentifier "114565"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Worldwide markets fall precipitously"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/114613> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/114613/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-7d6153c6c42e5e7a> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-9522e935555acc37> ;
+    fneo:sourceDocumentIdentifier "114613"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Stock markets worldwide continue to fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/114719> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/114719/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-38e7bf9775309ecb> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-73979eae0af10278> ;
+    fneo:sourceDocumentIdentifier "114719"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Markets down across the world; Dow Jones falls below 9,000"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/114864> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/114864/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-28fcf2cafd541456> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-8f9816c2046cf0b6> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-d4ff23a063f28f4d> ;
+    fneo:sourceDocumentIdentifier "114864"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Global markets plunge"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/114904> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/114904/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/114904/event-9e1067d36a3c86c6> ;
+    fneo:sourceDocumentIdentifier "114904"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Dow Jones recovers hundreds of points, before losing them in minutes"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/115587> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/115587/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-1ff2ad1738ca4b04> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-fba5d2479b655a20> ;
+    fneo:sourceDocumentIdentifier "115587"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Global stock markets plunge"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/116834> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/116834/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/116834/event-e33121f675b7e8b4> ;
+    fneo:sourceDocumentIdentifier "116834"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Japan enters recession"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/121416> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/121416/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-aa9d1aa42978bc4a> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-ea7405297dc8b52d> ;
+    fneo:sourceDocumentIdentifier "121416"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "US stock markets fall to lowest levels since 1997"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/121978> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/121978/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/121978/event-f5162277703af132> ;
+    fneo:sourceDocumentIdentifier "121978"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "US stock markets reach 12-year lows"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/122475> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/122475/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/122475/event-e0a01e99863c3479> ;
+    fneo:sourceDocumentIdentifier "122475"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "US stock markets have their best week since November"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/131162> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/131162/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-cb934e9eace56f4b> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-f9b1c6f976e5a0e9> ;
+    fneo:sourceDocumentIdentifier "131162"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Stock markets worldwide rise on hopes of US economic recovery"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/251007> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/251007/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/251007/event-db671d58f8481b95> ;
+    fneo:sourceDocumentIdentifier "251007"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Japanese stocks continue to fall after earthquake"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/61327> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/61327/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-7a0ccae469b1f54b> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-fffedeb8e8de89eb> ;
+    fneo:sourceDocumentIdentifier "61327"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "U.S. stocks plummet amid global sell-off"^^xsd:string .
+
+<https://w3id.org/fneo/resource/document/meantime-en-stock/76437> fneo:hasPublicationTime <https://w3id.org/fneo/resource/time/meantime-en-stock/76437/publication> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-3a792ffa24d11d47> ;
+    fneo:reportsEvent <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-711cd9433cb988d3> ;
+    fneo:sourceDocumentIdentifier "76437"^^xsd:string ;
+    rdf:type fneo:FinancialNewsDocument ;
+    rdfs:label "Markets dragged down by credit crisis"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-ee728d0fcb2308bf> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop in"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-3fab7fcbc65f7380> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/113227/event-f02069d48d63867f> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113227/mention-1c14ba11f6f0d4be> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop in"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-5067c15b15330542> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114565/mention-f8e5a2e30b9d3e36> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop in"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-a8e0ce645d41e60c> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114565/mention-13d979f611e0a064> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-7d6153c6c42e5e7a> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114613/mention-8a193fb9145f04f7> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-9522e935555acc37> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114613/mention-19008e06ed8cfc73> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-38e7bf9775309ecb> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114719/mention-8dc297809028a9f3> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-73979eae0af10278> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114719/mention-81ea66736718b6cb> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-28fcf2cafd541456> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-597d1e5eba919143> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-8f9816c2046cf0b6> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-3a21de962ec0f5dc> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-d4ff23a063f28f4d> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-4f25fe13e3847b22> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/114904/event-9e1067d36a3c86c6> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114904/mention-052e4f0db57af3de> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop to"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-1ff2ad1738ca4b04> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/115587/mention-98c7eede47d7752d> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-fba5d2479b655a20> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/115587/mention-f74abbabea8e24ac> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/116834/event-e33121f675b7e8b4> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/116834/mention-1d5f3e447720f777> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-aa9d1aa42978bc4a> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121416/mention-2250d190cb84bf0f> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-ea7405297dc8b52d> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121416/mention-93e069a8d352d48b> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/121978/event-f5162277703af132> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121978/mention-b9e2c34db18f4314> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/122475/event-e0a01e99863c3479> fneo:hasMarketDirection fneo:UpwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/122475/mention-b74a73390bfb1055> ;
+    rdf:type fneo:Event ;
+    rdfs:label "rally"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-cb934e9eace56f4b> fneo:hasMarketDirection fneo:UpwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/131162/mention-41c48ae23850ab7a> ;
+    rdf:type fneo:Event ;
+    rdfs:label "gain"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-f9b1c6f976e5a0e9> fneo:hasMarketDirection fneo:UpwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/131162/mention-0e2553643c2af53d> ;
+    rdf:type fneo:Event ;
+    rdfs:label "gain"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/251007/event-db671d58f8481b95> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/251007/mention-d84d725e580d84c6> ;
+    rdf:type fneo:Event ;
+    rdfs:label "drop"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-7a0ccae469b1f54b> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/61327/mention-448a96bdded0ac76> ;
+    rdf:type fneo:Event ;
+    rdfs:label "plunge"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-fffedeb8e8de89eb> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/61327/mention-988ba9812cb572d5> ;
+    rdf:type fneo:Event ;
+    rdfs:label "decline"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-3a792ffa24d11d47> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/76437/mention-317128ff05d121ab> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-711cd9433cb988d3> fneo:hasMarketDirection fneo:DownwardDirection ;
+    fneo:hasMention <https://w3id.org/fneo/resource/mention/event/meantime-en-stock/76437/mention-2fa1399459ba4616> ;
+    rdf:type fneo:Event ;
+    rdfs:label "fall"^^xsd:string .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-3fab7fcbc65f7380> fneo:characterEnd "147"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "141"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-eb1a3266a9b3161e> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/113219> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "26"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "25"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113219/mention-ee728d0fcb2308bf> fneo:characterEnd "349"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "339"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/113219/event-a71d4c3ab9e23b70> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/113219> ;
+    fneo:textualForm "drop in"^^xsd:string ;
+    fneo:tokenEnd "66"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "64"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/113227/mention-1c14ba11f6f0d4be> fneo:characterEnd "914"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "904"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/113227/event-f02069d48d63867f> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/113227> ;
+    fneo:textualForm "drop in"^^xsd:string ;
+    fneo:tokenEnd "175"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "173"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114565/mention-13d979f611e0a064> fneo:characterEnd "97"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "91"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-a8e0ce645d41e60c> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114565> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "17"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "16"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114565/mention-f8e5a2e30b9d3e36> fneo:characterEnd "319"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "309"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114565/event-5067c15b15330542> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114565> ;
+    fneo:textualForm "drop in"^^xsd:string ;
+    fneo:tokenEnd "62"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "60"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114613/mention-19008e06ed8cfc73> fneo:characterEnd "1089"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "1077"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-9522e935555acc37> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114613> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "234"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "233"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114613/mention-8a193fb9145f04f7> fneo:characterEnd "107"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "103"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114613/event-7d6153c6c42e5e7a> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114613> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "20"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "19"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114719/mention-81ea66736718b6cb> fneo:characterEnd "1024"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "1017"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-73979eae0af10278> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114719> ;
+    fneo:textualForm "drop"^^xsd:string ;
+    fneo:tokenEnd "203"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "202"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114719/mention-8dc297809028a9f3> fneo:characterEnd "272"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "268"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114719/event-38e7bf9775309ecb> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114719> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "53"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "52"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-3a21de962ec0f5dc> fneo:characterEnd "83"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "77"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-8f9816c2046cf0b6> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114864> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "16"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "15"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-4f25fe13e3847b22> fneo:characterEnd "958"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "951"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-d4ff23a063f28f4d> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114864> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "186"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "185"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114864/mention-597d1e5eba919143> fneo:characterEnd "205"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "198"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114864/event-28fcf2cafd541456> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114864> ;
+    fneo:textualForm "drop"^^xsd:string ;
+    fneo:tokenEnd "37"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "36"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/114904/mention-052e4f0db57af3de> fneo:characterEnd "267"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "252"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/114904/event-9e1067d36a3c86c6> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/114904> ;
+    fneo:textualForm "drop to"^^xsd:string ;
+    fneo:tokenEnd "52"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "49"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/115587/mention-98c7eede47d7752d> fneo:characterEnd "539"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "535"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-1ff2ad1738ca4b04> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/115587> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "99"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "98"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/115587/mention-f74abbabea8e24ac> fneo:characterEnd "89"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "83"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/115587/event-fba5d2479b655a20> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/115587> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "17"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "16"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/116834/mention-1d5f3e447720f777> fneo:characterEnd "674"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "668"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/116834/event-e33121f675b7e8b4> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/116834> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "126"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "125"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121416/mention-2250d190cb84bf0f> fneo:characterEnd "309"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "305"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-aa9d1aa42978bc4a> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/121416> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "54"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "53"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121416/mention-93e069a8d352d48b> fneo:characterEnd "631"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "624"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/121416/event-ea7405297dc8b52d> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/121416> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "122"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "121"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/121978/mention-b9e2c34db18f4314> fneo:characterEnd "303"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "296"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/121978/event-f5162277703af132> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/121978> ;
+    fneo:textualForm "drop"^^xsd:string ;
+    fneo:tokenEnd "52"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "51"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/122475/mention-b74a73390bfb1055> fneo:characterEnd "144"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "135"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/122475/event-e0a01e99863c3479> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/122475> ;
+    fneo:textualForm "rally"^^xsd:string ;
+    fneo:tokenEnd "29"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "28"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/131162/mention-0e2553643c2af53d> fneo:characterEnd "544"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "538"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-f9b1c6f976e5a0e9> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/131162> ;
+    fneo:textualForm "gain"^^xsd:string ;
+    fneo:tokenEnd "106"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "105"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/131162/mention-41c48ae23850ab7a> fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/131162/event-cb934e9eace56f4b> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/131162> ;
+    fneo:textualForm "gain"^^xsd:string ;
+    fneo:tokenEnd "127"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "126"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/251007/mention-d84d725e580d84c6> fneo:characterEnd "103"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "102"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/251007/event-db671d58f8481b95> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/251007> ;
+    fneo:textualForm "drop"^^xsd:string ;
+    fneo:tokenEnd "103"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "102"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/61327/mention-448a96bdded0ac76> fneo:characterEnd "120"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "113"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-7a0ccae469b1f54b> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/61327> ;
+    fneo:textualForm "plunge"^^xsd:string ;
+    fneo:tokenEnd "24"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "23"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/61327/mention-988ba9812cb572d5> fneo:characterEnd "205"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "181"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/61327/event-fffedeb8e8de89eb> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/61327> ;
+    fneo:textualForm "decline"^^xsd:string ;
+    fneo:tokenEnd "40"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "37"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/76437/mention-2fa1399459ba4616> fneo:characterEnd "81"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "77"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-711cd9433cb988d3> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/76437> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "16"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "15"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/mention/event/meantime-en-stock/76437/mention-317128ff05d121ab> fneo:characterEnd "246"^^xsd:nonNegativeInteger ;
+    fneo:characterStart "239"^^xsd:nonNegativeInteger ;
+    fneo:denotes <https://w3id.org/fneo/resource/event/meantime-en-stock/76437/event-3a792ffa24d11d47> ;
+    fneo:mentionedIn <https://w3id.org/fneo/resource/document/meantime-en-stock/76437> ;
+    fneo:textualForm "fall"^^xsd:string ;
+    fneo:tokenEnd "45"^^xsd:nonNegativeInteger ;
+    fneo:tokenStart "44"^^xsd:nonNegativeInteger ;
+    rdf:type fneo:EventMention .
+
+<https://w3id.org/fneo/resource/rule/FE-DIR-001> rdfs:label "FE-DIR-001"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/113219/publication> fneo:normalisedTimeValue "2008-09-17T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-09-17T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/113227/publication> fneo:normalisedTimeValue "2008-09-17T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-09-17T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/114565/publication> fneo:normalisedTimeValue "2008-10-06T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-06T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/114613/publication> fneo:normalisedTimeValue "2008-10-07T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-07T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/114719/publication> fneo:normalisedTimeValue "2008-10-09T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-09T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/114864/publication> fneo:normalisedTimeValue "2008-10-10T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-10T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/114904/publication> fneo:normalisedTimeValue "2008-10-20T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-20T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/115587/publication> fneo:normalisedTimeValue "2008-10-24T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-10-24T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/116834/publication> fneo:normalisedTimeValue "2008-11-18T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2008-11-18T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/121416/publication> fneo:normalisedTimeValue "2009-02-24T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2009-02-24T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/121978/publication> fneo:normalisedTimeValue "2009-03-05T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2009-03-05T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/122475/publication> fneo:normalisedTimeValue "2009-03-13T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2009-03-13T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/131162/publication> fneo:normalisedTimeValue "2009-08-21T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2009-08-21T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/251007/publication> fneo:normalisedTimeValue "2011-03-18T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2011-03-18T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/61327/publication> fneo:normalisedTimeValue "2007-02-27T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2007-02-27T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .
+
+<https://w3id.org/fneo/resource/time/meantime-en-stock/76437/publication> fneo:normalisedTimeValue "2007-08-10T00:00:00"^^xsd:string ;
+    fneo:publicationTimeLiteral "2007-08-10T00:00:00"^^xsd:string ;
+    rdf:type fneo:TimeEntity ;
+    rdfs:label "publication time"^^xsd:string .

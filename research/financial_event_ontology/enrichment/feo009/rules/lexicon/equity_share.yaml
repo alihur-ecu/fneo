@@ -1,0 +1,23 @@
+# Share cues from OR-CLASS-024 and FDQ-013. The issuer is a different individual.
+name: equity_share
+source: FEO-005A OR-CLASS-024; FDQ-013
+unambiguous_cues:
+  - equity shares
+  - ordinary shares
+  - common shares
+  - shares
+  - share
+ambiguous_cues:
+  - equities
+  - equity
+  - stocks
+  - stock
+organisation_cues:
+  - corporation
+  - incorporated
+  - company
+  - inc.
+  - ltd.
+notes:
+  - One span is not both an equity share and the issuing organisation.
+  - The cue stock alone is review-required because it also occurs in stock market.

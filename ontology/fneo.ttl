@@ -1,0 +1,1192 @@
+# Financial News Event Ontology (FNEO), development release candidate 0.1.0-rc2
+# Canonical Turtle for this release candidate. RDF/XML and JSON-LD are generated from this file.
+# This candidate keeps the ontology IRI of development version 0.1.0 and uses a distinct version IRI.
+# Relative to development candidate 0.1.0-rc1, the OWL range of hasAffectedMarket
+# is the union of FinancialMarket and MarketIndex. The core SHACL profile stays narrower.
+# Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1.
+# No stable public release precedes 0.1.0.
+# Development history is in CHANGELOG.md next to this file.
+# dcterms:modified 2026-11-06 is the metadata-revision date, not a public release date.
+#
+# IRI configuration (one term namespace; do not introduce another host):
+#   prefix fneo:     <https://w3id.org/fneo/>
+#   ontology IRI:    <https://w3id.org/fneo/ontology>
+#   version IRI:     <https://w3id.org/fneo/ontology/0.1.0-rc2>
+#   term pattern:    <https://w3id.org/fneo/>{localName}
+#
+# The title, acronym FNEO, and namespace are provisional.
+# https://w3id.org/fneo/ is a development stem. It is not a registered W3ID.
+# This file does not claim that the namespace resolves.
+#
+# Licence for this ontology: CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/>
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# MODULE: metadata and annotation vocabulary
+
+<https://w3id.org/fneo/ontology> a owl:Ontology ;
+    rdfs:label "Financial News Event Ontology"@en ;
+    owl:versionIRI <https://w3id.org/fneo/ontology/0.1.0-rc2> ;
+    owl:versionInfo "0.1.0-rc2" ;
+    owl:priorVersion <https://w3id.org/fneo/ontology/0.1.0-rc1> ;
+    dcterms:title "Financial News Event Ontology"@en ;
+    fneo:acronym "FNEO" ;
+    dcterms:description "A corpus-grounded ontology for entities, events, participant roles, financial objects, values, times, qualified assertions, and textual evidence in financial news."@en ;
+    fneo:scopeNote "The ontology represents financial-news reports. It does not model trading recommendations, investment advice, portfolio construction, accounting, regulation, live market systems, or predictive analytics. Extension temporal relations are experimental."@en ;
+    fneo:developmentStatus "Development release candidate 0.1.0-rc2 of version 0.1.0. Not a stable release. The ontology IRI is unchanged."@en ;
+    fneo:namespaceStatus "Provisional. The prefix fneo: expands to https://w3id.org/fneo/. The ontology IRI is https://w3id.org/fneo/ontology. This W3ID has not been registered, and this file does not claim that the namespace resolves."@en ;
+    fneo:preferredNamespacePrefix "fneo" ;
+    fneo:preferredNamespaceUri "https://w3id.org/fneo/"^^xsd:anyURI ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:creator <https://orcid.org/0000-0001-9537-2648> ;
+    dcterms:issued "2026-10-30"^^xsd:date ;
+    dcterms:modified "2026-11-06"^^xsd:date ;
+    fneo:competencyQuestionCatalogue "competency_questions/catalogue/cq_to_ontology_requirements.csv" ;
+    fneo:bibliographicCitation "Hur, Ali. Financial News Event Ontology, development release candidate 0.1.0-rc2. ORCID https://orcid.org/0000-0001-9537-2648. Provisional title, acronym, and namespace. No DOI and no public release date are assigned."@en ;
+    fneo:backwardCompatibility "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. Relative to 0.1.0-rc1, the OWL range of hasAffectedMarket is the union of FinancialMarket and MarketIndex. The core application profile still requires a populated value to be a MarketIndex or an EquityMarket. That profile check is not the OWL range."@en ;
+    fneo:priorVersionNote "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1. No stable public release precedes 0.1.0. The prior version IRI is https://w3id.org/fneo/ontology/0.1.0-rc1."@en ;
+    rdfs:comment "Controlled lists in this version are the version 0.1 sets. The value classes are not closed with owl:oneOf. Extension temporal relations are experimental: they are not core publication commitments, symmetry is not declared for simultaneousWith, and a reasoner entailment of an inverse temporal triple is not independently extracted evidence. dcterms:modified records the metadata-revision date 2026-11-06, not a public release date."@en .
+
+<https://orcid.org/0000-0001-9537-2648> a foaf:Person ;
+    foaf:name "Ali HUR" .
+
+foaf:name a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+
+fneo:definition a owl:AnnotationProperty ;
+    rdfs:label "definition"@en ;
+    fneo:definition "A local definition annotation used so the ontology can state term definitions without importing SKOS."@en ;
+    fneo:scopeNote "Corresponds in purpose to skos:definition. The SKOS ontology is not imported."@en ;
+    fneo:example "The definition of market-change event."@en ;
+    rdfs:seeAlso <http://www.w3.org/2004/02/skos/core#definition> ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note"@en ;
+    fneo:definition "A local scope note that records how a term is meant to be applied in this version."@en ;
+    fneo:scopeNote "Corresponds in purpose to skos:scopeNote. The SKOS ontology is not imported."@en ;
+    fneo:example "A note that market direction is optional."@en ;
+    rdfs:seeAlso <http://www.w3.org/2004/02/skos/core#scopeNote> ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:example a owl:AnnotationProperty ;
+    rdfs:label "example"@en ;
+    fneo:definition "A short example of how a term is used."@en ;
+    fneo:scopeNote "Examples in the ontology are illustrative. Synthetic graphs under the example stem are the machine-readable illustrations."@en ;
+    fneo:example "A fictional index name used as a market index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:abstractExtensionPoint a owl:AnnotationProperty ;
+    rdfs:label "abstract extension point"@en ;
+    fneo:definition "Marks a class that is retained as an abstract extension point and is not a population target in this version."@en ;
+    fneo:scopeNote "The value true does not mean the class is deprecated and does not add a subclass axiom."@en ;
+    fneo:example "Financial situation is an abstract extension point."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:acronym a owl:AnnotationProperty ;
+    rdfs:label "acronym"@en ;
+    fneo:definition "The provisional acronym of the ontology."@en ;
+    fneo:scopeNote "FNEO is provisional until the name is confirmed."@en ;
+    fneo:example "FNEO"@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:developmentStatus a owl:AnnotationProperty ;
+    rdfs:label "development status"@en ;
+    fneo:definition "States whether the ontology version is a development version or a stable release."@en ;
+    fneo:scopeNote "Version 0.1.0 is a development version."@en ;
+    fneo:example "Development version 0.1.0."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:namespaceStatus a owl:AnnotationProperty ;
+    rdfs:label "namespace status"@en ;
+    fneo:definition "Records that the namespace and W3ID stem are provisional and not registered."@en ;
+    fneo:scopeNote "This annotation qualifies the namespace, not the domain semantics."@en ;
+    fneo:example "Provisional and not registered."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:preferredNamespacePrefix a owl:AnnotationProperty ;
+    rdfs:label "preferred namespace prefix"@en ;
+    fneo:definition "The preferred prefix for the term namespace."@en ;
+    fneo:scopeNote "The prefix fneo expands to the term base, not to the ontology IRI."@en ;
+    fneo:example "fneo"@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:preferredNamespaceUri a owl:AnnotationProperty ;
+    rdfs:label "preferred namespace URI"@en ;
+    fneo:definition "The IRI stem to which the preferred prefix expands."@en ;
+    fneo:scopeNote "Term IRIs are formed by appending a local name to this stem."@en ;
+    fneo:example "https://w3id.org/fneo/"@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:competencyQuestionCatalogue a owl:AnnotationProperty ;
+    rdfs:label "competency-question catalogue"@en ;
+    fneo:definition "A pointer to the approved competency-question catalogue used to justify this version."@en ;
+    fneo:scopeNote "The pointer is a release-relative path, not a public URL and not a claim that the catalogue has been populated."@en ;
+    fneo:example "competency_questions/catalogue/cq_to_ontology_requirements.csv"@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:bibliographicCitation a owl:AnnotationProperty ;
+    rdfs:label "bibliographic citation"@en ;
+    fneo:definition "A short citation string for this ontology version."@en ;
+    fneo:scopeNote "Author names are not invented here. See the modelling notes for the attribution choice."@en ;
+    fneo:example "Financial News Event Ontology, development version 0.1.0, 2026."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:backwardCompatibility a owl:AnnotationProperty ;
+    rdfs:label "backward compatibility"@en ;
+    fneo:definition "A statement of compatibility with earlier public versions."@en ;
+    fneo:scopeNote "No stable public release precedes version 0.1.0. A development candidate may still name a prior version IRI."@en ;
+    fneo:example "Release candidate 0.1.0-rc2 follows development candidate 0.1.0-rc1."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:priorVersionNote a owl:AnnotationProperty ;
+    rdfs:label "prior version note"@en ;
+    fneo:definition "An explicit statement of the prior version IRI when a development candidate precedes this file."@en ;
+    fneo:scopeNote "owl:priorVersion is used when a prior ontology IRI exists. This candidate points at development candidate 0.1.0-rc1. No stable public release precedes 0.1.0."@en ;
+    fneo:example "https://w3id.org/fneo/ontology/0.1.0-rc1"@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+
+# MODULE: core classes
+
+fneo:FinancialNewsDocument a owl:Class ;
+    rdfs:label "financial news document"@en ;
+    fneo:definition "A financial news report treated as the source document for mentions, reported events, publication time, and numerical expressions."@en ;
+    fneo:scopeNote "The document is not a mention span and not an event. A source-document identifier on the document is provenance, not the identity of the ontology individual."@en ;
+    fneo:example "A fabricated market brief with one publication time."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TextualEvidence a owl:Class ;
+    rdfs:label "textual evidence"@en ;
+    fneo:definition "A passage, token span, or stored text excerpt that supports a reported event or another ontology assertion."@en ;
+    fneo:scopeNote "Evidence is not the event it supports. Token spans are sufficient. Character offsets are included only when stored."@en ;
+    fneo:example "The sentence that reports a fall in a fictional index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TextualMention a owl:Class ;
+    rdfs:label "textual mention"@en ;
+    fneo:definition "A textual occurrence of an entity, event, time, or value, distinct from the canonical object that the occurrence denotes."@en ;
+    fneo:scopeNote "Entity mentions, event mentions, and time mentions specialise this class. A value expression may remain a textual mention when no narrower mention class is approved."@en ;
+    fneo:example "The surface string of a fictional index name."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:EntityMention a owl:Class ;
+    rdfs:subClassOf fneo:TextualMention ;
+    rdfs:label "entity mention"@en ;
+    fneo:definition "A textual mention that denotes an entity."@en ;
+    fneo:scopeNote "An entity mention is not the entity it denotes. In the core profile an in-profile entity mention denotes one entity."@en ;
+    fneo:example "A mention of a fictional market index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:EventMention a owl:Class ;
+    rdfs:subClassOf fneo:TextualMention ;
+    rdfs:label "event mention"@en ;
+    fneo:definition "A textual expression that denotes a reported event."@en ;
+    fneo:scopeNote "An event mention is not the event it denotes. A one-to-one link from expression to event is canonicalisation, not event coreference."@en ;
+    fneo:example "The word fell used as the expression of a market-change event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TimeMention a owl:Class ;
+    rdfs:subClassOf fneo:TextualMention ;
+    rdfs:label "time mention"@en ;
+    fneo:definition "A textual mention of a time expression, distinct from the time entity that the mention denotes."@en ;
+    fneo:scopeNote "A time mention is not a time entity, an entity mention, or an event mention. Character offsets are optional when token offsets exist."@en ;
+    fneo:example "The word Tuesday as a mention of a normalised day."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Entity a owl:Class ;
+    rdfs:label "entity"@en ;
+    fneo:definition "A canonical entity denoted by one or more textual mentions, distinct from those mentions and from events."@en ;
+    fneo:scopeNote "Not every entity is a financial entity. This class is disjoint with event in this version."@en ;
+    fneo:example "The canonical record for a fictional market index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Event a owl:Class ;
+    rdfs:label "event"@en ;
+    fneo:definition "A reported event denoted by one or more textual expressions, distinct from those expressions, from entities, and from claims about the event."@en ;
+    fneo:scopeNote "A financial-event category is not implied by this class. Event is disjoint with entity, time entity, and numerical value in this version."@en ;
+    fneo:example "A reported fall, distinct from the index that fell and from the wording that reports it."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialEntity a owl:Class ;
+    rdfs:subClassOf fneo:Entity ;
+    rdfs:label "financial entity"@en ;
+    fneo:definition "An entity that the ontology types as financial, including markets, financial organisations, financial objects, financial systems, and financial sectors."@en ;
+    fneo:scopeNote "Not every entity is a financial entity. The class does not copy a source organisation code or a source financial code."@en ;
+    fneo:example "A fictional equity market after classification."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialObject a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEntity ;
+    rdfs:label "financial object"@en ;
+    fneo:definition "A financial entity that is an object such as a market index, an equity share, or a currency, rather than an organisation or a market venue."@en ;
+    fneo:scopeNote "Abstract modelling class. Market index, equity share, and currency specialise it. It is not a gold population target by itself, and a market index is not a financial market."@en ;
+    fneo:example "A named index, a share, or a named currency."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialOrganisation a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEntity ;
+    rdfs:label "financial organisation"@en ;
+    fneo:definition "A financial entity that is an organisation in a financial role."@en ;
+    fneo:scopeNote "Abstract modelling class. Central bank and commercial bank specialise it. A source organisation code is not equivalent to this class. The two bank classes are not declared disjoint."@en ;
+    fneo:example "A fictional central bank."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialMarket a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEntity ;
+    rdfs:label "financial market"@en ;
+    fneo:definition "A financial entity that is a market, used as the broader class for an equity market."@en ;
+    fneo:scopeNote "A named market index is not a subclass of this class. Equity market is the approved subclass in this version."@en ;
+    fneo:example "A collective equity market."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:EquityMarket a owl:Class ;
+    rdfs:subClassOf fneo:FinancialMarket ;
+    rdfs:label "equity market"@en ;
+    fneo:definition "A collective equity market mentioned as a market aggregate, kept distinct from a named market index and from an organisation."@en ;
+    fneo:scopeNote "Subclass of financial market. Disjoint with market index in this version. Geographic modifiers remain boundary cases for population, which is outside this schema."@en ;
+    fneo:example "A fictional equity market named as a market rather than as an index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:MarketIndex a owl:Class ;
+    rdfs:subClassOf fneo:FinancialObject ;
+    rdfs:label "market index"@en ;
+    fneo:definition "A named market index mentioned as an index, kept distinct from a collective equity market, a currency, a bank, and a price."@en ;
+    fneo:scopeNote "Subclass of financial object. Not a subclass of financial market. Disjoint with equity market and with financial organisation in this version."@en ;
+    fneo:example "A fictional index such as the Northwind Market Index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialEvent a owl:Class ;
+    rdfs:subClassOf fneo:Event ;
+    rdfs:label "financial event"@en ;
+    fneo:definition "A reported event that the ontology types as financial."@en ;
+    fneo:scopeNote "Subclass of event. The only approved financial-event subclass in this version is market-change event."@en ;
+    fneo:example "A reported change in a named index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:MarketChangeEvent a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEvent ;
+    rdfs:label "market-change event"@en ;
+    fneo:definition "A reported financial event in which a named market index or equity market undergoes a change in its represented level, value, or condition."@en ;
+    fneo:scopeNote "Subclass of financial event. Direction is optional and is not a subclass split. Distinct triggers or affected markets use distinct event individuals. No mixed-direction class is defined."@en ;
+    fneo:example "A reported fall in a fictional index, distinct from a reported rise in a fictional equity market."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TimeEntity a owl:Class ;
+    rdfs:label "time entity"@en ;
+    fneo:definition "A canonical time with a lexical form and, where recorded, a normalised value."@en ;
+    fneo:scopeNote "Publication time and event time are different relations to time entities. Time entity is not a subclass of entity. The normalised value is a string because stored forms mix dates, timestamps, durations, and underspecified values."@en ;
+    fneo:example "The publication timestamp of a news document, or a weekday anchored to an event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialMeasurement a owl:Class ;
+    fneo:abstractExtensionPoint "true"^^xsd:boolean ;
+    rdfs:label "financial measurement"@en ;
+    fneo:definition "An abstract extension point for a measurement, such as a level or a price reading, kept distinct from the event that reports a change and from the numerical expression used to write the measurement."@en ;
+    fneo:scopeNote "Not a populated class in this version, not a parent of numerical value, and not a core validation target. No populated subclass is defined."@en ;
+    fneo:example "No core instance. A quantity written beside an index name remains a numerical value."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:NumericalValue a owl:Class ;
+    rdfs:label "numerical value"@en ;
+    fneo:definition "A numerical expression reported in a document, including its lexical form and, where parseable, a numeric value."@en ;
+    fneo:scopeNote "In the core profile a numerical value stays a document-level expression. Direct attachment to an event is an extension relation and is not required."@en ;
+    fneo:example "The lexical expression 2.5 percent in a fabricated sentence."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:PercentageValue a owl:Class ;
+    rdfs:subClassOf fneo:NumericalValue ;
+    rdfs:label "percentage value"@en ;
+    fneo:definition "A numerical value whose reported form is a percentage."@en ;
+    fneo:scopeNote "The lexical form keeps the percent sign or the word percent. numericalValue is an xsd:decimal in percentage points: 2.5 means 2.5 percent, not the fraction 0.025. Percentage-occurrence querying is extension evaluation. Document co-presence with an index is not an attachment."@en ;
+    fneo:example "Lexical form 2.5% with numerical value 2.5."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialSituation a owl:Class ;
+    fneo:abstractExtensionPoint "true"^^xsd:boolean ;
+    rdfs:label "financial situation"@en ;
+    fneo:definition "An abstract extension point for a continuing economic situation, kept conceptually distinct from a dated reported event."@en ;
+    fneo:scopeNote "Not populated in this version, not a core validation target, and not given a subclass. A disjointness axiom with event is not asserted. Primary competency questions do not use this class."@en ;
+    fneo:example "No populated instance. Situation wording is not retyped as this class in version 0.1."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: extension classes
+
+fneo:CentralBank a owl:Class ;
+    rdfs:subClassOf fneo:FinancialOrganisation ;
+    rdfs:label "central bank"@en ;
+    fneo:definition "A central bank, or a collective mention of central banks, classified in context."@en ;
+    fneo:scopeNote "Extension class under financial organisation. Not declared disjoint with commercial bank. Classification requires review rather than a source organisation code alone."@en ;
+    fneo:example "A fictional central bank named in a synthetic brief."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:CommercialBank a owl:Class ;
+    rdfs:subClassOf fneo:FinancialOrganisation ;
+    rdfs:label "commercial bank"@en ;
+    fneo:definition "A commercial bank or bank group, classified in context."@en ;
+    fneo:scopeNote "Extension class under financial organisation. Not declared disjoint with central bank. Ambiguous names are not forced into this class."@en ;
+    fneo:example "A fictional commercial bank, distinct from a central bank in the same brief."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Currency a owl:Class ;
+    rdfs:subClassOf fneo:FinancialObject ;
+    rdfs:label "currency"@en ;
+    fneo:definition "A named currency, distinct from a monetary amount and from a market index."@en ;
+    fneo:scopeNote "Extension class under financial object. Disjoint with monetary amount in this version. A currency code on an amount is not this class."@en ;
+    fneo:example "A fictional currency name such as the Northwind dollar."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:EquityShare a owl:Class ;
+    rdfs:subClassOf fneo:FinancialObject ;
+    rdfs:label "equity share"@en ;
+    fneo:definition "An equity share, distinct from the organisation that issues that share."@en ;
+    fneo:scopeNote "Extension class under financial object. Disjoint with financial organisation in this version. An issuing relation is not defined in this version."@en ;
+    fneo:example "A fictional ordinary share distinguished from its issuing organisation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialSystem a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEntity ;
+    rdfs:label "financial system"@en ;
+    fneo:definition "An expression referring to a financial system, kept distinguishable from a financial sector, a market index, a bank, and crisis or recession wording."@en ;
+    fneo:scopeNote "Extension class under financial entity. Not declared disjoint with financial sector. Ambiguous expressions stay review-required and are not a validation violation."@en ;
+    fneo:example "The wording of a fictional financial system after manual review."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:FinancialSector a owl:Class ;
+    rdfs:subClassOf fneo:FinancialEntity ;
+    rdfs:label "financial sector"@en ;
+    fneo:definition "An expression referring to a financial sector, kept distinguishable from a financial system, a market index, a bank, and crisis or recession wording."@en ;
+    fneo:scopeNote "Extension class under financial entity. Not declared disjoint with financial system. Ambiguous expressions are not populated automatically."@en ;
+    fneo:example "The wording of a fictional financial sector after manual review."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:MonetaryAmount a owl:Class ;
+    rdfs:subClassOf fneo:NumericalValue ;
+    rdfs:label "monetary amount"@en ;
+    fneo:definition "A numerical value that is a sum of money, distinct from a currency."@en ;
+    fneo:scopeNote "Extension class under numerical value. Disjoint with currency. A currency code may be recorded on the amount. Sentence co-presence with an event is not an attachment."@en ;
+    fneo:example "A fabricated sum with a currency code, stored as document-level data."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:QuantityValue a owl:Class ;
+    rdfs:subClassOf fneo:NumericalValue ;
+    rdfs:label "quantity value"@en ;
+    fneo:definition "A numerical value that is a non-percentage quantity, such as a point change, distinct from a percentage and from a monetary amount."@en ;
+    fneo:scopeNote "Extension class under numerical value. Not a core evaluation target and not an event attachment by default."@en ;
+    fneo:example "A fabricated point quantity stored as document-level data."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: assertion classes
+
+fneo:RelationAssertion a owl:Class ;
+    rdfs:label "relation assertion"@en ;
+    fneo:definition "A qualified-assertion resource that records statement-level metadata for a domain relation when that metadata is material."@en ;
+    fneo:scopeNote "Not applied to every RDF triple. Not defined as rdf:Statement alone. Accepted assertions expose a direct triple and this resource. Review-required, rejected, and suppressed assertions do not materialise a positive direct triple."@en ;
+    fneo:example "A participation record that carries confidence and a validation status."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TemporalRelationAssertion a owl:Class ;
+    rdfs:subClassOf fneo:RelationAssertion ;
+    rdfs:label "temporal relation assertion"@en ;
+    fneo:definition "A qualified assertion specialised for a temporal relation, preserving the temporal subject, relation type, temporal object, commitment, inference status, and audit labels."@en ;
+    fneo:scopeNote "An accepted temporal assertion may also carry a direct temporal triple. A suppressed, rejected, proposed, or review-required temporal assertion must not carry a positive direct temporal triple."@en ;
+    fneo:example "An explicit before-relation between two synthetic events, with a matching precedes triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:EventParticipation a owl:Class ;
+    rdfs:subClassOf fneo:RelationAssertion ;
+    rdfs:label "event participation"@en ;
+    fneo:definition "A qualified assertion used when participation needs role, evidence, confidence, validation, or review metadata."@en ;
+    fneo:scopeNote "Does not replace hasParticipant or hasAffectedMarket on an accepted assertion. The source role label is mapping information, not a financial-role taxonomy. A financial-role vocabulary is deferred."@en ;
+    fneo:example "A qualified link from a market-change event to the index it affects."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: controlled-value classes
+
+fneo:MarketDirection a owl:Class ;
+    rdfs:label "market direction"@en ;
+    fneo:definition "The controlled-value class for an optional direction of a market-change event."@en ;
+    fneo:scopeNote "The version 0.1 individuals are upward and downward. The class is not closed with owl:oneOf. Direction is not mandatory. There is no mixed-direction individual."@en ;
+    fneo:example "A downward direction on one market-change event and no direction on another."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ValidationStatus a owl:Class ;
+    rdfs:label "validation status"@en ;
+    fneo:definition "The controlled-value class for the validation state of an assertion or a typed financial statement."@en ;
+    fneo:scopeNote "Individuals represent the status. A parallel literal status property is not defined. The class is not closed with owl:oneOf. Core shapes use these individuals."@en ;
+    fneo:example "Accepted on a materialised participation, and requires-review on a candidate that has no direct triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:CommitmentStatus a owl:Class ;
+    rdfs:label "commitment status"@en ;
+    fneo:definition "The controlled-value class for the commitment state of a qualified temporal relation."@en ;
+    fneo:scopeNote "Individuals represent the status. A parallel literal is not defined. Proposed and suppressed commitment do not materialise a positive direct temporal triple."@en ;
+    fneo:example "Committed on an accepted precedes assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:InferenceStatus a owl:Class ;
+    rdfs:label "inference status"@en ;
+    fneo:definition "The controlled-value class for how a temporal or other qualified relation was obtained."@en ;
+    fneo:scopeNote "Explicit, rule-inferred, inverse-generated, closure-derived, and model-inferred are the version 0.1 individuals. Experimental statuses are not treated as explicit evidence. A parallel literal is not defined."@en ;
+    fneo:example "Explicit on an accepted temporal assertion, and inverse-generated on a suppressed candidate."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ManualReviewStatus a owl:Class ;
+    rdfs:label "manual review status"@en ;
+    fneo:definition "The controlled-value class for whether an assertion or extension individual has been routed to, or has completed, manual review."@en ;
+    fneo:scopeNote "Distinct from validation status so that routing and outcome can differ. A parallel literal is not defined. Missing review on an extension bank, system, or sector is a warning, not a violation."@en ;
+    fneo:example "Manually accepted on a fictional central bank."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:TemporalRelationType a owl:Class ;
+    rdfs:label "temporal relation type"@en ;
+    fneo:definition "The controlled-value class for the object-valued type of a temporal relation assertion."@en ;
+    fneo:scopeNote "Individuals are Before, After, Simultaneous, During, and IncludesRelation. They are not the object properties precedes, follows, simultaneousWith, occursDuring, and includes. The class is not closed with owl:oneOf."@en ;
+    fneo:example "Before paired with a direct precedes triple when the assertion is accepted."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: controlled individuals
+
+fneo:UpwardDirection a fneo:MarketDirection , owl:NamedIndividual ;
+    rdfs:label "upward direction"@en ;
+    fneo:definition "The controlled value for an upward market direction."@en ;
+    fneo:scopeNote "Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile."@en ;
+    fneo:example "An upward reading on a rise in a fictional equity market."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:DownwardDirection a fneo:MarketDirection , owl:NamedIndividual ;
+    rdfs:label "downward direction"@en ;
+    fneo:definition "The controlled value for a downward market direction."@en ;
+    fneo:scopeNote "Optional. Not a subclass of market-change event. When used, validation status and population method are expected by the core profile."@en ;
+    fneo:example "A downward reading on a fall in a fictional index."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:UpwardDirection fneo:DownwardDirection ) .
+
+fneo:Accepted a fneo:ValidationStatus , owl:NamedIndividual ;
+    rdfs:label "accepted"@en ;
+    fneo:definition "The validation status for an assertion that is accepted and may materialise a direct semantic triple together with its qualified resource."@en ;
+    fneo:scopeNote "Accepted materialisation still requires the qualified resource when statement metadata is material."@en ;
+    fneo:example "An accepted participation that also has a hasAffectedMarket triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:RequiresReview a fneo:ValidationStatus , owl:NamedIndividual ;
+    rdfs:label "requires review"@en ;
+    fneo:definition "The validation status for a candidate assertion that is retained for review and must not materialise a positive direct semantic triple."@en ;
+    fneo:scopeNote "The candidate resource remains in the graph. Competency-question answers should not treat it as an accepted fact."@en ;
+    fneo:example "A participation candidate with no matching direct triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Rejected a fneo:ValidationStatus , owl:NamedIndividual ;
+    rdfs:label "rejected"@en ;
+    fneo:definition "The validation status for an assertion that has been rejected and must not materialise a positive direct semantic triple."@en ;
+    fneo:scopeNote "The rejected resource may be retained for audit."@en ;
+    fneo:example "A rejected temporal candidate with no precedes or follows triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Suppressed a fneo:ValidationStatus , owl:NamedIndividual ;
+    rdfs:label "suppressed"@en ;
+    fneo:definition "The validation status for an assertion that is suppressed and must not materialise a positive direct semantic triple."@en ;
+    fneo:scopeNote "Suppression is auditable through the qualified resource and, where relevant, suppressionReason."@en ;
+    fneo:example "A suppressed simultaneous candidate with no simultaneousWith triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:Accepted fneo:RequiresReview fneo:Rejected fneo:Suppressed ) .
+
+fneo:Committed a fneo:CommitmentStatus , owl:NamedIndividual ;
+    rdfs:label "committed"@en ;
+    fneo:definition "The commitment status for a temporal relation that is committed and, when also accepted, may materialise a direct temporal triple."@en ;
+    fneo:scopeNote "Commitment alone is recorded on the qualified resource. The extension profile checks that a committed ordering relation has its direct triple."@en ;
+    fneo:example "Committed on an explicit before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Proposed a fneo:CommitmentStatus , owl:NamedIndividual ;
+    rdfs:label "proposed"@en ;
+    fneo:definition "The commitment status for a temporal candidate that has been proposed and must not materialise a positive direct temporal triple."@en ;
+    fneo:scopeNote "Proposed is an experimental or review state, not an accepted fact."@en ;
+    fneo:example "A proposed ordering candidate without a direct temporal triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:SuppressedCommitment a fneo:CommitmentStatus , owl:NamedIndividual ;
+    rdfs:label "suppressed commitment"@en ;
+    fneo:definition "The commitment status for a temporal candidate whose commitment is suppressed."@en ;
+    fneo:scopeNote "A suppressed commitment must not materialise a positive direct temporal triple."@en ;
+    fneo:example "The commitment state of an inverse-generated candidate that is held back."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:Committed fneo:Proposed fneo:SuppressedCommitment ) .
+
+fneo:Explicit a fneo:InferenceStatus , owl:NamedIndividual ;
+    rdfs:label "explicit"@en ;
+    fneo:definition "The inference status for a relation taken from explicit evidence rather than from inference or a learned model."@en ;
+    fneo:scopeNote "Explicit status supports the core and extension temporal profiles. It is not a substitute for textual evidence."@en ;
+    fneo:example "An explicit event-time anchor or an explicit before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:RuleInferred a fneo:InferenceStatus , owl:NamedIndividual ;
+    rdfs:label "rule inferred"@en ;
+    fneo:definition "The inference status for a relation produced by a rule rather than stated explicitly."@en ;
+    fneo:scopeNote "Rule-inferred temporal candidates stay in the experimental profile unless a separate acceptance decision materialises them."@en ;
+    fneo:example "A rule-inferred ordering retained only as a candidate."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:InverseGenerated a fneo:InferenceStatus , owl:NamedIndividual ;
+    rdfs:label "inverse generated"@en ;
+    fneo:definition "The inference status for a relation generated as an inverse of another relation."@en ;
+    fneo:scopeNote "Inverse-generated candidates do not become accepted direct triples merely because an inverse axiom exists in the ontology."@en ;
+    fneo:example "An inverse-generated follows candidate that remains suppressed."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ClosureDerived a fneo:InferenceStatus , owl:NamedIndividual ;
+    rdfs:label "closure derived"@en ;
+    fneo:definition "The inference status for a relation derived by temporal closure."@en ;
+    fneo:scopeNote "Closure-derived order is experimental. It is not treated as equally reliable as explicit time anchoring."@en ;
+    fneo:example "A closure-derived link retained only as a candidate."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ModelInferred a fneo:InferenceStatus , owl:NamedIndividual ;
+    rdfs:label "model inferred"@en ;
+    fneo:definition "The inference status for a relation produced by a learned temporal model."@en ;
+    fneo:scopeNote "Learned relations are experimental and are not accepted direct facts in this version."@en ;
+    fneo:example "A model score retained on a candidate that has no direct triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:Explicit fneo:RuleInferred fneo:InverseGenerated fneo:ClosureDerived fneo:ModelInferred ) .
+
+fneo:NotReviewed a fneo:ManualReviewStatus , owl:NamedIndividual ;
+    rdfs:label "not reviewed"@en ;
+    fneo:definition "The review status for an individual or assertion that has not been reviewed."@en ;
+    fneo:scopeNote "Not reviewed is distinct from rejected. Extension classes may warn when review status is absent entirely."@en ;
+    fneo:example "A draft classification that has not yet been reviewed."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ReviewRequired a fneo:ManualReviewStatus , owl:NamedIndividual ;
+    rdfs:label "review required"@en ;
+    fneo:definition "The review status for an individual or assertion that must be reviewed before it is treated as accepted."@en ;
+    fneo:scopeNote "Ambiguous financial-system or financial-sector wording may remain review-required. That state is not a core violation."@en ;
+    fneo:example "A sector wording held for review."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ManuallyAccepted a fneo:ManualReviewStatus , owl:NamedIndividual ;
+    rdfs:label "manually accepted"@en ;
+    fneo:definition "The review status for an individual or assertion that a reviewer has accepted."@en ;
+    fneo:scopeNote "Manual acceptance is an outcome of review. It is distinct from the validation individual Accepted, which governs materialisation."@en ;
+    fneo:example "A reviewer-accepted fictional central bank."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ManuallyRejected a fneo:ManualReviewStatus , owl:NamedIndividual ;
+    rdfs:label "manually rejected"@en ;
+    fneo:definition "The review status for an individual or assertion that a reviewer has rejected."@en ;
+    fneo:scopeNote "Manual rejection does not by itself delete the resource. It does not authorise a positive direct triple."@en ;
+    fneo:example "A reviewer-rejected ambiguous organisation name."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:NotReviewed fneo:ReviewRequired fneo:ManuallyAccepted fneo:ManuallyRejected ) .
+
+fneo:Before a fneo:TemporalRelationType , owl:NamedIndividual ;
+    rdfs:label "before"@en ;
+    fneo:definition "The temporal relation type that pairs with the object property precedes."@en ;
+    fneo:scopeNote "Use this individual on temporalRelationType. Do not use it as a property name."@en ;
+    fneo:example "Before on an accepted assertion whose direct triple uses precedes."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:After a fneo:TemporalRelationType , owl:NamedIndividual ;
+    rdfs:label "after"@en ;
+    fneo:definition "The temporal relation type that pairs with the object property follows."@en ;
+    fneo:scopeNote "Use this individual on temporalRelationType. Do not use it as a property name."@en ;
+    fneo:example "After on an assertion whose direct triple, if accepted, uses follows."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:Simultaneous a fneo:TemporalRelationType , owl:NamedIndividual ;
+    rdfs:label "simultaneous"@en ;
+    fneo:definition "The temporal relation type that pairs with the object property simultaneousWith."@en ;
+    fneo:scopeNote "Symmetry is not declared on simultaneousWith in release candidate 0.1.0-rc2. Symmetry is pending verification of the operational source-relation semantics. The individual is still the controlled type for that reading. The temporal extension is experimental."@en ;
+    fneo:example "Simultaneous on a suppressed candidate that has no simultaneousWith triple."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:During a fneo:TemporalRelationType , owl:NamedIndividual ;
+    rdfs:label "during"@en ;
+    fneo:definition "The temporal relation type that pairs with the object property occursDuring."@en ;
+    fneo:scopeNote "The direct triple, when accepted, runs from an event to a time entity."@en ;
+    fneo:example "During on an accepted occursDuring assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:IncludesRelation a fneo:TemporalRelationType , owl:NamedIndividual ;
+    rdfs:label "includes relation"@en ;
+    fneo:definition "The temporal relation type that pairs with the object property includes."@en ;
+    fneo:scopeNote "The individual is named IncludesRelation so that it does not collide with the property includes."@en ;
+    fneo:example "IncludesRelation on an accepted includes assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( fneo:Before fneo:After fneo:Simultaneous fneo:During fneo:IncludesRelation ) .
+
+# MODULE: object properties
+# Domains and ranges are conservative. No property is functional, inverse-functional,
+# transitive, symmetric, asymmetric, or irreflexive. Two inverse pairs are declared
+# for the extension temporal vocabulary. denotes and hasPublicationTime are not functional.
+# Extension temporal relations in this module are experimental.
+
+fneo:hasMention a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:Entity fneo:Event fneo:TimeEntity ) ] ;
+    rdfs:range fneo:TextualMention ;
+    rdfs:label "has mention"@en ;
+    fneo:definition "Relates a canonical entity, event, or time entity to a textual mention that denotes it."@en ;
+    fneo:scopeNote "The domain is the union of entity, event, and time entity. That union does not introduce a shared superclass. The inverse of denotes is not declared."@en ;
+    fneo:example "A fictional index linked to the mention of its name."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:denotes a owl:ObjectProperty ;
+    rdfs:domain fneo:TextualMention ;
+    rdfs:label "denotes"@en ;
+    fneo:definition "Relates a textual mention to the canonical referent of that mention."@en ;
+    fneo:scopeNote "There is no single global range and the property is not functional. Class-specific shapes constrain entity mentions, event mentions, and time mentions. A maximum count of one applies in SHACL to in-profile mentions, not as an OWL axiom."@en ;
+    fneo:example "An index mention denotes the index individual."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:reportsEvent a owl:ObjectProperty ;
+    rdfs:domain fneo:FinancialNewsDocument ;
+    rdfs:range fneo:Event ;
+    rdfs:label "reports event"@en ;
+    fneo:definition "Relates a financial news document to an event reported in that document."@en ;
+    fneo:scopeNote "Not functional. One document may report many events. Document membership can also be recovered through a mention."@en ;
+    fneo:example "A synthetic brief reports two market-change events."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasParticipant a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:Entity ;
+    rdfs:label "has participant"@en ;
+    fneo:definition "Relates a reported event to an entity that participated in it, without naming a financial role."@en ;
+    fneo:scopeNote "Domain event and range entity. No OWL property characteristics are declared. Source role labels are not values of this property."@en ;
+    fneo:example "A market-change event has the affected index as a participant through the subproperty hasAffectedMarket."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasAffectedMarket a owl:ObjectProperty ;
+    rdfs:subPropertyOf fneo:hasParticipant ;
+    rdfs:domain fneo:MarketChangeEvent ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( fneo:FinancialMarket fneo:MarketIndex ) ] ;
+    rdfs:label "has affected market"@en ;
+    fneo:definition "Relates a market-change event to the market or market index whose represented condition or value is reported as changing."@en ;
+    fneo:scopeNote "Subproperty of hasParticipant. Domain is MarketChangeEvent. The OWL range is the union of FinancialMarket and MarketIndex, so the ontology remains reusable for further financial-market subclasses. EquityMarket is inside that union because it is a FinancialMarket. The evaluated core application profile is narrower: a populated value must be a MarketIndex or an EquityMarket. That SHACL check is not the OWL range. The property is not declared functional."@en ;
+    fneo:example "One event affects a fictional index. A distinct event affects a fictional equity market."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasEventTime a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:TimeEntity ;
+    rdfs:label "has event time"@en ;
+    fneo:definition "Relates a reported event to a time entity that explicitly anchors the event."@en ;
+    fneo:scopeNote "Distinct from publication time. Not mandatory for every market-change event. Absence is a core warning, not a violation, and not an OWL cardinality restriction."@en ;
+    fneo:example "A market-change event anchored to a Tuesday time entity."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasPublicationTime a owl:ObjectProperty ;
+    rdfs:domain fneo:FinancialNewsDocument ;
+    rdfs:range fneo:TimeEntity ;
+    rdfs:label "has publication time"@en ;
+    fneo:definition "Relates a financial news document to the time entity that is its publication or creation time."@en ;
+    fneo:scopeNote "Not an OWL functional property. The core profile uses SHACL maxCount 1. The normalised literal sits on the time entity, not as a second datatype property on the document."@en ;
+    fneo:example "A synthetic brief linked to one publication time."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:supportedBy a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:Event fneo:RelationAssertion ) ] ;
+    rdfs:range fneo:TextualEvidence ;
+    rdfs:label "supported by"@en ;
+    fneo:definition "Relates a reported event or a qualified assertion to the textual evidence that supports it."@en ;
+    fneo:scopeNote "The domain is the union of event and relation assertion. The range is textual evidence. A typed market-change event requires at least one supporting evidence individual under the core profile."@en ;
+    fneo:example "A market-change event supported by a fabricated sentence."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:mentionedIn a owl:ObjectProperty ;
+    rdfs:domain fneo:TextualMention ;
+    rdfs:range fneo:FinancialNewsDocument ;
+    rdfs:label "mentioned in"@en ;
+    fneo:definition "Relates a textual mention to the financial news document in which it occurs."@en ;
+    fneo:scopeNote "Not functional. Many mentions share one document. Numerical values are reached from a document through a mention that denotes the value, because this property's domain is textual mention."@en ;
+    fneo:example "An index mention occurs in a synthetic brief."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasMarketDirection a owl:ObjectProperty ;
+    rdfs:domain fneo:MarketChangeEvent ;
+    rdfs:range fneo:MarketDirection ;
+    rdfs:label "has market direction"@en ;
+    fneo:definition "Optionally relates a market-change event to a controlled direction value."@en ;
+    fneo:scopeNote "Not mandatory. The core profile reports absence as information, not as a violation. No mixed-direction value exists. When the property is present, validation status and a population method are expected."@en ;
+    fneo:example "A fall linked to downward direction."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasReportedValue a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:NumericalValue ;
+    rdfs:label "has reported value"@en ;
+    fneo:definition "An extension relation from a reported event to a numerical value, used only when a manually validated mapping exists."@en ;
+    fneo:scopeNote "Not a core requirement. Sentence co-presence is not evidence for this property. Absence on a market-change event is information in the core profile."@en ;
+    fneo:example "A manually validated link from an event to a document-level quantity."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasPercentageChange a owl:ObjectProperty ;
+    rdfs:subPropertyOf fneo:hasReportedValue ;
+    rdfs:domain fneo:MarketChangeEvent ;
+    rdfs:range fneo:PercentageValue ;
+    rdfs:label "has percentage change"@en ;
+    fneo:definition "An extension relation from a market-change event to a percentage value under a manually validated mapping."@en ;
+    fneo:scopeNote "Subproperty of has reported value. Not required by the core profile. A document-level percentage does not by itself create this link."@en ;
+    fneo:example "A reviewed link from a market-change event to a 2.5 percentage-point value."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasMonetaryAmount a owl:ObjectProperty ;
+    rdfs:subPropertyOf fneo:hasReportedValue ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:MonetaryAmount ;
+    rdfs:label "has monetary amount"@en ;
+    fneo:definition "An extension relation from an event to a monetary amount under a manually validated mapping."@en ;
+    fneo:scopeNote "Subproperty of has reported value. Sparse and not a core population target. Co-presence is not a shortcut."@en ;
+    fneo:example "A reviewed link from an event to a sum of money."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:entityCorefersWith a owl:ObjectProperty ;
+    rdfs:domain fneo:Entity ;
+    rdfs:range fneo:Entity ;
+    rdfs:label "entity corefers with"@en ;
+    fneo:definition "Optionally relates two entities that a reviewed judgement treats as the same entity within one document."@en ;
+    fneo:scopeNote "Optional identity module. Not required by core shapes. Symmetry and transitivity are not declared."@en ;
+    fneo:example "Two entity individuals judged to corefer inside one synthetic document."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:eventCorefersWith a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:Event ;
+    rdfs:label "event corefers with"@en ;
+    fneo:definition "Optionally relates two events that a reviewed judgement treats as the same event within one document."@en ;
+    fneo:scopeNote "Optional identity module. A one-to-one canonicalisation link is not this property. Symmetry and transitivity are not declared."@en ;
+    fneo:example "Two event individuals judged to corefer inside one synthetic document."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:precedes a owl:ObjectProperty ;
+    owl:inverseOf fneo:follows ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:Event ;
+    rdfs:label "precedes"@en ;
+    fneo:definition "Relates a reported event to another reported event that it precedes under an accepted extension temporal relation."@en ;
+    fneo:scopeNote "Inverse of follows. Not transitive, asymmetric, or irreflexive as OWL characteristics. A direct triple exists only for an accepted assertion. An OWL reasoner may entail the inverse triple from that assertion. The entailed triple is not independently extracted evidence. Evaluation separates asserted direct temporal facts, reasoner-entailed temporal facts, qualified temporal assertions, and operational source relations. The raw source label is retained on the qualified assertion, not as a property name."@en ;
+    fneo:example "A fall event precedes a later rise event in a synthetic brief."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:follows a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:Event ;
+    rdfs:label "follows"@en ;
+    fneo:definition "Relates a reported event to another reported event that it follows under an accepted extension temporal relation."@en ;
+    fneo:scopeNote "Inverse of precedes. Declaring the inverse does not accept inverse-generated candidates. Those remain qualified resources without a positive direct triple until they are accepted. A reasoner-entailed follows triple is not a separately accepted extraction."@en ;
+    fneo:example "The inverse reading of an accepted precedes link."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:simultaneousWith a owl:ObjectProperty ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:Event ;
+    rdfs:label "simultaneous with"@en ;
+    fneo:definition "Relates two reported events that an accepted extension relation treats as simultaneous."@en ;
+    fneo:scopeNote "Symmetry is not declared. This release candidate keeps simultaneousWith non-symmetric. Symmetry is pending verification of the operational source-relation semantics. A reasoner must not be treated as supplying the reverse triple. The temporal extension is experimental."@en ;
+    fneo:example "Two events explicitly judged simultaneous, with an accepted qualified assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:occursDuring a owl:ObjectProperty ;
+    owl:inverseOf fneo:includes ;
+    rdfs:domain fneo:Event ;
+    rdfs:range fneo:TimeEntity ;
+    rdfs:label "occurs during"@en ;
+    fneo:definition "Relates a reported event to a time entity interval during which the event is reported to occur, when an accepted extension relation supports that reading."@en ;
+    fneo:scopeNote "Inverse of includes. The property does not invent an interval for an underspecified time. A reasoner may entail includes from an asserted occursDuring triple. That entailment is not independently extracted evidence."@en ;
+    fneo:example "An event occurs during a stated afternoon interval."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:includes a owl:ObjectProperty ;
+    rdfs:domain fneo:TimeEntity ;
+    rdfs:range fneo:Event ;
+    rdfs:label "includes"@en ;
+    fneo:definition "Relates a time entity interval to a reported event that the interval includes, when an accepted extension relation supports that reading."@en ;
+    fneo:scopeNote "Inverse of occurs during. The public name is includes. A raw operational label is not copied into the property name. A reasoner-entailed includes triple is not a separately accepted extraction."@en ;
+    fneo:example "An interval includes a reported market-change event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:assertionSubject a owl:ObjectProperty ;
+    rdfs:domain fneo:RelationAssertion ;
+    rdfs:label "assertion subject"@en ;
+    fneo:definition "Relates a qualified assertion resource to the subject of the domain statement it qualifies."@en ;
+    fneo:scopeNote "Not an OWL functional property. The core profile expects one subject on a qualified assertion. Ordinary triples without material statement metadata do not use this property."@en ;
+    fneo:example "The market-change event that is the subject of a qualified participation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:assertionObject a owl:ObjectProperty ;
+    rdfs:domain fneo:RelationAssertion ;
+    rdfs:label "assertion object"@en ;
+    fneo:definition "Relates a qualified assertion resource to the individual that is the object of the domain statement it qualifies."@en ;
+    fneo:scopeNote "Literal objects use assertionObjectLiteral instead. Not an OWL functional property. The core profile expects one individual object when the statement is not literal-valued."@en ;
+    fneo:example "The index that is the object of a qualified affected-market statement."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:temporalSubject a owl:ObjectProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:label "temporal subject"@en ;
+    fneo:definition "Relates a temporal relation assertion to the subject of the temporal relation."@en ;
+    fneo:scopeNote "The range is left open so the property can point at an event or a time entity without a union axiom that this version does not require. Core checks use the temporal relation type to decide which direct property is relevant."@en ;
+    fneo:example "The earlier event in an accepted before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:temporalObject a owl:ObjectProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:label "temporal object"@en ;
+    fneo:definition "Relates a temporal relation assertion to the object of the temporal relation."@en ;
+    fneo:scopeNote "The range is left open for the same reason as temporal subject. Event-event and event-time readings are distinguished by the temporal relation type and by shapes."@en ;
+    fneo:example "The later event in an accepted before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:temporalRelationType a owl:ObjectProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range fneo:TemporalRelationType ;
+    rdfs:label "temporal relation type"@en ;
+    fneo:definition "Relates a temporal relation assertion to a controlled temporal relation type."@en ;
+    fneo:scopeNote "The type individual is not the direct property. Before pairs with precedes, After with follows, Simultaneous with simultaneousWith, During with occursDuring, and IncludesRelation with includes."@en ;
+    fneo:example "Before on an assertion that also uses precedes when accepted."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:populatedByActivity a owl:ObjectProperty ;
+    rdfs:seeAlso <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+    rdfs:label "populated by activity"@en ;
+    fneo:definition "Relates an ontology individual to the population activity that produced it."@en ;
+    fneo:scopeNote "Local property. See also prov:wasGeneratedBy. PROV-O is not imported. A software-agent class is not defined in this version."@en ;
+    fneo:example "A qualified assertion linked to a named population activity IRI."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:generatedBySoftwareAgent a owl:ObjectProperty ;
+    rdfs:seeAlso <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+    rdfs:label "generated by software agent"@en ;
+    fneo:definition "Relates a population activity or a qualified assertion to the software agent associated with it."@en ;
+    fneo:scopeNote "Local property. See also prov:wasAssociatedWith. PROV-O is not imported. The range is unconstrained because no agent class is approved in this version."@en ;
+    fneo:example "A population activity associated with an identified extractor build."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasValidationStatus a owl:ObjectProperty ;
+    rdfs:range fneo:ValidationStatus ;
+    rdfs:label "has validation status"@en ;
+    fneo:definition "Relates an assertion or a typed statement to a validation-status individual."@en ;
+    fneo:scopeNote "No global domain, because both qualified assertions and market-change events may carry a status. No parallel literal property is defined."@en ;
+    fneo:example "Accepted on a materialised participation, or requires-review on a candidate."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasCommitmentStatus a owl:ObjectProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range fneo:CommitmentStatus ;
+    rdfs:label "has commitment status"@en ;
+    fneo:definition "Relates a temporal relation assertion to a commitment-status individual."@en ;
+    fneo:scopeNote "No parallel literal property is defined. Suppressed commitment and proposed do not authorise a positive direct temporal triple."@en ;
+    fneo:example "Committed on an accepted before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasInferenceStatus a owl:ObjectProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range fneo:InferenceStatus ;
+    rdfs:label "has inference status"@en ;
+    fneo:definition "Relates a temporal relation assertion to an inference-status individual."@en ;
+    fneo:scopeNote "No parallel literal property is defined. Inverse-generated, closure-derived, rule-inferred, and model-inferred statuses are metadata, not acceptance."@en ;
+    fneo:example "Explicit on an accepted temporal assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:hasManualReviewStatus a owl:ObjectProperty ;
+    rdfs:range fneo:ManualReviewStatus ;
+    rdfs:label "has manual review status"@en ;
+    fneo:definition "Relates an individual or assertion to a manual-review-status individual."@en ;
+    fneo:scopeNote "No global domain, so extension classes and qualified assertions can share the property. No parallel literal property is defined."@en ;
+    fneo:example "Manually accepted on a fictional central bank."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:participationEvent a owl:ObjectProperty ;
+    rdfs:domain fneo:EventParticipation ;
+    rdfs:range fneo:Event ;
+    rdfs:label "participation event"@en ;
+    fneo:definition "Relates an event-participation resource to the event in the participation."@en ;
+    fneo:scopeNote "More specific than assertion subject. Accepted participations still expose the direct hasParticipant or hasAffectedMarket triple."@en ;
+    fneo:example "The market-change event in a qualified affected-market participation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:participatingEntity a owl:ObjectProperty ;
+    rdfs:domain fneo:EventParticipation ;
+    rdfs:range fneo:Entity ;
+    rdfs:label "participating entity"@en ;
+    fneo:definition "Relates an event-participation resource to the entity that participates."@en ;
+    fneo:scopeNote "More specific than assertion object. A financial-role object property is not defined. Use sourceRoleLabel for a preserved source label."@en ;
+    fneo:example "The index that participates in a qualified market-change participation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: datatype properties
+# Character and token offsets are half-open intervals [start, end).
+# Percentage numericalValue is in percentage points, not a fraction.
+# Status values are individuals. Literal status duplicates are not defined.
+
+fneo:textualForm a owl:DatatypeProperty ;
+    rdfs:domain fneo:TextualMention ;
+    rdfs:range xsd:string ;
+    rdfs:label "textual form"@en ;
+    fneo:definition "The surface text of a mention or other short linguistic unit."@en ;
+    fneo:scopeNote "This is the mention string. It is not a second copy of the whole document. Percentage values use numericalLexicalForm for the lexical percentage."@en ;
+    fneo:example "The string fell on an event mention."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:evidenceText a owl:DatatypeProperty ;
+    rdfs:domain fneo:TextualEvidence ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence text"@en ;
+    fneo:definition "The text of a supporting passage when the evidence is wider than a single mention string."@en ;
+    fneo:scopeNote "Distinct from textual form. A reconstructed passage is still evidence text. It is not claimed to be a gold sentence element."@en ;
+    fneo:example "A fabricated sentence that supports a market-change event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:tokenStart a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:TextualMention fneo:TextualEvidence ) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "token start"@en ;
+    fneo:definition "The inclusive start of a half-open token interval [tokenStart, tokenEnd)."@en ;
+    fneo:scopeNote "Optional when a character span is stored, and sufficient evidence when a character span is absent. Token indexes are provenance coordinates, not ontology identity."@en ;
+    fneo:example "Token index 6 for the word fell in a synthetic sentence."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:tokenEnd a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:TextualMention fneo:TextualEvidence ) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "token end"@en ;
+    fneo:definition "The exclusive end of a half-open token interval [tokenStart, tokenEnd)."@en ;
+    fneo:scopeNote "When both token offsets are present for a non-empty span, tokenEnd is greater than tokenStart."@en ;
+    fneo:example "Token index 7 as the exclusive end of a one-token span."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:characterStart a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:TextualMention fneo:TextualEvidence ) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "character start"@en ;
+    fneo:definition "The inclusive start of a half-open character interval [characterStart, characterEnd)."@en ;
+    fneo:scopeNote "Optional when token offsets exist. Do not invent character offsets that were not stored."@en ;
+    fneo:example "The inclusive character index of a mention in a synthetic sentence."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:characterEnd a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( fneo:TextualMention fneo:TextualEvidence ) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "character end"@en ;
+    fneo:definition "The exclusive end of a half-open character interval [characterStart, characterEnd)."@en ;
+    fneo:scopeNote "When both character offsets are present for a non-empty span, characterEnd is greater than characterStart."@en ;
+    fneo:example "The exclusive character index after a mention."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:numericalLexicalForm a owl:DatatypeProperty ;
+    rdfs:domain fneo:NumericalValue ;
+    rdfs:range xsd:string ;
+    rdfs:label "numerical lexical form"@en ;
+    fneo:definition "The lexical form of a numerical expression as it appears in the text."@en ;
+    fneo:scopeNote "For a percentage, this form preserves the percent sign or the word percent. It is the property used for percentage surface form. textualForm remains the mention string."@en ;
+    fneo:example "2.5% on a percentage value whose numeric value is 2.5."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:numericalValue a owl:DatatypeProperty ;
+    rdfs:domain fneo:NumericalValue ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "numerical value"@en ;
+    fneo:definition "The parsed numeric value of a numerical expression when parsing succeeds."@en ;
+    fneo:scopeNote "The datatype is xsd:decimal. For a percentage value the scale is percentage points: 2.5 means 2.5 percent, not 0.025. An unparseable expression may omit this literal."@en ;
+    fneo:example "2.5 as a decimal for a lexical percentage 2.5%."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:normalisedTimeValue a owl:DatatypeProperty ;
+    rdfs:domain fneo:TimeEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "normalised time value"@en ;
+    fneo:definition "The normalised value recorded for a time entity, including dates, timestamps, durations, and underspecified forms."@en ;
+    fneo:scopeNote "The range is xsd:string because one XML Schema date type would reject durations and underspecified forms. This property does not order events."@en ;
+    fneo:example "2026-03-03T09:00:00 on a publication time entity."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:publicationTimeLiteral a owl:DatatypeProperty ;
+    rdfs:domain fneo:TimeEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "publication time literal"@en ;
+    fneo:definition "Preserves the source lexical expression of a publication or creation time. The domain is TimeEntity."@en ;
+    fneo:scopeNote "Domain is TimeEntity only. This property is not a property of FinancialNewsDocument. It is distinct from normalisedTimeValue, which records the normalised form on the same time entity. The lexical expression is not a second publication-time relation."@en ;
+    fneo:example "3 March 2026 beside a normalised timestamp."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:currencyCode a owl:DatatypeProperty ;
+    rdfs:domain fneo:MonetaryAmount ;
+    rdfs:range xsd:string ;
+    rdfs:label "currency code"@en ;
+    fneo:definition "A currency code recorded on a monetary amount when the currency is identified."@en ;
+    fneo:scopeNote "Extension literal. A code is not a currency individual. Absence is informational in the extension profile."@en ;
+    fneo:example "NWD on a fictional monetary amount."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:confidence a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "confidence"@en ;
+    fneo:definition "A confidence value recorded for an automatically proposed assertion or other provenance-bearing statement."@en ;
+    fneo:scopeNote "Scales are not comparable across components. A missing confidence is unknown, not zero. Optional for manual assertions."@en ;
+    fneo:example "0.95 on an accepted qualified participation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:ruleIdentifier a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "rule identifier"@en ;
+    fneo:definition "The identifier of the enrichment rule or manual protocol that produced an assertion."@en ;
+    fneo:scopeNote "Provenance string, not a public class name. When populatedByRule is also present the two strings should not diverge."@en ;
+    fneo:example "SYN-PART-001 on a synthetic participation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:sourceDocumentIdentifier a owl:DatatypeProperty ;
+    rdfs:domain fneo:FinancialNewsDocument ;
+    rdfs:range xsd:string ;
+    rdfs:label "source document identifier"@en ;
+    fneo:definition "The identifier of the source document, stored as provenance on a financial news document."@en ;
+    fneo:scopeNote "The literal supports traceability. It is not the identity of the ontology individual. The core profile requires one on a financial news document."@en ;
+    fneo:example "SYN-DOC-001 on a synthetic brief."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:sourceAnnotationIdentifier a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "source annotation identifier"@en ;
+    fneo:definition "The identifier of a source annotation, stored as provenance."@en ;
+    fneo:scopeNote "Not ontology identity. Identifiers are not assumed to be stable across annotation editions. For a market-change event, an annotation identifier can stand as source grounding beside an event mention."@en ;
+    fneo:example "SYN-ANN-FALL on a synthetic event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:populationMethod a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "population method"@en ;
+    fneo:definition "The method that produced an assertion, such as manual review, a documented rule, or a later mapping."@en ;
+    fneo:scopeNote "Provenance string. Suggested values include manual_review, documented_rule, and unreviewed_import. The property is not an OWL enumeration."@en ;
+    fneo:example "manual_review on a hand-classified market-change event."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:sourceRoleLabel a owl:DatatypeProperty ;
+    rdfs:domain fneo:EventParticipation ;
+    rdfs:range xsd:string ;
+    rdfs:label "source role label"@en ;
+    fneo:definition "The source semantic-role label stored for a participant link when one is available."@en ;
+    fneo:scopeNote "Mapping information on an event participation or a companion record. Not a financial-domain role and not a public object property. A missing label is unknown, not a violation."@en ;
+    fneo:example "A preserved source label such as change-target, without promoting it to a class."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:assertionPredicateIRI a owl:DatatypeProperty ;
+    rdfs:domain fneo:RelationAssertion ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "assertion predicate IRI"@en ;
+    fneo:definition "The IRI of the predicate of the domain statement that a qualified assertion describes, stored as a literal so the ontology does not pun a property as an individual."@en ;
+    fneo:scopeNote "Range xsd:anyURI. The literal stores the predicate IRI so the ontology does not pun a property as an individual. Properties remain properties. RDF reification is a candidate alignment, not the model."@en ;
+    fneo:example "The IRI of hasAffectedMarket stored as an anyURI literal."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:assertionObjectLiteral a owl:DatatypeProperty ;
+    rdfs:domain fneo:RelationAssertion ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "assertion object literal"@en ;
+    fneo:definition "The literal object of a qualified statement when that object is a literal rather than an individual."@en ;
+    fneo:scopeNote "Do not use both assertionObject and assertionObjectLiteral for one assertion. Ordinary unqualified literals, such as labels, do not need this property."@en ;
+    fneo:example "A qualified literal statement whose object is a string."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:originalTemporalRelationLabel a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "original temporal relation label"@en ;
+    fneo:definition "The original operational or annotation relation label, retained for audit and not used as a public property name."@en ;
+    fneo:scopeNote "The literal retains the original operational relation label. Values such as BEFORE stay in this literal and are not used as public property names."@en ;
+    fneo:example "BEFORE on an assertion whose public property is precedes."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:suppressionReason a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "suppression reason"@en ;
+    fneo:definition "A short explanation of why a temporal or other qualified assertion was suppressed."@en ;
+    fneo:scopeNote "Used with validation status Suppressed or commitment status SuppressedCommitment. Suppression does not materialise a positive direct triple."@en ;
+    fneo:example "An inverse-generated candidate retained for audit and not accepted."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:populatedByRule a owl:DatatypeProperty ;
+    rdfs:domain fneo:RelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "populated by rule"@en ;
+    fneo:definition "The identifier of the rule or protocol that populated a qualified assertion."@en ;
+    fneo:scopeNote "Required on a qualified assertion produced by a rule. Must agree with ruleIdentifier when both are present. Not an ontology class name."@en ;
+    fneo:example "SYN-TIME-EXPLICIT on an accepted temporal assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:canonicalPublicRelation a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "canonical public relation"@en ;
+    fneo:definition "The approved public relation name to which a source temporal relation is mapped."@en ;
+    fneo:scopeNote "Typical values are hasEventTime, precedes, follows, simultaneousWith, occursDuring, and includes. An unmapped label has no canonical public relation and is not materialised."@en ;
+    fneo:example "precedes on an accepted before-relation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:relationSource a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "relation source"@en ;
+    fneo:definition "The source or derivation activity from which a temporal relation was taken."@en ;
+    fneo:scopeNote "Lightweight provenance string. A later alignment may map it toward PROV-O. No import is required."@en ;
+    fneo:example "synthetic-explicit on a hand-authored temporal assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:sourceKind a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "source kind"@en ;
+    fneo:definition "The kind of temporal source, such as explicit annotation, population derivation, inverse generation, rule inference, closure, or learned prediction."@en ;
+    fneo:scopeNote "Source kind selects the temporal profile. It does not by itself accept a relation."@en ;
+    fneo:example "explicit on an accepted temporal assertion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+fneo:materialisationEligibility a owl:DatatypeProperty ;
+    rdfs:domain fneo:TemporalRelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "materialisation eligibility"@en ;
+    fneo:definition "Whether a qualified temporal assertion may materialise a positive direct RDF triple."@en ;
+    fneo:scopeNote "Accepted eligibility still requires the assertion to be accepted, committed where applicable, not suppressed, canonically mapped, and traceable. Other values must not co-exist with a positive direct temporal triple."@en ;
+    fneo:example "accepted on an explicit precedes assertion, or not_accepted on a suppressed candidate."@en ;
+    rdfs:isDefinedBy <https://w3id.org/fneo/ontology> .
+
+# MODULE: disjointness
+# Only the disjointness axioms selected for version 0.1 are asserted.
+# Not asserted: central bank with commercial bank; financial system with
+# financial sector; financial situation with event; entity with time entity;
+# percentage value with monetary amount; time mention with time entity;
+# pairwise disjointness of the three mention subclasses.
+# Those omitted axioms are recorded in the modelling notes.
+
+fneo:Event owl:disjointWith fneo:Entity .
+fneo:TextualMention owl:disjointWith fneo:Entity .
+fneo:TextualMention owl:disjointWith fneo:Event .
+fneo:MarketIndex owl:disjointWith fneo:EquityMarket .
+fneo:Currency owl:disjointWith fneo:MonetaryAmount .
+fneo:FinancialOrganisation owl:disjointWith fneo:MarketIndex .
+fneo:EquityShare owl:disjointWith fneo:FinancialOrganisation .
+fneo:Event owl:disjointWith fneo:TimeEntity .
+fneo:Event owl:disjointWith fneo:NumericalValue .

@@ -1,0 +1,20 @@
+[project]
+name = "fneo"
+version = "0.1.0rc2"
+description = "Financial News Event Ontology development candidate. Not a public release."
+readme = "README.md"
+requires-python = "==3.12.13"
+authors = [{ name = "Ali HUR" }]
+dependencies = [
+  "neo4j==5.28.2",
+  "pyshacl==0.40.2",
+  "rdflib==7.6.0",
+  "PyYAML==6.0.2",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []

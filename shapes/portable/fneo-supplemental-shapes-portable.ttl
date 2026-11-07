@@ -1,0 +1,52 @@
+# Standards-portable SHACL derived from fneo-supplemental-shapes.ttl.
+# Warning and information SPARQL checks are dedicated shapes with sh:severity
+# on the shape that produces the result. SELECT text and messages are unchanged.
+# Violation constraints are not weakened. This file is derived. The original is under ../original/.
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix fneos: <https://w3id.org/fneo/shape/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+fneos:LiteralObjectMaterialisationShape a sh:NodeShape ;
+    sh:name "LiteralObjectMaterialisationShape" ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "A qualified assertion does not use both assertionObject and assertionObjectLiteral." ;
+            sh:select """
+            SELECT $this WHERE {
+              $this fneo:assertionObject ?object .
+              $this fneo:assertionObjectLiteral ?literal .
+            }
+        """ ;
+            sh:severity sh:Violation ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "An accepted literal-object assertion exposes the direct datatype triple named by assertionPredicateIRI." ;
+            sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus fneo:Accepted .
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObjectLiteral ?literal .
+              FILTER NOT EXISTS { $this fneo:assertionObject ?object }
+              FILTER NOT EXISTS {
+                ?subject ?direct ?literal .
+                FILTER(STR(?direct) = STR(?predicate))
+              }
+            }
+        """ ;
+            sh:severity sh:Violation ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "A requires-review, rejected, or suppressed literal-object assertion must not materialise a positive direct triple." ;
+            sh:select """
+            SELECT $this WHERE {
+              $this fneo:hasValidationStatus ?status .
+              FILTER(?status IN (fneo:RequiresReview, fneo:Rejected, fneo:Suppressed))
+              $this fneo:assertionSubject ?subject .
+              $this fneo:assertionPredicateIRI ?predicate .
+              $this fneo:assertionObjectLiteral ?literal .
+              ?subject ?direct ?literal .
+              FILTER(STR(?direct) = STR(?predicate))
+            }
+        """ ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass fneo:RelationAssertion .
+

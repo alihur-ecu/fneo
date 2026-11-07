@@ -1,0 +1,290 @@
+# Extension SHACL profile for the Financial News Event Ontology.
+# Accompanies release candidate 0.1.0-rc2. Logical constraints are those carried forward from the FEO-006 extension shapes.
+# The core application profile, not this file, restricts populated hasAffectedMarket values to MarketIndex or EquityMarket.
+# Not imported by the core profile. Apply only when extension conformance is requested.
+# Ambiguous financial-system and financial-sector individuals remain review-required
+# and are not forced into a violation.
+# Licence: CC BY 4.0.
+
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix fneos: <https://w3id.org/fneo/shape/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fneos:CentralBankShape a sh:NodeShape ;
+    sh:name "CentralBankShape" ;
+    sh:targetClass fneo:CentralBank ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A central-bank individual should carry an identifying label." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A central-bank individual is an extension classification with a review trace. Missing review status is a warning." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this fneo:hasManualReviewStatus ?status } }
+        """ ;
+    ] .
+
+fneos:CommercialBankShape a sh:NodeShape ;
+    sh:name "CommercialBankShape" ;
+    sh:targetClass fneo:CommercialBank ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A commercial-bank individual should carry an identifying label." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A commercial-bank individual is an extension classification with a review trace. Missing review status is a warning." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this fneo:hasManualReviewStatus ?status } }
+        """ ;
+    ] .
+
+fneos:CurrencyShape a sh:NodeShape ;
+    sh:name "CurrencyShape" ;
+    sh:targetClass fneo:Currency ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A currency individual should carry an identifying label." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A currency individual is a named currency and is not a monetary amount." ;
+        sh:select """
+            SELECT $this WHERE { $this a fneo:MonetaryAmount . }
+        """ ;
+    ] .
+
+fneos:EquityShareShape a sh:NodeShape ;
+    sh:name "EquityShareShape" ;
+    sh:targetClass fneo:EquityShare ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "An equity share should carry an identifying label." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "An equity-share classification should carry a review trace." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this fneo:hasManualReviewStatus ?status } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "An equity share is not the issuing organisation." ;
+        sh:select """
+            SELECT $this WHERE { $this a fneo:FinancialOrganisation . }
+        """ ;
+    ] .
+
+fneos:MonetaryAmountShape a sh:NodeShape ;
+    sh:name "MonetaryAmountShape" ;
+    sh:targetClass fneo:MonetaryAmount ;
+    sh:property [
+        sh:path fneo:numericalLexicalForm ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A monetary amount keeps a lexical form." ;
+    ] ;
+    sh:property [
+        sh:path fneo:currencyCode ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info ;
+        sh:message "A currency code on a monetary amount is optional. Absence is Info." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A monetary amount is not a currency individual." ;
+        sh:select """
+            SELECT $this WHERE { $this a fneo:Currency . }
+        """ ;
+    ] .
+
+fneos:QuantityValueShape a sh:NodeShape ;
+    sh:name "QuantityValueShape" ;
+    sh:targetClass fneo:QuantityValue ;
+    sh:property [
+        sh:path fneo:numericalLexicalForm ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "A quantity value keeps a lexical form." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A quantity value is a non-percentage quantity." ;
+        sh:select """
+            SELECT $this WHERE { $this a fneo:PercentageValue . }
+        """ ;
+    ] .
+
+fneos:FinancialSystemShape a sh:NodeShape ;
+    sh:name "FinancialSystemShape" ;
+    sh:targetClass fneo:FinancialSystem ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A financial-system individual should carry an identifying label. Ambiguous wording is not a violation." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A financial-system individual exists only after manual review. Missing review status is a warning, not a violation." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this fneo:hasManualReviewStatus ?status } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "Ambiguous financial-system wording may remain review-required. That state is not a violation." ;
+        sh:select """
+            SELECT $this WHERE { $this fneo:hasManualReviewStatus fneo:ReviewRequired . }
+        """ ;
+    ] .
+
+fneos:FinancialSectorShape a sh:NodeShape ;
+    sh:name "FinancialSectorShape" ;
+    sh:targetClass fneo:FinancialSector ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A financial-sector individual should carry an identifying label. Ambiguous wording is not a violation." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this rdfs:label ?label } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "A financial-sector individual is not created automatically from sector-like wording. Missing review status is a warning." ;
+        sh:select """
+            SELECT $this WHERE { FILTER NOT EXISTS { $this fneo:hasManualReviewStatus ?status } }
+        """ ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "Ambiguous financial-sector wording may remain review-required. That state is not a violation." ;
+        sh:select """
+            SELECT $this WHERE { $this fneo:hasManualReviewStatus fneo:ReviewRequired . }
+        """ ;
+    ] .
+
+fneos:EventValueShape a sh:NodeShape ;
+    sh:name "EventValueShape" ;
+    sh:targetClass fneo:Event ;
+    sh:property [
+        sh:path fneo:hasReportedValue ;
+        sh:class fneo:NumericalValue ;
+        sh:severity sh:Violation ;
+        sh:message "hasReportedValue, when present, points at a numerical value." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasPercentageChange ;
+        sh:class fneo:PercentageValue ;
+        sh:severity sh:Violation ;
+        sh:message "hasPercentageChange, when present, points at a percentage value." ;
+    ] ;
+    sh:property [
+        sh:path fneo:hasMonetaryAmount ;
+        sh:class fneo:MonetaryAmount ;
+        sh:severity sh:Violation ;
+        sh:message "hasMonetaryAmount, when present, points at a monetary amount." ;
+    ] .
+
+fneos:EntityCoreferenceShape a sh:NodeShape ;
+    sh:name "EntityCoreferenceShape" ;
+    sh:targetClass fneo:Entity ;
+    sh:property [
+        sh:path fneo:entityCorefersWith ;
+        sh:class fneo:Entity ;
+        sh:severity sh:Violation ;
+        sh:message "entityCorefersWith, when present, points at an entity. Coreference is optional and is not a core requirement." ;
+    ] .
+
+fneos:EventCoreferenceShape a sh:NodeShape ;
+    sh:name "EventCoreferenceShape" ;
+    sh:targetClass fneo:Event ;
+    sh:property [
+        sh:path fneo:eventCorefersWith ;
+        sh:class fneo:Event ;
+        sh:severity sh:Violation ;
+        sh:message "eventCorefersWith, when present, points at an event. Coreference is optional and is not a core requirement." ;
+    ] .
+
+fneos:CommittedTemporalShape a sh:NodeShape ;
+    sh:name "CommittedTemporalShape" ;
+    sh:targetClass fneo:TemporalRelationAssertion ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "A committed or accepted temporal relation must materialise the matching direct temporal triple." ;
+        sh:select """
+            SELECT $this WHERE {
+              {
+                $this fneo:hasCommitmentStatus fneo:Committed .
+              }
+              UNION
+              {
+                $this fneo:hasValidationStatus fneo:Accepted .
+              }
+              $this fneo:temporalSubject ?subject .
+              $this fneo:temporalObject ?object .
+              {
+                $this fneo:temporalRelationType fneo:Before .
+                FILTER NOT EXISTS { ?subject fneo:precedes ?object }
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:After .
+                FILTER NOT EXISTS { ?subject fneo:follows ?object }
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:Simultaneous .
+                FILTER NOT EXISTS { ?subject fneo:simultaneousWith ?object }
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:During .
+                FILTER NOT EXISTS { ?subject fneo:occursDuring ?object }
+              }
+              UNION
+              {
+                $this fneo:temporalRelationType fneo:IncludesRelation .
+                FILTER NOT EXISTS { ?subject fneo:includes ?object }
+              }
+            }
+        """ ;
+    ] .

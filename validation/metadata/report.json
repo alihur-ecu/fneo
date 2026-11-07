@@ -1,0 +1,84 @@
+{
+  "turtle_parse": "passed",
+  "metadata": {
+    "status": "passed",
+    "present": {
+      "rdfs:label": true,
+      "dcterms:title": true,
+      "dcterms:description": true,
+      "dcterms:creator": true,
+      "dcterms:issued": true,
+      "dcterms:modified": true,
+      "dcterms:license": true,
+      "owl:versionInfo": true,
+      "owl:versionIRI": true,
+      "owl:priorVersion": true,
+      "preferredNamespacePrefix": true,
+      "preferredNamespaceUri": true,
+      "bibliographicCitation": true
+    },
+    "creator": [
+      "https://orcid.org/0000-0001-9537-2648"
+    ],
+    "modified": [
+      "2026-11-06"
+    ],
+    "modified_note": "2026-11-06 is the metadata-revision date, not a public release date.",
+    "triple_count": 1101
+  },
+  "iris": {
+    "status": "passed",
+    "broken_iris": [],
+    "namespace_resolution": {
+      "status": "not_executed",
+      "detail": "https://w3id.org/fneo/ is not registered. This check does not fetch it and does not treat the version IRI as a resolved URL.",
+      "w3id_iri_count": 136
+    }
+  },
+  "competency_questions": {
+    "status": "passed",
+    "counts": {
+      "FDQ-001.rq": 65,
+      "FDQ-002.rq": 15,
+      "FDQ-003.rq": 26,
+      "FDQ-004.rq": 26,
+      "FDQ-005.rq": 27
+    },
+    "mismatches": [],
+    "expected": {
+      "FDQ-001.rq": 65,
+      "FDQ-002.rq": 15,
+      "FDQ-003.rq": 26,
+      "FDQ-004.rq": 26,
+      "FDQ-005.rq": 27
+    }
+  },
+  "robot": {
+    "status": "passed",
+    "profile_exit": 0,
+    "reason_exit": 0,
+    "detail": " Container fneo-public-robot-run-c09269b0abdc Creating \n Container fneo-public-robot-run-c09269b0abdc Created \n"
+  },
+  "shacl": {
+    "status": "passed",
+    "pyshacl": "0.40.2",
+    "allow_warnings": true,
+    "note": "Pass requires the portable and extension profiles to conform with warnings allowed. pySHACL on the original core shapes is recorded separately because it mis-bins nested severities.",
+    "results": {
+      "core-report.ttl": {
+        "conforms": false,
+        "text_tail": "ELECT $this WHERE {\n              FILTER NOT EXISTS {\n                ?event fneo:supportedBy $this .\n                ?document fneo:reportsEvent ?event .\n              }\n            }\n        \") ; sh:severity sh:Warning ]\n\tMessage: Textual evidence should be traceable to a financial news document.\n"
+      },
+      "extension-report.ttl": {
+        "conforms": true,
+        "text_tail": "Validation Report\nConforms: True\n"
+      },
+      "portable-report.ttl": {
+        "conforms": true,
+        "text_tail": "ELECT $this WHERE {\n              FILTER NOT EXISTS {\n                ?event fneo:supportedBy $this .\n                ?document fneo:reportsEvent ?event .\n              }\n            }\n        \") ; sh:severity sh:Warning ]\n\tMessage: Textual evidence should be traceable to a financial news document.\n"
+      }
+    }
+  },
+  "repopulation_required": false,
+  "reason": "Ontology delta is metadata and annotation only. Population outputs were not regenerated."
+}

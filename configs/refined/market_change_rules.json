@@ -1,0 +1,620 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "A change that attaches to a currency or a value rather than a market index or equity market is outside the market-change class.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 100,
+      "applicability_conditions": [
+        "applies_mce_currency_scope"
+      ],
+      "required_conditions": [
+        "textual_evidence_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "negative_currency_or_value_participant_without_market"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset"
+      ],
+      "scope_conditions": [
+        "negative_currency_or_value_participant_without_market"
+      ],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "The dollar rose, with no market index participant."
+      ],
+      "known_limitations": [
+        "RC2 has no out-of-scope validation individual. The RDF assertion, when emitted, uses Rejected."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-004"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Reject a market-change classification that rests on a trigger or on the generic event code alone.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 90,
+      "applicability_conditions": [
+        "applies_mce_trigger_only"
+      ],
+      "required_conditions": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "Prices fell, with no attached market."
+      ],
+      "known_limitations": [
+        "A change verb is not a market-change event."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-003"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Keep sensitivity-set and dated-descriptor market changes in review. Do not promote them because a score is high.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_mce_sensitivity"
+      ],
+      "required_conditions": [
+        "textual_evidence_present",
+        "document_present",
+        "source_event_mention"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset"
+      ],
+      "blocking_conditions": [
+        "negative_automatic_promotion_of_sensitivity"
+      ],
+      "review_conditions": [
+        "sensitivity_set_marker",
+        "dated_descriptor_marker"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "sensitivity_set_marker",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.20",
+        "change_expression": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "Thursday Northwind Index fell."
+      ],
+      "known_limitations": [
+        "No elicitation count is used as a decision threshold."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-002"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "A collective or conjunctive market mention stays in review unless distinct mentions were supplied by the source.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 70,
+      "applicability_conditions": [
+        "applies_mce_conjunction"
+      ],
+      "required_conditions": [
+        "change_expression",
+        "textual_evidence_present",
+        "document_present",
+        "source_event_mention"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "conjunction_without_distinct_mentions"
+      ],
+      "blocking_conditions": [
+        "conjunction_without_distinct_mentions",
+        "negative_collective_cross_document_identity"
+      ],
+      "review_conditions": [
+        "conjunction_without_distinct_mentions"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "conjunction_without_distinct_mentions",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "change_expression": "0.20",
+        "textual_evidence_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "The Nasdaq and the S&P 500 fell, as one collective mention."
+      ],
+      "known_limitations": [
+        "The engine does not split a conjunction by punctuation or by the word and."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-006"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Accept one market-change event for each source trigger when the triggers and their attachments are distinct.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 60,
+      "applicability_conditions": [
+        "applies_mce_distinct_triggers"
+      ],
+      "required_conditions": [
+        "change_expression",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "source_event_mention",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span",
+        "distinct_triggers"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "shared_unresolved_trigger"
+      ],
+      "blocking_conditions": [
+        "negative_merge_distinct_triggers",
+        "shared_unresolved_trigger",
+        "blocking_ambiguity"
+      ],
+      "review_conditions": [
+        "shared_unresolved_trigger",
+        "blocking_ambiguity"
+      ],
+      "rejection_conditions": [
+        "negative_merge_distinct_triggers",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "change_expression": "0.20",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "source_event_mention": "0.15",
+        "textual_evidence_present": "0.10",
+        "distinct_triggers": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [],
+      "assertion_kind": "relation",
+      "examples": [
+        "The index fell and, in a separate trigger, the same index rose."
+      ],
+      "known_limitations": [
+        "A shared unresolved trigger is not merged and is not accepted."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-005"
+    },
+    {
+      "version": "feo016-0.1.0",
+      "description": "Accept a market-change event only when the trigger itself is the change expression, an accepted market is contextually attached to that trigger, and the source event and textual evidence are present. A change expression that is only co-present in the sentence does not make the attached market the entity undergoing this trigger.",
+      "target_class": "https://w3id.org/fneo/MarketChangeEvent",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_change",
+      "exclusive_group": "market_change",
+      "priority": 40,
+      "applicability_conditions": [
+        "applies_mce_strict"
+      ],
+      "required_conditions": [
+        "change_expression",
+        "accepted_market_referent",
+        "contextual_attachment",
+        "source_event_mention",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "direction_cue_present"
+      ],
+      "negative_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "negative_automatic_promotion_of_sensitivity",
+        "negative_merge_distinct_triggers",
+        "negative_collective_cross_document_identity",
+        "negative_factuality_as_requirement",
+        "invalid_offset",
+        "blocking_ambiguity",
+        "negative_market_not_undergoer_of_trigger"
+      ],
+      "blocking_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "negative_currency_or_value_participant_without_market",
+        "blocking_ambiguity",
+        "invalid_offset",
+        "negative_market_not_undergoer_of_trigger"
+      ],
+      "review_conditions": [
+        "blocking_ambiguity"
+      ],
+      "rejection_conditions": [
+        "negative_trigger_only",
+        "negative_other_code_only",
+        "invalid_offset",
+        "missing_document",
+        "negative_market_not_undergoer_of_trigger"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "change_expression": "0.20",
+        "accepted_market_referent": "0.25",
+        "contextual_attachment": "0.20",
+        "source_event_mention": "0.15",
+        "textual_evidence_present": "0.10",
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "MarketChangeEventShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "The Dow Jones plunged.",
+        "A non-change trigger remains unaccepted when a market is attached and the sentence also contains a separate change expression."
+      ],
+      "known_limitations": [
+        "Direction is not required.",
+        "The primary strict set is a rule outcome, not a stored count of events.",
+        "A trigger outside the closed change-expression vocabulary is rejected when the only change expression is elsewhere in the sentence.",
+        "The condition does not add affected-market links that were previously missing."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MCE-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Optionally assign UpwardDirection or DownwardDirection for one accepted market-change event. Mixed cues omit direction.",
+      "target_class": "https://w3id.org/fneo/DownwardDirection",
+      "target_property": "https://w3id.org/fneo/hasMarketDirection",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "market_direction",
+      "exclusive_group": "market_direction",
+      "priority": 40,
+      "applicability_conditions": [
+        "applies_direction"
+      ],
+      "required_conditions": [
+        "accepted_market_change_for_direction",
+        "textual_evidence_present"
+      ],
+      "optional_conditions": [
+        "direction_up",
+        "direction_down"
+      ],
+      "negative_conditions": [
+        "conflicting_direction_same_event",
+        "negative_factuality_as_requirement",
+        "negative_trigger_only"
+      ],
+      "blocking_conditions": [
+        "conflicting_direction_same_event"
+      ],
+      "review_conditions": [
+        "conflicting_direction_same_event"
+      ],
+      "rejection_conditions": [],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "direction_up": "0.45",
+        "direction_down": "0.45",
+        "accepted_market_change_for_direction": "0.40"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "MarketChangeEventShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "The index fell.",
+        "The index rose and fell in one unresolved event."
+      ],
+      "known_limitations": [
+        "No MixedDirection individual is created.",
+        "Direction failure does not reject an otherwise valid market-change event.",
+        "Accepted direction is an extension outcome and is not copied into the core profile."
+      ],
+      "omit_assertion_unless_accepted": true,
+      "rule_id": "FE-DIR-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Record structural denotation from an event mention to an event. The generic event code does not assign a financial event class.",
+      "target_class": "https://w3id.org/fneo/Event",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "event_candidate"
+      ],
+      "phase": "structural_event",
+      "exclusive_group": "structural_event",
+      "priority": 10,
+      "applicability_conditions": [
+        "applies_generic_event"
+      ],
+      "required_conditions": [
+        "structural_mention_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "invalid_offset",
+        "negative_other_code_only",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "invalid_offset"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "structural_mention_present": "0.50",
+        "document_present": "0.40"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "structural_direct",
+      "applicable_shacl_shapes": [
+        "EventMentionShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "An event mention denotes the reported event."
+      ],
+      "known_limitations": [
+        "Typing as Event does not type MarketChangeEvent."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "STR-EVT-001"
+    }
+  ]
+}

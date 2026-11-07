@@ -1,0 +1,14 @@
+# System and sector phrases from ENT-05. Ambiguous cases stay in review.
+name: system_sector
+source: FEO-005A financial system and sector requirements; ENT-05 evidence card
+system_phrases:
+  - financial system
+  - banking system
+sector_phrases:
+  - financial sector
+  - banking sector
+ambiguous_phrases:
+  - financial world
+  - financial industry
+notes:
+  - Neither class is assigned automatically from these phrases.

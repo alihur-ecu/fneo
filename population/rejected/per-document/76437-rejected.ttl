@@ -1,0 +1,16 @@
+@prefix fneo: <https://w3id.org/fneo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/fneo/resource/assertion/relation/6690cf038ec6f61df2c1> fneo:assertionObject fneo:PercentageValue ;
+    fneo:assertionPredicateIRI "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"^^xsd:anyURI ;
+    fneo:assertionSubject <https://w3id.org/fneo/resource/value/meantime-en-stock/76437/value-851539bad64558d5> ;
+    fneo:confidence "0.65"^^xsd:decimal ;
+    fneo:hasManualReviewStatus fneo:ManuallyRejected ;
+    fneo:hasValidationStatus fneo:Rejected ;
+    fneo:populatedByActivity <https://w3id.org/fneo/resource/activity/feo009-enrichment-0.1.0/feo011-doc-76437> ;
+    fneo:populatedByRule "VAL-PERCENT-001"^^xsd:string ;
+    fneo:populationMethod "documented_rule"^^xsd:string ;
+    fneo:ruleIdentifier "VAL-PERCENT-001"^^xsd:string ;
+    rdf:type fneo:RelationAssertion .

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/fneo/schema/normalised-candidate",
+  "title": "Normalised candidate record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "candidate_kind",
+    "document_id",
+    "requested_population_profile"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "candidate_kind": {
+      "type": "string",
+      "enum": [
+        "entity_candidate",
+        "event_candidate",
+        "participation_candidate",
+        "temporal_candidate",
+        "value_candidate",
+        "evidence_candidate"
+      ]
+    },
+    "document_id": {"type": "string"},
+    "sentence_id": {"type": ["string", "null"]},
+    "passage_id": {"type": ["string", "null"]},
+    "source_mention_ids": {"type": "array", "items": {"type": "string"}},
+    "source_annotation_ids": {"type": "array", "items": {"type": "string"}},
+    "textual_evidence": {"type": "string"},
+    "token_start": {"type": ["integer", "null"]},
+    "token_end": {"type": ["integer", "null"]},
+    "character_start": {"type": ["integer", "null"]},
+    "character_end": {"type": ["integer", "null"]},
+    "text_boundary_length": {"type": ["integer", "null"], "minimum": 0},
+    "token_boundary_length": {"type": ["integer", "null"], "minimum": 0},
+    "generic_type": {"type": "string"},
+    "trigger_or_lexical_form": {"type": "string"},
+    "lemma": {"type": ["string", "null"]},
+    "participants": {"type": "array", "items": {"type": "object"}},
+    "source_roles": {"type": "array", "items": {"type": "string"}},
+    "participant_generic_types": {"type": "array", "items": {"type": "string"}},
+    "explicit_times": {"type": "array"},
+    "values": {"type": "array"},
+    "source_temporal_relation": {"type": "object"},
+    "document_publication_time": {"type": ["object", "null"]},
+    "source_confidence": {"type": ["string", "number", "null"]},
+    "provenance": {"type": "object"},
+    "requested_population_profile": {
+      "type": "string",
+      "enum": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ]
+    },
+    "corpus": {"type": "string"},
+    "features": {"type": "object"}
+  }
+}

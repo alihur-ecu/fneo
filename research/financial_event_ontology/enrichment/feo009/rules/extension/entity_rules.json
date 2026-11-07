@@ -1,0 +1,492 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify a central bank from a controlled name or an accepted reviewer decision with organisation context. A generic organisation code is not sufficient.",
+      "target_class": "https://w3id.org/fneo/CentralBank",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 80,
+      "applicability_conditions": [
+        "applies_central_bank"
+      ],
+      "required_conditions": [
+        "controlled_name_or_reviewer_decision",
+        "organisation_context",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "reviewer_accepted_decision"
+      ],
+      "negative_conditions": [
+        "negative_org_code_only",
+        "negative_funding_verb_types_bank",
+        "negative_acting_central_bank_role",
+        "negative_collective_as_extra_institution",
+        "collective_mention",
+        "generic_org_without_context",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_org_code_only",
+        "negative_funding_verb_types_bank",
+        "collective_mention",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "collective_mention",
+        "negative_acting_central_bank_role"
+      ],
+      "rejection_conditions": [
+        "negative_org_code_only",
+        "negative_funding_verb_types_bank",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "controlled_name_or_reviewer_decision": "0.45",
+        "organisation_context": "0.25",
+        "textual_evidence_present": "0.15",
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "CentralBankShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "The US Federal Reserve",
+        "the world's central banks"
+      ],
+      "known_limitations": [
+        "Collective central-bank mentions stay in review and are not counted as extra institutions."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-CB-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify a commercial bank from an approved lender name and organisation context. The held-out name Uralsib is excluded.",
+      "target_class": "https://w3id.org/fneo/CommercialBank",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 70,
+      "applicability_conditions": [
+        "applies_commercial_bank"
+      ],
+      "required_conditions": [
+        "controlled_name_or_reviewer_decision",
+        "organisation_context",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "reviewer_accepted_decision"
+      ],
+      "negative_conditions": [
+        "negative_held_out_commercial_bank",
+        "negative_central_bank_name_as_commercial",
+        "negative_insurer",
+        "negative_generic_bank_word",
+        "negative_org_code_only",
+        "collective_mention",
+        "novel_bank_like_name",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_held_out_commercial_bank",
+        "negative_central_bank_name_as_commercial",
+        "negative_insurer",
+        "negative_generic_bank_word",
+        "negative_org_code_only",
+        "collective_mention",
+        "novel_bank_like_name",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "negative_held_out_commercial_bank",
+        "collective_mention",
+        "novel_bank_like_name",
+        "negative_generic_bank_word"
+      ],
+      "rejection_conditions": [
+        "negative_central_bank_name_as_commercial",
+        "negative_insurer",
+        "negative_org_code_only",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "controlled_name_match": "0.45",
+        "organisation_context": "0.25",
+        "textual_evidence_present": "0.15",
+        "document_present": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "CommercialBankShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "Bank of America Corporation"
+      ],
+      "known_limitations": [
+        "Uralsib is excluded until a later decision admits it. It is not a controlled name in this engine.",
+        "A previously unseen bank-like name is review-required."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-COMB-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify a currency name and keep it distinct from a monetary amount and from a currency code on a sum.",
+      "target_class": "https://w3id.org/fneo/Currency",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 60,
+      "applicability_conditions": [
+        "applies_currency"
+      ],
+      "required_conditions": [
+        "currency_name_not_amount",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "reviewer_accepted_decision"
+      ],
+      "negative_conditions": [
+        "negative_amount_is_currency",
+        "negative_currency_code_creates_currency",
+        "amount_in_span",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_amount_is_currency",
+        "negative_currency_code_creates_currency",
+        "amount_in_span",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "amount_in_span"
+      ],
+      "rejection_conditions": [
+        "negative_amount_is_currency",
+        "negative_currency_code_creates_currency",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "currency_name_not_amount": "0.50",
+        "textual_evidence_present": "0.20",
+        "document_present": "0.15",
+        "reviewer_accepted_decision": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "CurrencyShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "the U.S. dollar"
+      ],
+      "known_limitations": [
+        "A span that mixes a currency name with an amount stays in review."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-CCY-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify an equity share only when share wording is distinct from the issuing organisation.",
+      "target_class": "https://w3id.org/fneo/EquityShare",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 85,
+      "applicability_conditions": [
+        "applies_equity_share"
+      ],
+      "required_conditions": [
+        "share_context_unambiguous",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "reviewer_accepted_decision"
+      ],
+      "negative_conditions": [
+        "negative_company_name_as_share",
+        "negative_share_as_company",
+        "negative_double_typed_span",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_company_name_as_share",
+        "negative_double_typed_span",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "negative_double_typed_span"
+      ],
+      "rejection_conditions": [
+        "negative_company_name_as_share",
+        "negative_share_as_company",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "negative_double_typed_span",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "share_context_unambiguous": "0.55",
+        "textual_evidence_present": "0.20",
+        "document_present": "0.15"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "EquityShareShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "Bank of America shares, as a span distinct from Bank of America Corporation."
+      ],
+      "known_limitations": [
+        "The cue stock alone is not treated as unambiguous share context."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-EQS-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Route financial-system wording to review. Do not assign the class automatically.",
+      "target_class": "https://w3id.org/fneo/FinancialSystem",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "",
+      "priority": 200,
+      "applicability_conditions": [
+        "applies_financial_system"
+      ],
+      "required_conditions": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_forced_system_sector_classification",
+        "negative_collective_cross_document_identity",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_forced_system_sector_classification"
+      ],
+      "review_conditions": [
+        "negative_forced_system_sector_classification"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "negative_forced_system_sector_classification",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "FinancialSystemShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "the financial system",
+        "the financial world"
+      ],
+      "known_limitations": [
+        "This mapping does not accept FinancialSystem automatically, including when a reviewer flag is present."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-SYSSEC-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Route financial-sector wording to review. Do not assign the class automatically.",
+      "target_class": "https://w3id.org/fneo/FinancialSector",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "EXTENSION_REVIEWED",
+      "assertion_profile": "EXTENSION_REVIEWED",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "EXTENSION_REVIEWED"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "",
+      "priority": 190,
+      "applicability_conditions": [
+        "applies_financial_sector"
+      ],
+      "required_conditions": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "negative_forced_system_sector_classification",
+        "negative_collective_cross_document_identity",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_forced_system_sector_classification"
+      ],
+      "review_conditions": [
+        "negative_forced_system_sector_classification"
+      ],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [
+        {
+          "when": "negative_forced_system_sector_classification",
+          "status": "requires_review"
+        }
+      ],
+      "confidence_contributions": {
+        "textual_evidence_present": "0.20"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "1.00",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "FinancialSectorShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "the financial sector"
+      ],
+      "known_limitations": [
+        "Pair with FE-SYSSEC-001 when both readings compete. Neither reading is forced."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-SEC-001"
+    }
+  ]
+}

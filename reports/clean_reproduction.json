@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "steps": {
+    "baseline": {
+      "detail": "240 semantic files matched",
+      "status": "pass"
+    },
+    "census": {
+      "detail": "4285; 379; 1751; 66; 1481; total 7962",
+      "status": "pass"
+    },
+    "extraction": {
+      "detail": "30 documents regenerated the reference extraction checksums",
+      "status": "pass"
+    },
+    "headlines": {
+      "detail": "13 headline fractions match; two ambiguous paths and the accepted duplicate stay outside the headline denominators",
+      "status": "pass"
+    },
+    "import": {
+      "detail": "{'nodes': 27126, 'relationships': 121539, 'documents': 30, 'phase_runs': 4, 'cross_document_relationships': 432}",
+      "status": "pass"
+    },
+    "inputs": {
+      "detail": "30 document graphs and the store supplement match SHA256SUMS; recorded import totals nodes=27126 relationships=121539",
+      "status": "pass"
+    },
+    "ontology_validation": {
+      "detail": "ontology parse, HermiT, SHACL, and FDQ-001 through FDQ-005 completed",
+      "status": "pass"
+    },
+    "publication_views": {
+      "detail": "six publication views match expected/publication_view_sha256.json",
+      "status": "pass"
+    },
+    "refined": {
+      "detail": "240 semantic files matched",
+      "status": "pass"
+    },
+    "refined_repeat": {
+      "detail": "240 semantic files matched",
+      "status": "pass"
+    }
+  }
+}

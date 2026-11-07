@@ -1,0 +1,265 @@
+{
+  "rules": [
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify a mention as a market index when a controlled name or an accepted reviewer decision is supported by index context, a mention, and a document.",
+      "target_class": "https://w3id.org/fneo/MarketIndex",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 40,
+      "applicability_conditions": [
+        "applies_market_index"
+      ],
+      "required_conditions": [
+        "controlled_name_or_reviewer_decision",
+        "index_context",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "explicit_descriptor",
+        "reviewer_accepted_decision"
+      ],
+      "negative_conditions": [
+        "negative_issuing_company",
+        "negative_exchange_not_index",
+        "negative_generic_market",
+        "negative_numeric_level_as_entity",
+        "negative_unrelated_acronym",
+        "negative_fin_code_only",
+        "negative_equity_market_reading",
+        "conjunction_without_distinct_mentions",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_issuing_company",
+        "negative_exchange_not_index",
+        "negative_numeric_level_as_entity",
+        "negative_unrelated_acronym",
+        "negative_fin_code_only",
+        "negative_equity_market_reading",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "conjunction_without_distinct_mentions",
+        "negative_generic_market"
+      ],
+      "rejection_conditions": [
+        "negative_issuing_company",
+        "negative_exchange_not_index",
+        "negative_numeric_level_as_entity",
+        "negative_unrelated_acronym",
+        "negative_fin_code_only",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "controlled_name_or_reviewer_decision": "0.40",
+        "index_context": "0.25",
+        "textual_evidence_present": "0.15",
+        "document_present": "0.10",
+        "explicit_descriptor": "0.10"
+      },
+      "negative_penalties": {
+        "conjunction_without_distinct_mentions": "0.20"
+      },
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "MarketIndexShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "The Dow Jones plunged.",
+        "The Nikkei dropped 9.62 percent."
+      ],
+      "known_limitations": [
+        "Document-scoped identity. A repeated surface form in another document is not merged.",
+        "Operational factuality is not a classification requirement.",
+        "Conjunction descriptors are not split unless distinct mentions are supplied."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-MKTIDX-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Classify a collective equity-market descriptor and keep it distinct from a market index, a company, and a physical marketplace.",
+      "target_class": "https://w3id.org/fneo/EquityMarket",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "rule",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "entity_type",
+      "exclusive_group": "entity_type",
+      "priority": 30,
+      "applicability_conditions": [
+        "applies_equity_market"
+      ],
+      "required_conditions": [
+        "equity_market_context",
+        "textual_evidence_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [
+        "reviewer_accepted_decision",
+        "explicit_descriptor"
+      ],
+      "negative_conditions": [
+        "negative_bare_market",
+        "negative_geographic_name_alone",
+        "negative_individual_company",
+        "negative_physical_marketplace",
+        "negative_index_reading",
+        "negative_same_individual_as_index",
+        "negative_fin_code_only",
+        "invalid_offset",
+        "negative_factuality_as_requirement"
+      ],
+      "blocking_conditions": [
+        "negative_index_reading",
+        "negative_individual_company",
+        "negative_physical_marketplace",
+        "negative_fin_code_only",
+        "negative_same_individual_as_index",
+        "invalid_offset"
+      ],
+      "review_conditions": [
+        "negative_bare_market",
+        "negative_geographic_name_alone"
+      ],
+      "rejection_conditions": [
+        "negative_index_reading",
+        "negative_individual_company",
+        "negative_physical_marketplace",
+        "negative_fin_code_only",
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "equity_market_context": "0.50",
+        "textual_evidence_present": "0.20",
+        "document_present": "0.15",
+        "reviewer_accepted_decision": "0.10"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "direct_and_qualified",
+      "applicable_shacl_shapes": [
+        "EquityMarketShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "Stock markets worldwide fall dramatically."
+      ],
+      "known_limitations": [
+        "Document-scoped identity. A repeated surface form in another document is not merged.",
+        "Operational factuality is not a classification requirement.",
+        "Bare use of the word market stays in review."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "FE-EQMKT-001"
+    },
+    {
+      "version": "feo009-0.1.0",
+      "description": "Record structural denotation from an entity mention to an entity. This does not assign a financial class.",
+      "target_class": "https://w3id.org/fneo/Entity",
+      "target_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "population_profile": "CORE_DETERMINISTIC",
+      "assertion_profile": "CORE_DETERMINISTIC",
+      "decision_profile_mode": "candidate",
+      "consumes_profiles": [
+        "CORE_DETERMINISTIC",
+        "EXTENSION_REVIEWED",
+        "CANDIDATE_REVIEW",
+        "EXPERIMENTAL_TEMPORAL"
+      ],
+      "candidate_kinds": [
+        "entity_candidate"
+      ],
+      "phase": "structural_entity",
+      "exclusive_group": "structural_entity",
+      "priority": 10,
+      "applicability_conditions": [
+        "applies_generic_entity"
+      ],
+      "required_conditions": [
+        "structural_mention_present",
+        "document_present",
+        "valid_evidence_span"
+      ],
+      "optional_conditions": [],
+      "negative_conditions": [
+        "invalid_offset",
+        "negative_factuality_as_requirement",
+        "negative_fin_code_only"
+      ],
+      "blocking_conditions": [
+        "invalid_offset"
+      ],
+      "review_conditions": [],
+      "rejection_conditions": [
+        "invalid_offset",
+        "missing_document"
+      ],
+      "scope_conditions": [],
+      "outcome_overrides": [],
+      "confidence_contributions": {
+        "structural_mention_present": "0.50",
+        "document_present": "0.40"
+      },
+      "negative_penalties": {},
+      "acceptance_threshold": "0.80",
+      "review_threshold": "0.40",
+      "evidence_requirements": [
+        "textual_evidence_present",
+        "document_present"
+      ],
+      "materialisation_policy": "structural_direct",
+      "applicable_shacl_shapes": [
+        "EntityMentionShape"
+      ],
+      "assertion_kind": "relation",
+      "examples": [
+        "A mention denotes the entity it names."
+      ],
+      "known_limitations": [
+        "Structural denotation is not a financial classification."
+      ],
+      "omit_assertion_unless_accepted": false,
+      "rule_id": "STR-ENT-001"
+    }
+  ]
+}

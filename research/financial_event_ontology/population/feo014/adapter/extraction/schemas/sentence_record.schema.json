@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/fneo/schema/feo010/sentence",
+  "title": "sentence",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "source_record_id",
+    "record_kind",
+    "source_labels",
+    "relationship_type",
+    "source_identifier",
+    "document_identifier",
+    "source_properties",
+    "source_endpoint_identifiers",
+    "provenance",
+    "extraction_warning_state",
+    "mapping_eligibility_state"
+  ],
+  "properties": {
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_kind": {
+      "type": "string",
+      "const": "sentence"
+    },
+    "source_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relationship_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_identifier": {
+      "type": "string"
+    },
+    "document_identifier": {
+      "type": "string"
+    },
+    "source_properties": {
+      "type": "object"
+    },
+    "source_endpoint_identifiers": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "extraction_warning_state": {
+      "type": "string",
+      "enum": [
+        "none",
+        "warning"
+      ]
+    },
+    "mapping_eligibility_state": {
+      "type": "string"
+    },
+    "textual_form": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "token_start": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "token_end": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "character_start": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "character_end": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "span_convention": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sentence_identifier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generic_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lemma": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_confidence": {
+      "type": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "source_annotation_identifier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
