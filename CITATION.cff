@@ -1,40 +1,13 @@
 cff-version: 1.2.0
-message: >-
-  If you use this software, cite it as below. Repository URL, DOI, and
-  release date are TO BE ADDED AT PUBLIC RELEASE and are omitted here.
-  No DOI has been assigned.
-title: Financial News Event Ontology
-version: 0.1.0-rc2
+message: "If you use FNEO, please cite this software and ontology release."
+title: "FNEO: Governed Semantic Publication from Operational Text Graphs"
 type: software
 authors:
-  - family-names: HUR
-    given-names: Ali
+  - family-names: "HUR"
+    given-names: "Ali"
     orcid: "https://orcid.org/0000-0001-9537-2648"
-abstract: >-
-  Corpus-grounded OWL ontology and a frozen-input reproduction of
-  status-gated semantic projection for 30 English Wikinews stock-market
-  documents. Computational reproduction from the operational TextGraphs.
-  Not a public release.
-license:
-  - MIT
-  - CC-BY-4.0
-  - CC-BY-2.5
-license-url: "https://creativecommons.org/licenses/by/4.0/legalcode"
-preferred-citation:
-  type: software
-  title: Financial News Event Ontology
-  version: 0.1.0-rc2
-  authors:
-    - family-names: HUR
-      given-names: Ali
-      orcid: "https://orcid.org/0000-0001-9537-2648"
-  year: 2026
-  notes: >-
-    Preferred citation: Hur, Ali. Financial News Event Ontology,
-    development candidate 0.1.0-rc2. ORCID
-    https://orcid.org/0000-0001-9537-2648.
-    Licence summary: executable code MIT; authored ontology, shapes,
-    mappings, rules, and queries CC BY 4.0; Wikinews text and
-    source-bearing TextGraphs CC BY 2.5; MEANTIME packaging metadata
-    CC BY 4.0. Year 2026 is the candidate year, not a deposit date.
-    Repository URL, DOI, and release date: TO BE ADDED AT PUBLIC RELEASE.
+repository-code: "https://github.com/alihur-ecu/fneo"
+url: "https://alihur-ecu.github.io/fneo/"
+version: 0.1.1
+date-released: 2026-11-08
+license: MIT
