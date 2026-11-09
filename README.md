@@ -2,6 +2,8 @@
 
 FNEO is an OWL ontology for entities, events, participant roles, financial objects, values, times, qualified assertions, and textual evidence in financial news. This repository publishes artefact release `v0.1.1`. The ontology version in that artefact is `0.1.0-rc2`.
 
+The accompanying article is *Decision-to-Publication Semantics for Operational Text Graphs: A Financial-News Case*.
+
 | Item | Value |
 | --- | --- |
 | Creator | Ali HUR |
@@ -93,7 +95,9 @@ FDQ-001 through FDQ-005 are in `competency_questions/queries/feo017/`.
 
 Code is MIT (`LICENSE-CODE`). Authored ontology, shapes, mappings, rules, queries, and documentation are CC BY 4.0 (`LICENSE-CONTENT`). Wikinews text and source-bearing TextGraphs are CC BY 2.5. MEANTIME packaging metadata is CC BY 4.0. See `LICENSING.md`.
 
-Hur, Ali. *FNEO: Governed Semantic Publication from Operational Text Graphs*. Version 0.1.1, 2026. https://doi.org/10.5281/zenodo.24047774
+Artefact: Hur, Ali. *FNEO: Governed Semantic Publication from Operational Text Graphs*. Version 0.1.1, 2026. https://doi.org/10.5281/zenodo.24047774
+
+Article: *Decision-to-Publication Semantics for Operational Text Graphs: A Financial-News Case*.
 
 ## Contact
 
