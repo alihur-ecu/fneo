@@ -3,12 +3,9 @@
 | Item | Value |
 | --- | --- |
 | Release path | `population/system-accepted/fneo-stock-system-accepted.ttl` |
-| Original path | `research/financial_event_ontology/evaluation/assertion_evidence_projection/publication/fneo-stock-core-assertion-evidence.ttl` |
-| Original SHA-256 | `bec3809d5ac94406109e2825a0822f3d7d9f8a9c9a9b9a3a5343a847772087ac` |
-| Copied SHA-256 | `bec3809d5ac94406109e2825a0822f3d7d9f8a9c9a9b9a3a5343a847772087ac` |
+| SHA-256 | `bec3809d5ac94406109e2825a0822f3d7d9f8a9c9a9b9a3a5343a847772087ac` |
 | Triple count | 51,472 |
 | Accepted status count | 596 resources with `hasValidationStatus` Accepted |
-| Copy status | Byte-identical. No triple was added, removed, or rewritten. |
 
 ## Intended use
 

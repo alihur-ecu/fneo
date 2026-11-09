@@ -9,11 +9,10 @@ files do not establish is marked as an author decision.
 The ontology states a competency-question catalogue pointer and a scope note
 that limits the model to financial-news reports. It excludes trading
 recommendations, investment advice, portfolio construction, accounting,
-regulation, live market systems, and predictive analytics. The manuscript
-states that the profile includes distinctions required by the competency
-questions and supported by the corpus evidence used for the study. The
-catalogue file itself is not embedded in the ontology. The pointer is the
-release-relative path `competency_questions/catalogue/cq_to_ontology_requirements.csv`.
+regulation, live market systems, and predictive analytics. The ontology
+includes distinctions required by the competency questions and supported by
+the corpus evidence used for the study. The executed queries are
+`competency_questions/queries/feo017/FDQ-001.rq` through `FDQ-005.rq`.
 
 ## Operational versus domain-model separation
 
@@ -41,7 +40,7 @@ direct triple and no qualified assertion. Accepted direct-and-qualified
 decisions emit both. Requires-review and rejected direct-and-qualified
 decisions emit a qualified assertion and no direct triple. Policy none emits
 neither. Those publication rules are implemented behaviour of the projection,
-not new OWL axioms in this candidate.
+not new OWL axioms in 0.1.0-rc2.
 
 ## Decision versus assertion co-representation
 
@@ -104,4 +103,4 @@ Extension temporal relations (`precedes`, `follows`, `simultaneousWith`,
 and in the module comment. Two inverse pairs are declared. `simultaneousWith`
 is not declared symmetric. A reasoner entailment of an inverse temporal triple
 is not independently extracted evidence. Symmetry of `simultaneousWith` and of
-coreference is not asserted in this candidate.
+coreference is not asserted in 0.1.0-rc2.

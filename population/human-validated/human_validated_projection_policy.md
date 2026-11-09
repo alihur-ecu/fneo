@@ -4,11 +4,11 @@ The human-validated graph is derived from the system-accepted graph. Labels are 
 
 ## Label sources
 
-- FEO-017 core competency-question review, final `human_label` on each returned answer.
+- Core competency-question review, final `human_label` on each returned answer, under `evaluation/public/`.
 - Assertion-evidence review, final `human_label` on each of the 27 assertion paths.
-- FEO-012B reference identifiers and FEO-014 corrected candidate and decision identifiers, joined where a review row cites them.
+- Reference identifiers and corrected candidate and decision identifiers, joined where a review row cites them.
 - The frozen duplicate-unit crosswalk for the Dow plunge and decline unit.
-- The FEO-016 sensitivity report, used to confirm that the two post-adjudication disagreements are not in this publication graph. They were already absent from the system-accepted graph.
+- The later rule-cycle sensitivity check, used to confirm that the two post-adjudication disagreements are not in this publication graph. They were already absent from the system-accepted graph.
 
 The frozen reference remains the primary alignment for the competency-question review. This projection uses the final human labels on the answers that the queries actually returned.
 

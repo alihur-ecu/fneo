@@ -15,7 +15,7 @@ in 0.1.0-rc2.
 - Review of `simultaneousWith` symmetry. Symmetry is not declared, and the
   temporal extension is experimental.
 - Stronger PROV-O alignment. Local provenance properties are not replaced by
-  PROV-O in this candidate.
+  PROV-O in 0.1.0-rc2.
 - Possible evidence-to-document relation beyond the current evidence and
   document resources.
 - Possible SKOS or VANN metadata migration. Local annotation properties stand

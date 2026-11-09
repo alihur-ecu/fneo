@@ -1,5 +1,3 @@
 # Examples
 
-Synthetic fixtures keep the licence in their own headers. They are not
-restaged here until each header has been checked in the public copy. The
-operational example of the study is the 30-document projection, not a fixture.
+The worked input is the 30-document projection under `inputs/operational/textgraphs/` and the publication graphs under `population/`. This directory does not contain a separate example file.

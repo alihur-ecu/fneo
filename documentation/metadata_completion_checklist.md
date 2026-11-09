@@ -1,24 +1,19 @@
-# Metadata completion checklist
+# Release metadata
 
-Values below are filled only when an authoritative project file already states them. Missing public-release values use an explicit placeholder.
+| Field | Value |
+| --- | --- |
+| Title | Financial News Event Ontology |
+| Acronym | FNEO |
+| Creator | Ali HUR |
+| ORCID | https://orcid.org/0000-0001-9537-2648 |
+| Ontology version | 0.1.0-rc2 |
+| Ontology version date | 2026-10-30 (`dcterms:issued` on the ontology resource) |
+| Metadata revision | 2026-11-06 (`dcterms:modified` on the ontology resource) |
+| Artefact release | v0.1.1, 2026-11-08 |
+| Repository | https://github.com/alihur-ecu/fneo |
+| Documentation | https://alihur-ecu.github.io/fneo/ |
+| DOI | https://doi.org/10.5281/zenodo.24047774 |
+| Namespace | https://w3id.org/fneo/ (registration pending) |
+| Citation | `CITATION.cff` |
 
-| Field | Value in this candidate | Status |
-| --- | --- | --- |
-| Ontology title | Financial News Event Ontology | Present on the ontology resource |
-| Acronym | FNEO | Present on the ontology resource |
-| Version | 0.1.0-rc2 | Present. Development candidate, not a stable release |
-| Version date of the ontology file | 2026-10-30 | `dcterms:issued` and `dcterms:modified` on the ontology |
-| Candidate package date | 2026-10-31 | This packaging task |
-| Creator string inside the ontology | Financial News Event Ontology contributors | Organisational annotation already stored. Not a personal author list |
-| Personal author | REQUIRED_BEFORE_PUBLIC_RELEASE_AUTHOR | Missing |
-| ORCID | REQUIRED_BEFORE_PUBLIC_RELEASE_ORCID | Missing |
-| Email | REQUIRED_BEFORE_PUBLIC_RELEASE_EMAIL | Missing. No address is copied from local accounts |
-| Repository URL | REQUIRED_BEFORE_PUBLIC_RELEASE_REPOSITORY | Missing |
-| DOI | REQUIRED_BEFORE_PUBLIC_RELEASE_DOI | Not assigned |
-| W3ID | REQUIRED_BEFORE_PUBLIC_RELEASE_W3ID_STATUS | HTTP 404 on 2026-10-31. Not registered |
-| Preferred citation | `release/CITATION.cff` | Provisional |
-| Related publication | Hur, Janjua, and Ahmed (2024), *Expert Systems with Applications*, 239 | Related work only. Not the citation for this ontology |
-| Venue acceptance | Not claimed | No submission outcome is recorded here |
-| Article publication | Not claimed | The manuscript claims ledger in the research manuscript directory was left empty |
-
-Ali still has to supply the personal author record, ORCID, contact email, repository URL, DOI decision, W3ID registration decision, and the licence approval for corpus-derived graphs.
+No journal acceptance or article publication is recorded in this repository.

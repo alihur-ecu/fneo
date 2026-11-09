@@ -1,25 +1,15 @@
 # FAIR assessment
 
-Status: **not executed**.
+FOOPS! was not run. This note does not report a FAIR score.
 
-FOOPS! was not called. No score is invented.
+The public file URL is https://raw.githubusercontent.com/alihur-ecu/fneo/v0.1.1/ontology/fneo.ttl. A later assessment can submit that URL to https://foops.linkeddata.es/FAIR_validator.html.
 
-Intended command, once the ontology is publicly resolvable:
-
-```text
-Submit the ontology URL to https://foops.linkeddata.es/FAIR_validator.html
-```
-
-Local metadata that a later assessment will see, without claiming a FAIR score:
-
-| Check prepared in this candidate | State |
+| Item | State |
 | --- | --- |
 | Title, description, licence, version IRI, prior version | Present in the ontology |
-| Creator ORCID | `https://orcid.org/0000-0001-9537-2648` |
-| Persistent identifier / DOI | Not assigned |
-| Namespace resolution | `https://w3id.org/fneo/` is not registered and was not fetched as a success |
-| Public repository | Not created |
+| Creator ORCID | https://orcid.org/0000-0001-9537-2648 |
+| DOI | https://doi.org/10.5281/zenodo.24047774 |
+| Repository | https://github.com/alihur-ecu/fneo |
+| Namespace resolution | `https://w3id.org/fneo/` registration is pending |
 
-Broken-link validation of the term namespace was not executed as an HTTP
-success check. The version IRI is an identifier in the file, not evidence
-that it resolves.
+The version IRI identifies the ontology version. It is not evidence that the namespace resolves.

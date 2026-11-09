@@ -1,16 +1,5 @@
 # OOPS! findings
 
-Status: **not executed**.
+OOPS! was not run. This note is not an OOPS! report.
 
-OOPS! is a web service. It was not called. No findings are invented.
-
-Intended command, once the ontology file is on a public HTTPS URL:
-
-```text
-Submit ontology/fneo.ttl to https://oops.linkeddata.es/
-```
-
-The local candidate is not public, and `https://w3id.org/fneo/` is not
-registered, so the service cannot be pointed at a resolvable ontology IRI
-from this package. Re-run after a public file URL exists. Do not treat this
-note as an OOPS! report.
+The public file URL is https://raw.githubusercontent.com/alihur-ecu/fneo/v0.1.1/ontology/fneo.ttl. A later check can submit that URL to https://oops.linkeddata.es/. The namespace `https://w3id.org/fneo/` does not yet resolve.

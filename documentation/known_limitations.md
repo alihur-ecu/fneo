@@ -8,8 +8,7 @@
 - Two market-change events labelled correct as events are omitted because their only affected-market link was labelled incorrect. The omission is recorded as a dependent exclusion.
 - Trigger-level FDQ-005 and assertion-level FDQ-005 measure different spans. The trigger result must not be quoted as the assertion-evidence result.
 - No accepted event-time anchor and no accepted event-order fact is in the publication graphs. Temporal reasoning on fixtures is not population evidence.
-- The namespace `https://w3id.org/fneo/` returned HTTP 404 on 2026-10-31.
-- Author, ORCID, email, repository URL, and DOI are placeholders.
-- Corpus-derived RDF follows the MEANTIME attribution terms recorded in `third_party/MEANTIME/`. It is not MIT and not CC0. The ontology licence does not extend to it.
+- The namespace `https://w3id.org/fneo/` is the identifier used in the files. W3ID registration is pending, and a request returned HTTP 404 on 2026-10-31.
+- Corpus-derived RDF follows the attribution terms in `LICENSING.md`. It is not MIT and not CC0. The ontology licence does not extend to it.
 - pySHACL 0.40.2 does not apply `sh:severity` placed only on a nested SPARQL constraint. Use the portable shapes for a severity-accurate pySHACL result.
 - Conformance of the empty experimental graph is vacuous.

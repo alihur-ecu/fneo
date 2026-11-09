@@ -8,6 +8,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-9537-2648"
 repository-code: "https://github.com/alihur-ecu/fneo"
 url: "https://alihur-ecu.github.io/fneo/"
+doi: "10.5281/zenodo.24047774"
 version: 0.1.1
 date-released: 2026-11-08
 license: MIT
