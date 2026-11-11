@@ -16,7 +16,7 @@ The accompanying article is *Decision-to-Publication Semantics for Operational T
 | Ontology version IRI | https://w3id.org/fneo/ontology/0.1.0-rc2 |
 | Namespace | https://w3id.org/fneo/ |
 
-Registration of `https://w3id.org/fneo/` is pending with the W3ID maintainers ([perma-id/w3id.org#7103](https://github.com/perma-id/w3id.org/pull/7103)). Until that pull request is merged, use the files in this repository and on GitHub Pages. The ontology IRIs are the identifiers used in the data.
+The ontology IRIs are the identifiers used in the data.
 
 ## Study
 
